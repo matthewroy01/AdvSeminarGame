@@ -51,8 +51,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Enemy.cs" />
+     <Compile Include="Assets\Scripts\EnemyPatrol.cs" />
      <Compile Include="Assets\Scripts\GridInfo.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\UtilityBroadcast.cs" />
      <Compile Include="Assets\Scripts\UtilityLevelLoader.cs" />
      <None Include="Assets\Text\test.txt" />
  <Reference Include="UnityEngine.UI">

@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
+	[SerializeField] private GameObject gameManager = null;
 	public LayerMask wallLayer;
 
 	void Start () {
-		
+		gameManager = GameObject.Find("GameManager");
 	}
 
 	void Update () {
@@ -20,18 +21,22 @@ public class PlayerMovement : MonoBehaviour {
 		if (Input.GetButtonDown("Up") && checkMov("up"))
 		{
 			transform.position = new Vector2(transform.position.x, transform.position.y + 1);
+			gameManager.GetComponent<UtilityBroadcast>().togetherNow();
 		}
 		if (Input.GetButtonDown("Down") && checkMov("down"))
 		{
 			transform.position = new Vector2(transform.position.x, transform.position.y - 1);
+			gameManager.GetComponent<UtilityBroadcast>().togetherNow();
 		}
 		if (Input.GetButtonDown("Left") && checkMov("left"))
 		{
 			transform.position = new Vector2(transform.position.x - 1, transform.position.y);
+			gameManager.GetComponent<UtilityBroadcast>().togetherNow();
 		}
 		if (Input.GetButtonDown("Right") && checkMov("right"))
 		{
 			transform.position = new Vector2(transform.position.x + 1, transform.position.y);
+			gameManager.GetComponent<UtilityBroadcast>().togetherNow();
 		}
 	}
 
