@@ -12,10 +12,13 @@ public class UtilityBroadcast : MonoBehaviour {
 	void Start () {
 		// find all enemies
 		FindAllEnemies();
+
+
 	}
 
 	void Update () {
-		
+		// set the target framerate
+		Application.targetFrameRate = 30;
 	}
 
 	private void FindAllEnemies()

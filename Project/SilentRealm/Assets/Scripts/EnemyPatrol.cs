@@ -7,24 +7,31 @@ public class EnemyPatrol : Enemy {
 	[SerializeField] private bool patrolMode = true;
 	public string currentDirection;
 
-	void Start () {
+    // this is serialized so it can appear in the Inspector!
+    [Header("List of points for patrolling")]
+    public PatrolPoint[] points;
+
+void Start () {
 		
 	}
 
 	void Update ()
 	{
-		
+        CheckPoints();
 	}
 
-	void OnTriggerEnter2D(Collider2D other)
-	{
-		if (other.tag == "PatrolSwitch")
-		{
-			currentDirection = other.GetComponent<EnemyPatrolSwitch>().getDirection();
-		}
-	}
+    private void CheckPoints()
+    {
+        for (int i = 0; i < points.Length; i++)
+        {
+            if (transform.position == (Vector3)points[i].point)
+            {
+                currentDirection = points[i].direction;
+            }
+        }
+    }
 
-	public  override void Step()
+	public override void Step()
 	{
 		Debug.Log("ENEMYPATROL - the overriden function was called");
 		// switch direction each time as a test
@@ -48,4 +55,11 @@ public class EnemyPatrol : Enemy {
 			}
 		}
 	}
+}
+
+[System.Serializable]
+public struct PatrolPoint
+{
+    public Vector2 point;
+    public string direction;
 }
