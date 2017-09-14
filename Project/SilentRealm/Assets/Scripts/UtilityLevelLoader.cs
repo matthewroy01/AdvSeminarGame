@@ -11,6 +11,7 @@ public class UtilityLevelLoader : MonoBehaviour {
 	[SerializeField] public string [] text;
 
 	[SerializeField] private GameObject gridObject = null;
+	[SerializeField] private GameObject playerObject = null;
 
 	void Start () {
 		Debug.Log(asset.text);
@@ -41,6 +42,12 @@ public class UtilityLevelLoader : MonoBehaviour {
 						// a wall
 						GameObject tmp = Instantiate(gridObject, new Vector2(i, j * -1), transform.rotation);
 						tmp.GetComponent<GridInfo>().setIsWall(true);
+						break;
+					}
+					case 'P' :
+					{
+						// the player
+						Instantiate(playerObject, new Vector2(i, j * -1), transform.rotation);
 						break;
 					}
 					default :

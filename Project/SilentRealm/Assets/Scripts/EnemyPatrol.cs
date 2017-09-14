@@ -11,8 +11,17 @@ public class EnemyPatrol : Enemy {
 		
 	}
 
-	void Update () {
+	void Update ()
+	{
 		
+	}
+
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.tag == "PatrolSwitch")
+		{
+			currentDirection = other.GetComponent<EnemyPatrolSwitch>().getDirection();
+		}
 	}
 
 	public  override void Step()
@@ -24,22 +33,18 @@ public class EnemyPatrol : Enemy {
 			if (currentDirection == "up")
 			{
 				transform.position = new Vector2(transform.position.x, transform.position.y + 1);
-				currentDirection = "down";
 			}
 			else if (currentDirection == "down")
 			{
 				transform.position = new Vector2(transform.position.x, transform.position.y - 1);
-				currentDirection = "left";
 			}
 			else if (currentDirection == "left")
 			{
 				transform.position = new Vector2(transform.position.x - 1, transform.position.y);
-				currentDirection = "right";
 			}
 			else if (currentDirection == "right")
 			{
 				transform.position = new Vector2(transform.position.x + 1, transform.position.y);
-				currentDirection = "up";
 			}
 		}
 	}
