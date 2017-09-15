@@ -2,18 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
+public class Enemy : God {
 
-    // the direction the enemy is facing
-    public enum Dirs { up = 0, down = 1, left = 2, right = 3 };
+    public float visionDist;
 
 	public virtual void Step()
 	{
-		Debug.Log("ENEMYSTEP - the virtual function was called");
+		Debug.Log("ENEMY_STEP - the virtual function was called");
 	}
 
     public virtual void Panic(bool panicing)
     {
-        Debug.Log("ENEMYPANIC - the virtual function was called");
+        Debug.Log("ENEMY_PANIC - the virtual function was called");
     }
 }

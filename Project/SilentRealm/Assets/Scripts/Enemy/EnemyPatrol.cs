@@ -11,13 +11,21 @@ public class EnemyPatrol : Enemy {
     [Header("List of points for patrolling")]
     public PatrolPoint[] points;
 
+    [Header("The end of vision")]
+    [SerializeField] private Vector2 endOfVision;
+
+    [Header("Walls for vision")]
+    public LayerMask layerWall;
+    [Header("The player for vision")]
+    public LayerMask layerPlayer;
+
     void Start () {
 		
 	}
 
 	void Update ()
 	{
-        
+        Vision();
 	}
 
     private void CheckPoints()
@@ -31,6 +39,39 @@ public class EnemyPatrol : Enemy {
         }
     }
 
+    public void Vision()
+    {
+        UpdateVectors();
+
+        if (patrolMode)
+        {
+            if (currentDirection == Dirs.up)
+            {
+                endOfVision = vUp * visionDist;
+            }
+            else if (currentDirection == Dirs.down)
+            {
+                endOfVision = vDown * visionDist;
+            }
+            else if (currentDirection == Dirs.left)
+            {
+                endOfVision = vLeft * visionDist;
+            }
+            else if (currentDirection == Dirs.right)
+            {
+                endOfVision = vRight * visionDist;
+            }
+
+            Debug.DrawRay(transform.position, endOfVision);
+
+            // if the player is detected...
+            if (Physics2D.Linecast(transform.position, endOfVision, layerPlayer))
+            {
+                Debug.Log(gameObject.name + " found the player!");
+            }
+        }
+    }
+
 	public override void Step()
 	{
         // in patrol mode, move according to currentDirection
@@ -38,19 +79,19 @@ public class EnemyPatrol : Enemy {
 		{
 			if (currentDirection == Dirs.up)
 			{
-				transform.position = new Vector2(transform.position.x, transform.position.y + 1);
+				transform.position = vUp;
 			}
 			else if (currentDirection == Dirs.down)
 			{
-				transform.position = new Vector2(transform.position.x, transform.position.y - 1);
+				transform.position = vDown;
 			}
 			else if (currentDirection == Dirs.left)
 			{
-				transform.position = new Vector2(transform.position.x - 1, transform.position.y);
+				transform.position = vLeft;
 			}
 			else if (currentDirection == Dirs.right)
 			{
-				transform.position = new Vector2(transform.position.x + 1, transform.position.y);
+				transform.position = vRight;
 			}
 		}
 
@@ -74,6 +115,14 @@ public class EnemyPatrol : Enemy {
         {
             patrolMode = true;
         }
+    }
+
+    public override void UpdateVectors()
+    {
+        vUp = new Vector2(transform.position.x, transform.position.y + 1);
+        vDown = new Vector2(transform.position.x, transform.position.y - 1);
+        vLeft = new Vector2(transform.position.x - 1, transform.position.y);
+        vRight = new Vector2(transform.position.x + 1, transform.position.y);
     }
 }
 

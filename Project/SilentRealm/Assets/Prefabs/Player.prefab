@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23206684391474042}
   - component: {fileID: 58733507292374274}
   - component: {fileID: 114646838145066626}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,6 +108,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7213c357eb8ebb439c1b80256e6bc64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vUp: {x: 0, y: 0}
+  vDown: {x: 0, y: 0}
+  vLeft: {x: 0, y: 0}
+  vRight: {x: 0, y: 0}
+  gameManager: {fileID: 0}
   wallLayer:
     serializedVersion: 2
     m_Bits: 256

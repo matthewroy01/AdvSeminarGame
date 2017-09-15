@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
-
-    public enum Dirs { up = 0, down = 1, left = 2, right = 3 };
+public class PlayerMovement : God {
 
     [SerializeField] private GameObject gameManager = null;
 	public LayerMask wallLayer;
 
-    public Vector2 vUp, vDown, vLeft, vRight;
-
 	void Start () {
         // find the GameManager
 		gameManager = GameObject.Find("GameManager");
+        if(gameManager == null)
+        {
+            Debug.Log("PLAYER_START - game manager not found");
+        }
         // initialize the movement vectors
         UpdateVectors();
     }
@@ -27,33 +27,21 @@ public class PlayerMovement : MonoBehaviour {
 	{
 		if (Input.GetButtonDown("Up") && checkMov(Dirs.up))
 		{
-            // update the vectors each time movement occurs
-            UpdateVectors();
-
             transform.position = new Vector2(transform.position.x, transform.position.y + 1);
 			gameManager.GetComponent<UtilityBroadcast>().togetherNow();
 		}
 		if (Input.GetButtonDown("Down") && checkMov(Dirs.down))
 		{
-            // update the vectors each time movement occurs
-            UpdateVectors();
-
             transform.position = new Vector2(transform.position.x, transform.position.y - 1);
 			gameManager.GetComponent<UtilityBroadcast>().togetherNow();
 		}
 		if (Input.GetButtonDown("Left") && checkMov(Dirs.left))
 		{
-            // update the vectors each time movement occurs
-            UpdateVectors();
-
             transform.position = new Vector2(transform.position.x - 1, transform.position.y);
 			gameManager.GetComponent<UtilityBroadcast>().togetherNow();
 		}
 		if (Input.GetButtonDown("Right") && checkMov(Dirs.right))
 		{
-            // update the vectors each time movement occurs
-            UpdateVectors();
-
             transform.position = new Vector2(transform.position.x + 1, transform.position.y);
 			gameManager.GetComponent<UtilityBroadcast>().togetherNow();
 		}
@@ -61,8 +49,11 @@ public class PlayerMovement : MonoBehaviour {
 
 	private bool checkMov (Dirs dir)
 	{
-		// if a wall is detected, movement is impossible
-		if (dir == Dirs.up)
+        // update the vectors each time movement occurs
+        UpdateVectors();
+
+        // if a wall is detected, movement is impossible
+        if (dir == Dirs.up)
 		{
 			if (!Physics2D.OverlapCircle(vUp, 0.2f, wallLayer))
 			{
@@ -92,12 +83,4 @@ public class PlayerMovement : MonoBehaviour {
 		}
 		return false;
 	}
-
-    private void UpdateVectors()
-    {
-        vUp = new Vector2(transform.position.x, transform.position.y + 1);
-        vDown = new Vector2(transform.position.x, transform.position.y - 1);
-        vLeft = new Vector2(transform.position.x - 1, transform.position.y);
-        vRight = new Vector2(transform.position.x + 1, transform.position.y);
-    }
 }

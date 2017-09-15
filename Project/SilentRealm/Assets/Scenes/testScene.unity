@@ -279,6 +279,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1774550140121974, guid: 893734089a24a424f896dc09e8744df6, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 893734089a24a424f896dc09e8744df6, type: 2}
   m_IsPrefabParent: 0
@@ -433,6 +437,21 @@ Prefab:
         type: 2}
       propertyPath: points.Array.data[5].direction
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114185936822551284, guid: cf9e93e7588d2d149a726f2190711d12,
+        type: 2}
+      propertyPath: layerWall.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 114185936822551284, guid: cf9e93e7588d2d149a726f2190711d12,
+        type: 2}
+      propertyPath: layerPlayer.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 114185936822551284, guid: cf9e93e7588d2d149a726f2190711d12,
+        type: 2}
+      propertyPath: visionDist
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cf9e93e7588d2d149a726f2190711d12, type: 2}
