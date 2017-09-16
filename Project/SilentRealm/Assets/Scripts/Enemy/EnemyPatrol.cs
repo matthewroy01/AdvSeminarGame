@@ -41,39 +41,48 @@ public class EnemyPatrol : Enemy {
 
     public void Vision()
     {
-        UpdateVectors();
-
         if (patrolMode)
         {
             if (currentDirection == Dirs.up)
             {
-                endOfVision = vUp * visionDist;
+                endOfVision = new Vector2(transform.position.x, transform.position.y + (1 * visionDist));
             }
             else if (currentDirection == Dirs.down)
             {
-                endOfVision = vDown * visionDist;
+                endOfVision = new Vector2(transform.position.x, transform.position.y - (1 * visionDist));
             }
             else if (currentDirection == Dirs.left)
             {
-                endOfVision = vLeft * visionDist;
+                endOfVision = new Vector2(transform.position.x - (1 * visionDist), transform.position.y);
             }
             else if (currentDirection == Dirs.right)
             {
-                endOfVision = vRight * visionDist;
+                endOfVision = new Vector2(transform.position.x + (1 * visionDist), transform.position.y);
             }
-
-            Debug.DrawRay(transform.position, endOfVision);
 
             // if the player is detected...
             if (Physics2D.Linecast(transform.position, endOfVision, layerPlayer))
             {
                 Debug.Log(gameObject.name + " found the player!");
+                Gizmos.color = Color.green;
+            }
+            else
+            {
+                Gizmos.color = Color.white;
             }
         }
     }
 
-	public override void Step()
+    private void OnDrawGizmos()
+    {
+        // draw a sphere for debugging
+        Gizmos.DrawSphere(new Vector3(endOfVision.x, endOfVision.y, -1), 0.25f);
+    }
+
+    public override void Step()
 	{
+        UpdateVectors();
+
         // in patrol mode, move according to currentDirection
 		if (patrolMode)
 		{
