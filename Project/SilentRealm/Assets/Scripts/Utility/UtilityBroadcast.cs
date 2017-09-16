@@ -5,15 +5,14 @@ using UnityEngine;
 public class UtilityBroadcast : MonoBehaviour {
 
 	public GameObject[] enemies;
-	// I found this thing about Delegates but as far as I know, it's only useful across a single script.
-	// delegate void DelegateEnemyAI();
-	// https://unity3d.com/learn/tutorials/topics/scripting/delegates
+    public GameObject player;
 
 	void Start () {
 		// find all enemies
 		FindAllEnemies();
 
-
+        // find the player
+        FindThePlayer();
 	}
 
 	void Update () {
@@ -27,6 +26,11 @@ public class UtilityBroadcast : MonoBehaviour {
 		Debug.Log("UTILITYBROADCAST - Found " + enemies.Length + " enemies in scene.");
 	}
 
+    private void FindThePlayer()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
 	public void togetherNow()
 	{
 		// Creating an actual event system would be really useful here.
@@ -38,4 +42,13 @@ public class UtilityBroadcast : MonoBehaviour {
 			enemies[i].GetComponent<Enemy>().Step();
 		}
 	}
+
+    public void panic(bool state)
+    {
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            enemies[i].GetComponent<God>().panicMode = state;
+        }
+        player.GetComponent<God>().panicMode = state;
+    }
 }

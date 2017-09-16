@@ -2,18 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : God {
-
-    [SerializeField] private GameObject gameManager = null;
+public class PlayerMovement : God
+{
+    [Header("Walls")]
 	public LayerMask wallLayer;
 
+    [Header("Panic Mode variables and parameters")]
+    [SerializeField] private float panicSpeed = 0;
+
+    // this object's Rigidbody2D
+    private Rigidbody2D rb;
+
 	void Start () {
-        // find the GameManager
-		gameManager = GameObject.Find("GameManager");
-        if(gameManager == null)
-        {
-            Debug.Log("PLAYER_START - game manager not found");
-        }
+        // find the game manager
+        FindGameManager();
+
+        // set the Rigidbody2D
+        rb = GetComponent<Rigidbody2D>();
+
         // initialize the movement vectors
         UpdateVectors();
     }
@@ -25,26 +31,33 @@ public class PlayerMovement : God {
 
 	private void Movement()
 	{
-		if (Input.GetButtonDown("Up") && checkMov(Dirs.up))
-		{
-            transform.position = new Vector2(transform.position.x, transform.position.y + 1);
-			gameManager.GetComponent<UtilityBroadcast>().togetherNow();
-		}
-		if (Input.GetButtonDown("Down") && checkMov(Dirs.down))
-		{
-            transform.position = new Vector2(transform.position.x, transform.position.y - 1);
-			gameManager.GetComponent<UtilityBroadcast>().togetherNow();
-		}
-		if (Input.GetButtonDown("Left") && checkMov(Dirs.left))
-		{
-            transform.position = new Vector2(transform.position.x - 1, transform.position.y);
-			gameManager.GetComponent<UtilityBroadcast>().togetherNow();
-		}
-		if (Input.GetButtonDown("Right") && checkMov(Dirs.right))
-		{
-            transform.position = new Vector2(transform.position.x + 1, transform.position.y);
-			gameManager.GetComponent<UtilityBroadcast>().togetherNow();
-		}
+        if (!panicMode)
+        {
+            if (Input.GetButtonDown("Up") && checkMov(Dirs.up))
+            {
+                transform.position = new Vector2(transform.position.x, transform.position.y + 1);
+                getGameManager().togetherNow();
+            }
+            if (Input.GetButtonDown("Down") && checkMov(Dirs.down))
+            {
+                transform.position = new Vector2(transform.position.x, transform.position.y - 1);
+                getGameManager().togetherNow();
+            }
+            if (Input.GetButtonDown("Left") && checkMov(Dirs.left))
+            {
+                transform.position = new Vector2(transform.position.x - 1, transform.position.y);
+                getGameManager().togetherNow();
+            }
+            if (Input.GetButtonDown("Right") && checkMov(Dirs.right))
+            {
+                transform.position = new Vector2(transform.position.x + 1, transform.position.y);
+                getGameManager().togetherNow();
+            }
+        }
+		else
+        {
+            rb.velocity = new Vector2(Input.GetAxis("Horizontal") * panicSpeed, Input.GetAxis("Vertical") * panicSpeed);
+        }
 	}
 
 	private bool checkMov (Dirs dir)

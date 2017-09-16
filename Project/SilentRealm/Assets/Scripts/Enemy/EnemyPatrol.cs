@@ -20,8 +20,9 @@ public class EnemyPatrol : Enemy {
     public LayerMask layerPlayer;
 
     void Start () {
-		
-	}
+        // find the game manager
+        FindGameManager();
+    }
 
 	void Update ()
 	{
@@ -63,8 +64,10 @@ public class EnemyPatrol : Enemy {
             // if the player is detected...
             if (Physics2D.Linecast(transform.position, endOfVision, layerPlayer))
             {
+                // enter panic mode
+                getGameManager().panic(true);
+                Gizmos.color = Color.red;
                 Debug.Log(gameObject.name + " found the player!");
-                Gizmos.color = Color.green;
             }
             else
             {

@@ -12,6 +12,16 @@ public class God : MonoBehaviour {
     [HideInInspector]
     public enum Dirs { up = 0, down = 1, left = 2, right = 3 };
 
+    private GameObject gameManager = null;
+
+    [HideInInspector]
+    public bool panicMode = false;
+
+    public void FindGameManager()
+    {
+        gameManager = GameObject.Find("GameManager");
+    }
+
     public virtual void UpdateVectors()
     {
         Debug.Log("GOD_UPDATE_VECTORS - the virtual function was called");
@@ -20,5 +30,10 @@ public class God : MonoBehaviour {
         vDown = new Vector2(transform.position.x, transform.position.y - 1);
         vLeft = new Vector2(transform.position.x - 1, transform.position.y);
         vRight = new Vector2(transform.position.x + 1, transform.position.y);
+    }
+
+    public UtilityBroadcast getGameManager()
+    {
+        return gameManager.GetComponent<UtilityBroadcast>();
     }
 }
