@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class UtilityBroadcast : MonoBehaviour {
 
+    [Header("The player, enemies, and exit")]
 	public GameObject[] enemies;
     public GameObject player;
+    public GameObject exit;
 
+    [Header("Panic mode master bool")]
     public bool panicMode = false;
+
+    [Header("Key numbers")]
+    public int keysCollected;
+    public int keysInLevel;
 
 	void Start () {
 		// find all enemies
@@ -16,18 +23,16 @@ public class UtilityBroadcast : MonoBehaviour {
         // find the player
         FindThePlayer();
 
-        //StartCoroutine(Test(1));
+        // find keys
+        FindAllKeys();
+
+        // find the exit
+        FindTheExit();
 	}
 
-	void Update ()
+    void Update()
     {
-        if (panicMode)
-        {
-            for (int i = 0; i < enemies.Length; i++)
-            {
-                enemies[i].GetComponent<Enemy>().Step();
-            }
-        }
+        CheckKeys();
     }
 
 	private void FindAllEnemies()
@@ -36,34 +41,36 @@ public class UtilityBroadcast : MonoBehaviour {
 		Debug.Log("UTILITYBROADCAST - Found " + enemies.Length + " enemies in scene.");
 	}
 
-    private void FindThePlayer()
+    private void FindThePlayer() { player = GameObject.FindGameObjectWithTag("Player"); }
+
+    private void FindAllKeys()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        GameObject[] keys;
+        keys = GameObject.FindGameObjectsWithTag("Key");
+        Debug.Log("UTILITYBROADCAST - Found " + keys.Length + " keys in scene.");
+        keysInLevel = keys.Length;
     }
 
-	public void togetherNow()
-	{
-        // this is kinda hacky...
-        if (!panicMode)
+    private void FindTheExit() { exit = GameObject.FindGameObjectWithTag("Exit"); }
+
+    private void CheckKeys()
+    {
+        if (keysInLevel <= keysCollected)
         {
-            for (int i = 0; i < enemies.Length; i++)
-            {
-                enemies[i].GetComponent<Enemy>().StartCoroutine("Step");
-            }
+            exit.SetActive(false);
+        }
+    }
+
+    // has all enemies move together
+    public void togetherNow()
+	{
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            enemies[i].GetComponent<Enemy>().StartCoroutine("Step");
         }
 	}
 
-    public void moveOnYourOwnTime()
-    {
-        if (panicMode)
-        {
-            for (int i = 0; i < enemies.Length; i++)
-            {
-                enemies[i].GetComponent<Enemy>().StepOwn();
-            }
-        }
-    }
-
+    // tells all objects to panic or stop panicing
     public void panic(bool state)
     {
         for (int i = 0; i < enemies.Length; i++)
@@ -72,13 +79,4 @@ public class UtilityBroadcast : MonoBehaviour {
         }
         player.GetComponent<God>().panicMode = state;
     }
-
-    //public IEnumerator Test(float time)
-    //{
-    //    while (true)
-    //    {
-    //        Debug.Log("test: " + Time.deltaTime);
-    //        yield return new WaitForSeconds(time);
-    //    }
-    //}
 }

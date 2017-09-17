@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerScore : God
 {
-    public int numKeys;
-
     void Start()
     {
         // find the game manager
@@ -17,7 +15,7 @@ public class PlayerScore : God
         if (other.gameObject.tag == "Key")
         {
             // increase the current number of keys
-            numKeys++;
+            getGameManager().keysCollected++;
             // reset the player's velocity and position from panic mode
             PlayerReset(other);
             // stop panic mode
