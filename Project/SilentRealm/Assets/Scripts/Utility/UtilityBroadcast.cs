@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UtilityBroadcast : MonoBehaviour {
 
@@ -15,6 +16,9 @@ public class UtilityBroadcast : MonoBehaviour {
     [Header("Key numbers")]
     public int keysCollected;
     public int keysInLevel;
+
+    [Header("UI")]
+    public Text txtKeys;
 
 	void Start () {
 		// find all enemies
@@ -78,5 +82,10 @@ public class UtilityBroadcast : MonoBehaviour {
             enemies[i].GetComponent<God>().panicMode = state;
         }
         player.GetComponent<God>().panicMode = state;
+    }
+
+    private void OnGUI()
+    {
+        txtKeys.text = "Keys: " + keysCollected + "/" + keysInLevel;
     }
 }
