@@ -7,18 +7,28 @@ public class UtilityBroadcast : MonoBehaviour {
 	public GameObject[] enemies;
     public GameObject player;
 
+    public bool panicMode = false;
+
 	void Start () {
 		// find all enemies
 		FindAllEnemies();
 
         // find the player
         FindThePlayer();
+
+        //StartCoroutine(Test(1));
 	}
 
-	void Update () {
-		// set the target framerate
-		Application.targetFrameRate = 30;
-	}
+	void Update ()
+    {
+        if (panicMode)
+        {
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                enemies[i].GetComponent<Enemy>().Step();
+            }
+        }
+    }
 
 	private void FindAllEnemies()
 	{
@@ -33,15 +43,26 @@ public class UtilityBroadcast : MonoBehaviour {
 
 	public void togetherNow()
 	{
-		// Creating an actual event system would be really useful here.
-		// Unity's event system doesn't seem very user friendly for anything but UI.
-		// Every enemy will have their own AI script so it would be useful if they just listened
-			// for an event so that they can call their respective AI function.
-		for (int i = 0; i < enemies.Length; i++)
-		{
-			enemies[i].GetComponent<Enemy>().Step();
-		}
+        // this is kinda hacky...
+        if (!panicMode)
+        {
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                enemies[i].GetComponent<Enemy>().StartCoroutine("Step");
+            }
+        }
 	}
+
+    public void moveOnYourOwnTime()
+    {
+        if (panicMode)
+        {
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                enemies[i].GetComponent<Enemy>().StepOwn();
+            }
+        }
+    }
 
     public void panic(bool state)
     {
@@ -51,4 +72,13 @@ public class UtilityBroadcast : MonoBehaviour {
         }
         player.GetComponent<God>().panicMode = state;
     }
+
+    //public IEnumerator Test(float time)
+    //{
+    //    while (true)
+    //    {
+    //        Debug.Log("test: " + Time.deltaTime);
+    //        yield return new WaitForSeconds(time);
+    //    }
+    //}
 }

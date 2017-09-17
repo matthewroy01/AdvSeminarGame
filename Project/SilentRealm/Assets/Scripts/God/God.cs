@@ -22,6 +22,11 @@ public class God : MonoBehaviour {
         gameManager = GameObject.Find("GameManager");
     }
 
+    private void Update()
+    {
+        panicMode = getGameManager().panicMode;
+    }
+
     public virtual void UpdateVectors()
     {
         Debug.Log("GOD_UPDATE_VECTORS - the virtual function was called");

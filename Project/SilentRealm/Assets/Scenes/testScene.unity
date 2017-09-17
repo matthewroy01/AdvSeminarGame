@@ -142,6 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies: []
   player: {fileID: 0}
+  panicMode: 0
 --- !u!4 &210529460
 Transform:
   m_ObjectHideFlags: 0
@@ -735,6 +736,11 @@ Prefab:
         type: 2}
       propertyPath: test
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114185936822551284, guid: cf9e93e7588d2d149a726f2190711d12,
+        type: 2}
+      propertyPath: panicTime
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cf9e93e7588d2d149a726f2190711d12, type: 2}

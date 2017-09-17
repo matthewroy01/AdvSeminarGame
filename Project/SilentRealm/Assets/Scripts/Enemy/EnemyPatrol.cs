@@ -42,7 +42,7 @@ public class EnemyPatrol : Enemy {
 
     public void Vision()
     {
-        if (patrolMode)
+        if (!panicMode)
         {
             if (currentDirection == Dirs.up)
             {
@@ -68,6 +68,7 @@ public class EnemyPatrol : Enemy {
                 getGameManager().panic(true);
                 Gizmos.color = Color.red;
                 Debug.Log(gameObject.name + " found the player!");
+                StartCoroutine(onYourOwnTime(panicTime));
             }
             else
             {
@@ -79,43 +80,64 @@ public class EnemyPatrol : Enemy {
     private void OnDrawGizmos()
     {
         // draw a sphere for debugging
-        Gizmos.DrawSphere(new Vector3(endOfVision.x, endOfVision.y, -1), 0.25f);
+        if (!panicMode)
+        {
+            Gizmos.DrawSphere(new Vector3(endOfVision.x, endOfVision.y, -1), 0.25f);
+        }
     }
 
     public override void Step()
 	{
         UpdateVectors();
 
-        // in patrol mode, move according to currentDirection
-		if (patrolMode)
+        // while not in panic mode, move on a set path
+		if (currentDirection == Dirs.up)
 		{
-			if (currentDirection == Dirs.up)
-			{
-				transform.position = vUp;
-			}
-			else if (currentDirection == Dirs.down)
-			{
-				transform.position = vDown;
-			}
-			else if (currentDirection == Dirs.left)
-			{
-				transform.position = vLeft;
-			}
-			else if (currentDirection == Dirs.right)
-			{
-				transform.position = vRight;
-			}
+			transform.position = vUp;
 		}
-
-        // outside of patrol mode, path towards the player
-        if (!patrolMode)
-        {
-            // figure out A* algorithm
-        }
+		else if (currentDirection == Dirs.down)
+		{
+			transform.position = vDown;
+		}
+		else if (currentDirection == Dirs.left)
+		{
+			transform.position = vLeft;
+		}
+		else if (currentDirection == Dirs.right)
+		{
+			transform.position = vRight;
+		}
 
         // check to see if this enemy has reached a point in its array
         CheckPoints();
 	}
+
+    public override void StepOwn()
+    {
+        // while in panic mode, path towards the player
+
+        // do this as placeholder
+        UpdateVectors();
+
+        if (currentDirection == Dirs.up)
+        {
+            transform.position = vUp;
+        }
+        else if (currentDirection == Dirs.down)
+        {
+            transform.position = vDown;
+        }
+        else if (currentDirection == Dirs.left)
+        {
+            transform.position = vLeft;
+        }
+        else if (currentDirection == Dirs.right)
+        {
+            transform.position = vRight;
+        }
+
+        CheckPoints();
+    }
 
     public override void Panic(bool panicing)
     {
