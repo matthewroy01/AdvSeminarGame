@@ -153,22 +153,23 @@ public class EnemyPatrol : Enemy {
 		}
 
 		// now move based on what was decided
-        if (currentDirection == Dirs.up)
-        {
-            transform.position = vUp;
-        }
-        else if (currentDirection == Dirs.down)
-        {
-            transform.position = vDown;
-        }
-        else if (currentDirection == Dirs.left)
-        {
-            transform.position = vLeft;
-        }
-        else if (currentDirection == Dirs.right)
-        {
-            transform.position = vRight;
-        }
+		if (currentDirection == Dirs.up && checkMov (Dirs.up))
+		{
+			transform.position = vUp;
+		}
+		else if (currentDirection == Dirs.down && checkMov (Dirs.down))
+		{
+			transform.position = vDown;
+		}
+		else if (currentDirection == Dirs.left && checkMov (Dirs.left))
+		{
+			transform.position = vLeft;
+		}
+		else if (currentDirection == Dirs.right && checkMov (Dirs.right))
+		{
+			transform.position = vRight;
+		}
+		Debug.ClearDeveloperConsole ();
     }
 
 	private bool checkMov (Dirs dir)
