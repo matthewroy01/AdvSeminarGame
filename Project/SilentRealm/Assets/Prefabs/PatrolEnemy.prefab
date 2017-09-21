@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 58181567909535980}
   - component: {fileID: 50664762295218182}
   - component: {fileID: 114185936822551284}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PatrolEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1862774886002890}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -129,18 +129,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 192e612b32a2aae4588dfdd481b06e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolMode: 1
-  currentDirection: left
+  vUp: {x: 0, y: 0}
+  vDown: {x: 0, y: 0}
+  vLeft: {x: 0, y: 0}
+  vRight: {x: 0, y: 0}
+  defPos: {x: 0, y: 0}
+  defDir: 0
+  panicMode: 0
+  visionDist: 4
+  panicTime: 0.5
+  currentDirection: 2
   points:
   - point: {x: -4, y: 0}
-    direction: up
+    direction: 0
   - point: {x: -4, y: 4}
-    direction: right
+    direction: 3
   - point: {x: 4, y: 4}
-    direction: down
+    direction: 1
   - point: {x: 4, y: -2}
-    direction: left
+    direction: 2
   - point: {x: 0, y: -2}
-    direction: up
+    direction: 0
   - point: {x: 0, y: 0}
-    direction: left
+    direction: 2
+  endOfVision: {x: 0, y: 0}
+  layerWallVision:
+    serializedVersion: 2
+    m_Bits: 0
+  layerPlayer:
+    serializedVersion: 2
+    m_Bits: 512
+  layerImpass:
+    serializedVersion: 2
+    m_Bits: 1280

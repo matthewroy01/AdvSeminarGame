@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class Enemy : God {
 
+	[Header("Length of vision in one direction")]
     public float visionDist;
+
+	[Header("Time in between steps while in panic mode")]
     public float panicTime;
+
+	[Header("The direction this enemy is currently facing")]
+	public Dirs currentDirection;
 
 	public virtual void Step()
 	{
@@ -17,11 +23,6 @@ public class Enemy : God {
         Debug.Log("ENEMY_STEP_OWN - the virtual function was called");
     }
 
-    public virtual void Panic(bool panicing)
-    {
-        Debug.Log("ENEMY_PANIC - the virtual function was called");
-    }
-
     public IEnumerator onYourOwnTime(float time)
     {
         while (panicMode)
@@ -30,4 +31,9 @@ public class Enemy : God {
             yield return new WaitForSeconds(time);
         }
     }
+
+	public virtual void Panic(bool state)
+	{
+		
+	}
 }

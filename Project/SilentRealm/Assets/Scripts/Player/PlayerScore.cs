@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerScore : God
 {
@@ -16,13 +17,21 @@ public class PlayerScore : God
         {
             // increase the current number of keys
             getGameManager().keysCollected++;
+
+			// stop panic mode
+			getGameManager().Panic (false);
+
             // reset the player's velocity and position from panic mode
             PlayerReset(other);
-            // stop panic mode
-            getGameManager().panic(false);
+
             // destroy the key
             Destroy(other.gameObject);
         }
+
+		if (other.gameObject.tag == "Enemy")
+		{
+			SceneManager.LoadScene (0);
+		}
     }
 
     private void PlayerReset(Collider2D other)

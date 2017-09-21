@@ -75,13 +75,14 @@ public class UtilityBroadcast : MonoBehaviour {
 	}
 
     // tells all objects to panic or stop panicing
-    public void panic(bool state)
+    public void Panic(bool state)
     {
+		Debug.Log ("BROADCAST - setting panic state to " + state);
         for (int i = 0; i < enemies.Length; i++)
         {
-            enemies[i].GetComponent<God>().panicMode = state;
+			enemies [i].GetComponent<Enemy>().Panic(state);
         }
-        player.GetComponent<God>().panicMode = state;
+		player.GetComponent<PlayerMovement>().Panic(state);
     }
 
     private void OnGUI()

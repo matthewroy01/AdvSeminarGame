@@ -8,15 +8,13 @@ public class PlayerMovement : God
 	public LayerMask wallLayer;
 
     [Header("Panic Mode variables and parameters")]
-    [SerializeField] private float panicSpeed = 0;
+    public float panicSpeed = 0;
 
     // this object's Rigidbody2D
     private Rigidbody2D rb;
 
-	void Start () {
-        // find the game manager
-        FindGameManager();
-
+	void Start ()
+	{
         // set the Rigidbody2D
         rb = GetComponent<Rigidbody2D>();
 
@@ -24,7 +22,8 @@ public class PlayerMovement : God
         UpdateVectors();
     }
 
-	void Update () {
+	void Update ()
+	{
 		// movement
 		Movement();
 	}
@@ -95,5 +94,10 @@ public class PlayerMovement : God
 			}
 		}
 		return false;
+	}
+
+	public void Panic(bool state)
+	{
+		panicMode = state;
 	}
 }
