@@ -169,7 +169,6 @@ public class EnemyPatrol : Enemy {
 		{
 			transform.position = vRight;
 		}
-		Debug.ClearDeveloperConsole ();
     }
 
 	private bool checkMov (Dirs dir)

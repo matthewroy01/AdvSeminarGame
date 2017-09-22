@@ -34,6 +34,6 @@ public class Enemy : God {
 
 	public virtual void Panic(bool state)
 	{
-		
+		Debug.Log("ENEMY_PANIC - the virtual function was called");
 	}
 }

@@ -30,33 +30,36 @@ public class PlayerMovement : God
 
 	private void Movement()
 	{
-        if (!panicMode)
-        {
-            if (Input.GetButtonDown("Up") && checkMov(Dirs.up))
-            {
-                transform.position = new Vector2(transform.position.x, transform.position.y + 1);
-                getGameManager().togetherNow();
-            }
-            if (Input.GetButtonDown("Down") && checkMov(Dirs.down))
-            {
-                transform.position = new Vector2(transform.position.x, transform.position.y - 1);
-                getGameManager().togetherNow();
-            }
-            if (Input.GetButtonDown("Left") && checkMov(Dirs.left))
-            {
-                transform.position = new Vector2(transform.position.x - 1, transform.position.y);
-                getGameManager().togetherNow();
-            }
-            if (Input.GetButtonDown("Right") && checkMov(Dirs.right))
-            {
-                transform.position = new Vector2(transform.position.x + 1, transform.position.y);
-                getGameManager().togetherNow();
-            }
-        }
-		else
-        {
-            rb.velocity = new Vector2(Input.GetAxis("Horizontal") * panicSpeed, Input.GetAxis("Vertical") * panicSpeed);
-        }
+		if(movementEnabled)
+		{
+	        if (!panicMode)
+	        {
+	            if (Input.GetButtonDown("Up") && checkMov(Dirs.up))
+	            {
+	                transform.position = new Vector2(transform.position.x, transform.position.y + 1);
+	                getGameManager().togetherNow();
+	            }
+	            if (Input.GetButtonDown("Down") && checkMov(Dirs.down))
+	            {
+	                transform.position = new Vector2(transform.position.x, transform.position.y - 1);
+	                getGameManager().togetherNow();
+	            }
+	            if (Input.GetButtonDown("Left") && checkMov(Dirs.left))
+	            {
+	                transform.position = new Vector2(transform.position.x - 1, transform.position.y);
+	                getGameManager().togetherNow();
+	            }
+	            if (Input.GetButtonDown("Right") && checkMov(Dirs.right))
+	            {
+	                transform.position = new Vector2(transform.position.x + 1, transform.position.y);
+	                getGameManager().togetherNow();
+	            }
+	        }
+			else
+	        {
+	            rb.velocity = new Vector2(Input.GetAxis("Horizontal") * panicSpeed, Input.GetAxis("Vertical") * panicSpeed);
+	        }
+		}
 	}
 
 	private bool checkMov (Dirs dir)
