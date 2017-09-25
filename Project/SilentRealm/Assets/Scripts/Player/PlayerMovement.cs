@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : God
+public class PlayerMovement : Player
 {
     [Header("Walls")]
 	public LayerMask wallLayer;
@@ -57,7 +57,10 @@ public class PlayerMovement : God
 	        }
 			else
 	        {
-	            rb.velocity = new Vector2(Input.GetAxis("Horizontal") * panicSpeed, Input.GetAxis("Vertical") * panicSpeed);
+				if (movementEnabled)
+				{
+	            	rb.velocity = new Vector2(Input.GetAxis("Horizontal") * panicSpeed, Input.GetAxis("Vertical") * panicSpeed);
+				}
 	        }
 		}
 	}

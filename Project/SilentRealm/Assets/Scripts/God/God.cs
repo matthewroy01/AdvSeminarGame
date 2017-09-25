@@ -20,9 +20,6 @@ public class God : MonoBehaviour {
     [HideInInspector]
     public enum Dirs { up = 0, down = 1, left = 2, right = 3 };
 
-	//[HideInInspector]
-	public bool movementEnabled = true;
-
     private GameObject gameManager = null;
 
 	[Header("Panic Mode")]

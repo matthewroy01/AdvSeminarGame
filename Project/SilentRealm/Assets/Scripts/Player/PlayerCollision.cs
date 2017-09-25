@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerCollision : God
+public class PlayerCollision : Player
 {
-	public GameObject stuck = null;
+	//public GameObject stuck = null;
+
+	public Vector2 webVelocity;
 
     void Start()
     {
         // find the game manager
         FindGameManager();
 
-		stuck = null;
+		//stuck = null;
     }
 
 	void Update()
@@ -45,10 +47,9 @@ public class PlayerCollision : God
 		if (other.gameObject.tag == "Web")
 		{
 			movementEnabled = false;
-			if (stuck == null)
-			{
-				stuck = other.gameObject;
-			}
+			GetComponent<PlayerMovement>().movementEnabled = false;
+			webVelocity = other.GetComponent<Rigidbody2D>().velocity;
+			Destroy(other.gameObject);
 		}
     }
 
@@ -57,6 +58,7 @@ public class PlayerCollision : God
 		if (other.gameObject.layer == 8)
 		{
 			movementEnabled = true;
+			GetComponent<PlayerMovement>().movementEnabled = true;
 		}
 	}
 
@@ -70,12 +72,7 @@ public class PlayerCollision : God
 	{
 		if (!movementEnabled)
 		{
-			GetComponent<Rigidbody2D>().velocity = stuck.GetComponent<Rigidbody2D>().velocity;
-			Debug.Log(stuck.GetComponent<Rigidbody2D>().velocity);
-		}
-		else
-		{
-			stuck = null;
+			GetComponent<Rigidbody2D>().velocity = webVelocity;
 		}
 	}
 }
