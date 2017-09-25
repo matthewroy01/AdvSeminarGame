@@ -10,6 +10,9 @@ public class EnemySpider : Enemy {
 	[Header("Walls for movement")]
 	public LayerMask layerImpass;
 
+	[Header("Rotation")]
+	public bool clockwiseRotation;
+
 	[Header("Webs")]
 	public GameObject Web;
 	public float webSpeed;
@@ -28,6 +31,10 @@ public class EnemySpider : Enemy {
 	public override void Step()
 	{
 		UpdateVectors();
+
+		Fire();
+
+		RotateInPlace();
 	}
 
 	public override void StepOwn()
@@ -102,7 +109,7 @@ public class EnemySpider : Enemy {
 			if (transform.position.x - getGameManager().player.transform.position.x < 0.5f &
 				transform.position.x - getGameManager().player.transform.position.x > -0.5f)
 			{
-				Fire();
+				FireOwn();
 			}
 		}
 		else
@@ -110,7 +117,7 @@ public class EnemySpider : Enemy {
 			if (transform.position.y - getGameManager().player.transform.position.y < 0.5f &
 				transform.position.y - getGameManager().player.transform.position.y > -0.5f)
 			{
-				Fire();
+				FireOwn();
 			}
 		}
 	}
@@ -176,7 +183,7 @@ public class EnemySpider : Enemy {
 		return false;
 	}
 
-	private void Fire()
+	private void FireOwn()
 	{
 		if (canFire)
 		{
@@ -195,8 +202,71 @@ public class EnemySpider : Enemy {
 		}
 	}
 
+	private void Fire()
+	{
+		GameObject tmp = Instantiate(Web, transform.position, transform.rotation);
+		if (currentDirection == Dirs.up)
+		{
+			tmp.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 1) * webSpeed;
+		}
+		else if (currentDirection == Dirs.down)
+		{
+			tmp.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -1) * webSpeed;
+		}
+		else if (currentDirection == Dirs.left)
+		{
+			tmp.GetComponent<Rigidbody2D>().velocity = new Vector2(-1, 0) * webSpeed;
+		}
+		else if (currentDirection == Dirs.right)
+		{
+			tmp.GetComponent<Rigidbody2D>().velocity = new Vector2(1, 0) * webSpeed;
+		}
+	}
+
 	private void reenableFire()
 	{
 		canFire = true;
+	}
+
+	private void RotateInPlace()
+	{
+		if (clockwiseRotation)
+		{
+			if (currentDirection == Dirs.up)
+			{
+				currentDirection = Dirs.right;
+			}
+			else if (currentDirection == Dirs.right)
+			{
+				currentDirection = Dirs.down;
+			}
+			else if (currentDirection == Dirs.down)
+			{
+				currentDirection = Dirs.left;
+			}
+			else
+			{
+				currentDirection = Dirs.up;
+			}
+		}
+		else
+		{
+			if (currentDirection == Dirs.up)
+			{
+				currentDirection = Dirs.left;
+			}
+			else if (currentDirection == Dirs.left)
+			{
+				currentDirection = Dirs.down;
+			}
+			else if (currentDirection == Dirs.down)
+			{
+				currentDirection = Dirs.right;
+			}
+			else
+			{
+				currentDirection = Dirs.up;
+			}
+		}
 	}
 }

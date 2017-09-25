@@ -117,6 +117,12 @@ public class EnemyPatrol : Enemy {
         // while in panic mode, path towards the player
 		float lowestHeuristic = Vector2.Distance (getGameManager().player.transform.position, vUp);
 
+		// if the enemy gets stuck in a corner, perform a reset to the heuristic
+		if (currentDirection == Dirs.none)
+		{
+			lowestHeuristic = 100000;
+		}
+
         // do this as placeholder
         UpdateVectors();
 
@@ -124,12 +130,15 @@ public class EnemyPatrol : Enemy {
 		// then set the currentDirection to where the lowest heuristic was calculated
 		if (checkMov(Dirs.up))
 		{
-			lowestHeuristic = Vector2.Distance (getGameManager().player.transform.position, vUp);
-			currentDirection = Dirs.up;
+			if (previousDirection != Dirs.down)
+			{
+				lowestHeuristic = Vector2.Distance (getGameManager().player.transform.position, vUp);
+				currentDirection = Dirs.up;
+			}
 		}
 		if (checkMov(Dirs.down))
 		{
-			if (lowestHeuristic > Vector2.Distance(getGameManager().player.transform.position, vDown))
+			if (lowestHeuristic > Vector2.Distance(getGameManager().player.transform.position, vDown) && previousDirection != Dirs.up)
 			{
 				lowestHeuristic = Vector2.Distance(getGameManager().player.transform.position, vDown);
 				currentDirection = Dirs.down;
@@ -137,7 +146,7 @@ public class EnemyPatrol : Enemy {
 		}
 		if (checkMov(Dirs.left))
 		{
-			if (lowestHeuristic > Vector2.Distance(getGameManager().player.transform.position, vLeft))
+			if (lowestHeuristic > Vector2.Distance(getGameManager().player.transform.position, vLeft) && previousDirection != Dirs.right)
 			{
 				lowestHeuristic = Vector2.Distance(getGameManager().player.transform.position, vLeft);
 				currentDirection = Dirs.left;
@@ -145,7 +154,7 @@ public class EnemyPatrol : Enemy {
 		}
 		if (checkMov(Dirs.right))
 		{
-			if (lowestHeuristic > Vector2.Distance(getGameManager().player.transform.position, vRight))
+			if (lowestHeuristic > Vector2.Distance(getGameManager().player.transform.position, vRight) && previousDirection != Dirs.left)
 			{
 				lowestHeuristic = Vector2.Distance(getGameManager().player.transform.position, vRight);
 				currentDirection = Dirs.right;
@@ -169,6 +178,12 @@ public class EnemyPatrol : Enemy {
 		{
 			transform.position = vRight;
 		}
+
+		// set the previous direction so the enemy can't choose to go back the way it came
+		previousDirection = currentDirection;
+
+		// set the direction to none so the enemy doesn't get stuck traveling in its previous direction when no compromise can be reached
+		currentDirection = Dirs.none;
     }
 
 	private bool checkMov (Dirs dir)

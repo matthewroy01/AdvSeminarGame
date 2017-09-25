@@ -807,6 +807,11 @@ Prefab:
       propertyPath: panicMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114646838145066626, guid: 893734089a24a424f896dc09e8744df6,
+        type: 2}
+      propertyPath: movementEnabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 893734089a24a424f896dc09e8744df6, type: 2}
   m_IsPrefabParent: 0
@@ -852,9 +857,9 @@ MonoBehaviour:
   vRight: {x: 0, y: 0}
   defPos: {x: 0, y: 0}
   defDir: 0
-  movementEnabled: 1
   panicMode: 0
-  stuck: {fileID: 0}
+  movementEnabled: 1
+  webVelocity: {x: 0, y: 0}
 --- !u!4 &961181426
 Transform:
   m_ObjectHideFlags: 0
@@ -1367,6 +1372,15 @@ Prefab:
     - target: {fileID: 4856338068876468, guid: 48fbcabed49fec2499794804c3eeaacc, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370913549984016, guid: 48fbcabed49fec2499794804c3eeaacc, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114986539289152658, guid: 48fbcabed49fec2499794804c3eeaacc,
+        type: 2}
+      propertyPath: clockwiseRotation
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48fbcabed49fec2499794804c3eeaacc, type: 2}

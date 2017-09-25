@@ -12,6 +12,7 @@ public class Enemy : God {
 
 	[Header("The direction this enemy is currently facing")]
 	public Dirs currentDirection;
+	public Dirs previousDirection = Dirs.none;
 
 	public virtual void Step()
 	{

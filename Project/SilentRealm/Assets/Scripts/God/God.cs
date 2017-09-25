@@ -18,7 +18,7 @@ public class God : MonoBehaviour {
 
     // direction facing vector
     [HideInInspector]
-    public enum Dirs { up = 0, down = 1, left = 2, right = 3 };
+    public enum Dirs { none = -1, up = 0, down = 1, left = 2, right = 3 };
 
     private GameObject gameManager = null;
 

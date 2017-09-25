@@ -53,7 +53,7 @@ public class PlayerCollision : Player
 		}
     }
 
-	void OnCollisionStay2D(Collision2D other)
+	void OnCollisionEnter2D(Collision2D other)
 	{
 		if (other.gameObject.layer == 8)
 		{
