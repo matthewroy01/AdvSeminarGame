@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UtilityBroadcast : MonoBehaviour {
+public class UtilityGameManager : MonoBehaviour {
 
     [Header("The player, enemies, and exit")]
 	public GameObject[] enemies;
@@ -19,6 +19,10 @@ public class UtilityBroadcast : MonoBehaviour {
 
     [Header("UI")]
     public Text txtKeys;
+	public Text txtWarning;
+
+	[Header("Animation Management")]
+	public bool checkingAnimations;
 
 	void Start () {
 		// find all enemies
@@ -36,7 +40,11 @@ public class UtilityBroadcast : MonoBehaviour {
 
     void Update()
     {
+		// check to see how many keys have been collected
         CheckKeys();
+
+		// update the UI that isn't possible in the OnGUI function
+		UpdateGUI();
     }
 
 	private void FindAllEnemies()
@@ -72,21 +80,41 @@ public class UtilityBroadcast : MonoBehaviour {
         {
             enemies[i].GetComponent<Enemy>().StartCoroutine("Step");
         }
+		checkingAnimations = true;
 	}
 
     // tells all objects to panic or stop panicing
     public void Panic(bool state)
     {
 		Debug.Log ("BROADCAST - setting panic state to " + state);
-        for (int i = 0; i < enemies.Length; i++)
-        {
+
+		if (state == true)
+		{
+			txtWarning.gameObject.SetActive(true);
+			txtWarning.material.color = new Color(txtWarning.material.color.r, txtWarning.material.color.g, txtWarning.material.color.b, 1);
+		}
+
+		for (int i = 0; i < enemies.Length; i++)
+		{
 			enemies [i].GetComponent<Enemy>().Panic(state);
-        }
+		}
 		player.GetComponent<PlayerMovement>().Panic(state);
     }
 
     private void OnGUI()
     {
-        txtKeys.text = "Keys: " + keysCollected + "/" + keysInLevel;
+		// update total keys in the UI
+		txtKeys.text = "Keys: " + keysCollected + "/" + keysInLevel;
     }
+
+	private void UpdateGUI()
+	{
+		
+
+		// make Panic text fade if the text appears
+		if (txtWarning.material.color.a > 0)
+		{
+			txtWarning.material.color = new Color(txtWarning.material.color.r, txtWarning.material.color.g, txtWarning.material.color.b, txtWarning.material.color.a - 0.05f);
+		}
+	}
 }

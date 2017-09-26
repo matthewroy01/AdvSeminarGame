@@ -82,7 +82,8 @@ public class EnemyPatrol : Enemy {
         // draw a sphere for debugging
         if (!panicMode)
         {
-            Gizmos.DrawSphere(new Vector3(endOfVision.x, endOfVision.y, -1), 0.25f);
+            //Gizmos.DrawSphere(new Vector3(endOfVision.x, endOfVision.y, -1), 0.25f);
+			Gizmos.DrawLine(transform.position, new Vector3(endOfVision.x, endOfVision.y, -1));
         }
     }
 

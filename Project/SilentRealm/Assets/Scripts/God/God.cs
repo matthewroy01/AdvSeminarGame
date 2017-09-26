@@ -50,8 +50,8 @@ public class God : MonoBehaviour {
 		vRight = new Vector2 (transform.position.x + 1, transform.position.y);
 	}
 
-    public UtilityBroadcast getGameManager()
+    public UtilityGameManager getGameManager()
     {
-        return gameManager.GetComponent<UtilityBroadcast>();
+        return gameManager.GetComponent<UtilityGameManager>();
     }
 }

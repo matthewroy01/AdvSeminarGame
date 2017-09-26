@@ -59,8 +59,8 @@
      <Compile Include="Assets\Scripts\Player\PlayerCollision.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Utility\UtilityAudioManager.cs" />
-     <Compile Include="Assets\Scripts\Utility\UtilityBroadcast.cs" />
      <Compile Include="Assets\Scripts\Utility\UtilityDestroyAfterSeconds.cs" />
+     <Compile Include="Assets\Scripts\Utility\UtilityGameManager.cs" />
      <Compile Include="Assets\Scripts\Utility\UtilitySwitchScene.cs" />
  <Reference Include="Facebook.Unity.Settings">
  <HintPath>D:/Advanced Seminar/Repo/Project/SilentRealm/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
