@@ -19,10 +19,10 @@ public class UtilityGameManager : MonoBehaviour {
 
     [Header("UI")]
     public Text txtKeys;
-	public Text txtWarning;
+	public GameObject txtWarning;
+	private bool fadeAway = false;
 
-	[Header("Animation Management")]
-	public bool checkingAnimations;
+	private bool checkingAnimations = false;
 
 	void Start () {
 		// find all enemies
@@ -36,6 +36,12 @@ public class UtilityGameManager : MonoBehaviour {
 
         // find the exit
         FindTheExit();
+
+		// set warning text's default transparency
+		txtWarning.GetComponent<SpriteRenderer>().color = new Color(txtWarning.GetComponent<SpriteRenderer>().color.r,
+																	txtWarning.GetComponent<SpriteRenderer>().color.g,
+																	txtWarning.GetComponent<SpriteRenderer>().color.b,
+																	0);
 	}
 
     void Update()
@@ -83,16 +89,35 @@ public class UtilityGameManager : MonoBehaviour {
 		checkingAnimations = true;
 	}
 
+	public bool DoneWithAnimations()
+	{
+		if (checkingAnimations == true)
+		{
+			for (int i = 0; i < enemies.Length; i++)
+			{
+				if (enemies[i].GetComponent<God>().GetAnimationState() == false)
+				{
+					return false;
+				}
+			}
+			if (player.GetComponent<God>().GetAnimationState() == false)
+			{
+				return false;
+			}
+			Debug.Log ("BROADCAST - all animations completed");
+			checkingAnimations = false;
+			return true;
+		}
+
+		return true;
+	}
+
     // tells all objects to panic or stop panicing
     public void Panic(bool state)
     {
 		Debug.Log ("BROADCAST - setting panic state to " + state);
 
-		if (state == true)
-		{
-			txtWarning.gameObject.SetActive(true);
-			txtWarning.material.color = new Color(txtWarning.material.color.r, txtWarning.material.color.g, txtWarning.material.color.b, 1);
-		}
+		fadeAway = state;
 
 		for (int i = 0; i < enemies.Length; i++)
 		{
@@ -109,12 +134,23 @@ public class UtilityGameManager : MonoBehaviour {
 
 	private void UpdateGUI()
 	{
-		
-
-		// make Panic text fade if the text appears
-		if (txtWarning.material.color.a > 0)
+		// enable fade text
+		if (fadeAway)
 		{
-			txtWarning.material.color = new Color(txtWarning.material.color.r, txtWarning.material.color.g, txtWarning.material.color.b, txtWarning.material.color.a - 0.05f);
+			txtWarning.GetComponent<SpriteRenderer>().color = new Color(txtWarning.GetComponent<SpriteRenderer>().color.r,
+																		txtWarning.GetComponent<SpriteRenderer>().color.g,
+																		txtWarning.GetComponent<SpriteRenderer>().color.b,
+																		1);
+			fadeAway = false;
+		}
+
+		// text fades away over time
+		if (txtWarning.GetComponent<SpriteRenderer>().color.a > 0)
+		{
+			txtWarning.GetComponent<SpriteRenderer>().color = new Color(txtWarning.GetComponent<SpriteRenderer>().color.r,
+																		txtWarning.GetComponent<SpriteRenderer>().color.g,
+																		txtWarning.GetComponent<SpriteRenderer>().color.b,
+																		txtWarning.GetComponent<SpriteRenderer>().color.a - 0.01f);
 		}
 	}
 }

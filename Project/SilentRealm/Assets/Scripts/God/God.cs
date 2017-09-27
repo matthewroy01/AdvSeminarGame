@@ -25,6 +25,9 @@ public class God : MonoBehaviour {
 	[Header("Panic Mode")]
     public bool panicMode = false;
 
+	[Header("Animation State")]
+	private bool doneWithAnimation = true;
+
 	private void Awake()
 	{
 		FindGameManager();
@@ -54,4 +57,7 @@ public class God : MonoBehaviour {
     {
         return gameManager.GetComponent<UtilityGameManager>();
     }
+
+	public bool GetAnimationState() { return doneWithAnimation; }
+	public void SetAnimationState(bool newVal) { doneWithAnimation = newVal; }
 }

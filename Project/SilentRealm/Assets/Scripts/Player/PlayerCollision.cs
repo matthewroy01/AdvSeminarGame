@@ -13,8 +13,6 @@ public class PlayerCollision : Player
     {
         // find the game manager
         FindGameManager();
-
-		//stuck = null;
     }
 
 	void Update()
@@ -47,7 +45,7 @@ public class PlayerCollision : Player
 		if (other.gameObject.tag == "Web")
 		{
 			movementEnabled = false;
-			GetComponent<PlayerMovement>().movementEnabled = false;
+			//GetComponent<PlayerMovement>().movementEnabled = false;
 			webVelocity = other.GetComponent<Rigidbody2D>().velocity;
 			Destroy(other.gameObject);
 		}
@@ -58,7 +56,7 @@ public class PlayerCollision : Player
 		if (other.gameObject.layer == 8)
 		{
 			movementEnabled = true;
-			GetComponent<PlayerMovement>().movementEnabled = true;
+			//GetComponent<PlayerMovement>().movementEnabled = true;
 		}
 	}
 

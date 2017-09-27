@@ -32,28 +32,39 @@ public class PlayerMovement : Player
 	{
 		if(movementEnabled)
 		{
-	        if (!panicMode)
+			if (!panicMode)
 	        {
-	            if (Input.GetButtonDown("Up") && checkMov(Dirs.up))
-	            {
-	                transform.position = new Vector2(transform.position.x, transform.position.y + 1);
-	                getGameManager().togetherNow();
-	            }
-	            if (Input.GetButtonDown("Down") && checkMov(Dirs.down))
-	            {
-	                transform.position = new Vector2(transform.position.x, transform.position.y - 1);
-	                getGameManager().togetherNow();
-	            }
-	            if (Input.GetButtonDown("Left") && checkMov(Dirs.left))
-	            {
-	                transform.position = new Vector2(transform.position.x - 1, transform.position.y);
-	                getGameManager().togetherNow();
-	            }
-	            if (Input.GetButtonDown("Right") && checkMov(Dirs.right))
-	            {
-	                transform.position = new Vector2(transform.position.x + 1, transform.position.y);
-	                getGameManager().togetherNow();
-	            }
+				if (getGameManager().DoneWithAnimations() == true)
+				{
+		            if (Input.GetButtonDown("Up") && checkMov(Dirs.up))
+		            {
+		                transform.position = new Vector2(transform.position.x, transform.position.y + 1);
+		                getGameManager().togetherNow();
+						SetAnimationState(false);
+						Invoke("FinishAnimation", 0.5f);
+		            }
+		            if (Input.GetButtonDown("Down") && checkMov(Dirs.down))
+		            {
+		                transform.position = new Vector2(transform.position.x, transform.position.y - 1);
+		                getGameManager().togetherNow();
+						SetAnimationState(false);
+						Invoke("FinishAnimation", 0.5f);
+		            }
+		            if (Input.GetButtonDown("Left") && checkMov(Dirs.left))
+		            {
+		                transform.position = new Vector2(transform.position.x - 1, transform.position.y);
+		                getGameManager().togetherNow();
+						SetAnimationState(false);
+						Invoke("FinishAnimation", 0.5f);
+		            }
+		            if (Input.GetButtonDown("Right") && checkMov(Dirs.right))
+		            {
+		                transform.position = new Vector2(transform.position.x + 1, transform.position.y);
+		                getGameManager().togetherNow();
+						SetAnimationState(false);
+						Invoke("FinishAnimation", 0.5f);
+		            }
+				}
 	        }
 			else
 	        {
@@ -105,5 +116,10 @@ public class PlayerMovement : Player
 	public void Panic(bool state)
 	{
 		panicMode = state;
+	}
+
+	private void FinishAnimation()
+	{
+		SetAnimationState(true);
 	}
 }
