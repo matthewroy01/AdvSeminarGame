@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1862774886002890}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6, y: -1, z: 0}
+  m_LocalPosition: {x: -4, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -138,15 +138,20 @@ MonoBehaviour:
   panicMode: 0
   visionDist: 4
   panicTime: 0.5
-  currentDirection: 1
-  points: []
+  currentDirection: 3
+  previousDirection: -1
+  points:
+  - point: {x: -4, y: -2}
+    direction: 3
+  - point: {x: -2, y: -2}
+    direction: 2
   endOfVision: {x: 0, y: 0}
   layerWallVision:
     serializedVersion: 2
     m_Bits: 0
-  layerPlayer:
+  layerVision:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 768
   layerImpass:
     serializedVersion: 2
     m_Bits: 1280

@@ -13,8 +13,8 @@ public class EnemyPatrol : Enemy {
 
     [Header("Walls for vision")]
     public LayerMask layerWallVision;
-    [Header("The player for vision")]
-    public LayerMask layerPlayer;
+	[Header("For vision (the player and things that would obstruct it)")]
+    public LayerMask layerVision;
 	[Header("Walls for movement")]
 	public LayerMask layerImpass;
 
@@ -44,7 +44,7 @@ public class EnemyPatrol : Enemy {
     public void Vision()
     {
         if (!panicMode)
-        {
+		{
             if (currentDirection == Dirs.up)
             {
                 endOfVision = new Vector2(transform.position.x, transform.position.y + (1 * visionDist));
@@ -62,13 +62,16 @@ public class EnemyPatrol : Enemy {
                 endOfVision = new Vector2(transform.position.x + (1 * visionDist), transform.position.y);
             }
 
-            // if the player is detected...
-            if (Physics2D.Linecast(transform.position, endOfVision, layerPlayer))
+			RaycastHit2D tmp;
+			tmp = Physics2D.Linecast(transform.position, endOfVision, layerVision);
+			
+            // if the player is detected before any walls...
+			if (tmp.collider != null && tmp.collider.gameObject.CompareTag("Player"))
             {
-                // enter panic mode
-                getGameManager().Panic(true);
-                Gizmos.color = Color.red;
-                Debug.Log(gameObject.name + " found the player!");
+            	// enter panic mode
+            	getGameManager().Panic(true);
+            	Gizmos.color = Color.red;
+            	Debug.Log(gameObject.name + " found the player!");
             }
             else
             {

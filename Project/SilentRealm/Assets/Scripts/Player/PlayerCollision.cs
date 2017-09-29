@@ -22,7 +22,7 @@ public class PlayerCollision : Player
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Key")
+		if (other.gameObject.CompareTag("Key"))
         {
             // increase the current number of keys
             getGameManager().keysCollected++;
@@ -37,12 +37,12 @@ public class PlayerCollision : Player
             Destroy(other.gameObject);
         }
 
-		if (other.gameObject.tag == "Enemy")
+		if (other.gameObject.CompareTag("Enemy"))
 		{
 			SceneManager.LoadScene (0);
 		}
 
-		if (other.gameObject.tag == "Web")
+		if (other.gameObject.CompareTag("Web"))
 		{
 			movementEnabled = false;
 			//GetComponent<PlayerMovement>().movementEnabled = false;

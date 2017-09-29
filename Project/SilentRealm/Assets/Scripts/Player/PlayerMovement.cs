@@ -10,6 +10,9 @@ public class PlayerMovement : Player
     [Header("Panic Mode variables and parameters")]
     public float panicSpeed = 0;
 
+	[SerializeField]
+	public float animTime;
+
     // this object's Rigidbody2D
     private Rigidbody2D rb;
 
@@ -41,28 +44,28 @@ public class PlayerMovement : Player
 		                transform.position = new Vector2(transform.position.x, transform.position.y + 1);
 		                getGameManager().togetherNow();
 						SetAnimationState(false);
-						Invoke("FinishAnimation", 0.5f);
+						Invoke("FinishAnimation", animTime);
 		            }
-		            if (Input.GetButtonDown("Down") && checkMov(Dirs.down))
+		            else if (Input.GetButtonDown("Down") && checkMov(Dirs.down))
 		            {
 		                transform.position = new Vector2(transform.position.x, transform.position.y - 1);
 		                getGameManager().togetherNow();
 						SetAnimationState(false);
-						Invoke("FinishAnimation", 0.5f);
+						Invoke("FinishAnimation", animTime);
 		            }
-		            if (Input.GetButtonDown("Left") && checkMov(Dirs.left))
+		            else if (Input.GetButtonDown("Left") && checkMov(Dirs.left))
 		            {
 		                transform.position = new Vector2(transform.position.x - 1, transform.position.y);
 		                getGameManager().togetherNow();
 						SetAnimationState(false);
-						Invoke("FinishAnimation", 0.5f);
+						Invoke("FinishAnimation", animTime);
 		            }
-		            if (Input.GetButtonDown("Right") && checkMov(Dirs.right))
+		            else if (Input.GetButtonDown("Right") && checkMov(Dirs.right))
 		            {
 		                transform.position = new Vector2(transform.position.x + 1, transform.position.y);
 		                getGameManager().togetherNow();
 						SetAnimationState(false);
-						Invoke("FinishAnimation", 0.5f);
+						Invoke("FinishAnimation", animTime);
 		            }
 				}
 	        }
