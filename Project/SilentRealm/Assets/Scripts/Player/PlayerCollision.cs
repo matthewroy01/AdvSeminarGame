@@ -37,7 +37,7 @@ public class PlayerCollision : Player
             Destroy(other.gameObject);
         }
 
-		if (other.gameObject.CompareTag("Enemy"))
+		if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("EnemyDoppel"))
 		{
 			SceneManager.LoadScene (0);
 		}

@@ -38,3 +38,11 @@ public class Enemy : God {
 		Debug.Log("ENEMY_PANIC - the virtual function was called");
 	}
 }
+
+// struct of points that contains where the enemy should turn and in what direction
+[System.Serializable]
+public struct PatrolPoint
+{
+    public Vector2 point;
+    public Enemy.Dirs direction;
+}

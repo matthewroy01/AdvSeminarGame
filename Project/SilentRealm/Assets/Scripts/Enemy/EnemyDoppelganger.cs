@@ -7,31 +7,23 @@ public class EnemyDoppelganger : Enemy {
 	[Header("Walls")]
 	public LayerMask wallLayer;
 
-	void Update ()
+	public void Movement (string dir)
 	{
-		Movement();
-	}
-
-	void Movement ()
-	{
-		if (getGameManager().DoneWithAnimations() == true)
+		if (dir == "up" && checkMov(Dirs.down))
 		{
-			if (Input.GetButtonDown("Up") && checkMov(Dirs.down))
-			{
-				transform.position = new Vector2(transform.position.x, transform.position.y - 1);
-			}
-			else if (Input.GetButtonDown("Down") && checkMov(Dirs.up))
-			{
-				transform.position = new Vector2(transform.position.x, transform.position.y + 1);
-			}
-			else if (Input.GetButtonDown("Left") && checkMov(Dirs.right))
-			{
-				transform.position = new Vector2(transform.position.x + 1, transform.position.y);
-			}
-			else if (Input.GetButtonDown("Right") && checkMov(Dirs.left))
-			{
-				transform.position = new Vector2(transform.position.x - 1, transform.position.y);
-			}
+			transform.position = new Vector2(transform.position.x, transform.position.y - 1);
+		}
+		else if (dir == "down" && checkMov(Dirs.up))
+		{
+			transform.position = new Vector2(transform.position.x, transform.position.y + 1);
+		}
+		else if (dir == "left" && checkMov(Dirs.right))
+		{
+			transform.position = new Vector2(transform.position.x + 1, transform.position.y);
+		}
+		else if (dir == "right"  && checkMov(Dirs.left))
+		{
+			transform.position = new Vector2(transform.position.x - 1, transform.position.y);
 		}
 	}
 

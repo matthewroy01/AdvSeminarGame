@@ -259,11 +259,3 @@ public class EnemyPatrol : Enemy {
 		panicMode = state;
 	}
 }
-
-// struct of points that contains where the enemy should turn and in what direction
-[System.Serializable]
-public struct PatrolPoint
-{
-    public Vector2 point;
-    public Enemy.Dirs direction;
-}

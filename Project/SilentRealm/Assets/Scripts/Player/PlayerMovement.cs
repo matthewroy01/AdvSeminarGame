@@ -16,6 +16,10 @@ public class PlayerMovement : Player
     // this object's Rigidbody2D
     private Rigidbody2D rb;
 
+    // doppelgangers
+    [Header("Doppelgangers")]
+    public EnemyDoppelganger[] doppels;
+
 	void Start ()
 	{
         // set the Rigidbody2D
@@ -44,6 +48,10 @@ public class PlayerMovement : Player
 		                transform.position = new Vector2(transform.position.x, transform.position.y + 1);
 		                getGameManager().togetherNow();
 						SetAnimationState(false);
+						foreach (EnemyDoppelganger doppel in doppels)
+						{
+							doppel.Movement("up");
+						}
 						Invoke("FinishAnimation", animTime);
 		            }
 		            else if (Input.GetButtonDown("Down") && checkMov(Dirs.down))
@@ -51,6 +59,10 @@ public class PlayerMovement : Player
 		                transform.position = new Vector2(transform.position.x, transform.position.y - 1);
 		                getGameManager().togetherNow();
 						SetAnimationState(false);
+						foreach (EnemyDoppelganger doppel in doppels)
+						{
+							doppel.Movement("down");
+						}
 						Invoke("FinishAnimation", animTime);
 		            }
 		            else if (Input.GetButtonDown("Left") && checkMov(Dirs.left))
@@ -58,6 +70,10 @@ public class PlayerMovement : Player
 		                transform.position = new Vector2(transform.position.x - 1, transform.position.y);
 		                getGameManager().togetherNow();
 						SetAnimationState(false);
+						foreach (EnemyDoppelganger doppel in doppels)
+						{
+							doppel.Movement("left");
+						}
 						Invoke("FinishAnimation", animTime);
 		            }
 		            else if (Input.GetButtonDown("Right") && checkMov(Dirs.right))
@@ -65,6 +81,10 @@ public class PlayerMovement : Player
 		                transform.position = new Vector2(transform.position.x + 1, transform.position.y);
 		                getGameManager().togetherNow();
 						SetAnimationState(false);
+						foreach (EnemyDoppelganger doppel in doppels)
+						{
+							doppel.Movement("right");
+						}
 						Invoke("FinishAnimation", animTime);
 		            }
 				}

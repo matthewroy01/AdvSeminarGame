@@ -1,13 +1,14 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Enemy\EnemyDoppelganger.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Enemy\EnemySpotlight.cs">
     <Files>
-      <File FileName="Assets\Scripts\Player\PlayerMovement.cs" Line="119" Column="31" />
-      <File FileName="Assets\Scripts\Utility\UtilityGameManager.cs" Line="112" Column="15" />
-      <File FileName="Assets\Scripts\Enemy\EnemyDoppelganger.cs" Line="73" Column="3" />
-      <File FileName="Assets\Scripts\Enemy\EnemyPatrol.cs" Line="235" Column="2" />
-      <File FileName="Assets\Scripts\Enemy\Enemy.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\God\God.cs" Line="26" Column="35" />
+      <File FileName="Assets\Scripts\Enemy\EnemyDoppelganger.cs" Line="10" Column="9" />
+      <File FileName="Assets\Scripts\Utility\UtilityGameManager.cs" Line="77" Column="10" />
+      <File FileName="Assets\Scripts\Enemy\EnemyGoliath.cs" Line="160" Column="41" />
+      <File FileName="Assets\Scripts\Enemy\EnemyPatrol.cs" Line="32" Column="4" />
+      <File FileName="Assets\Scripts\Enemy\EnemySpotlight.cs" Line="14" Column="28" />
+      <File FileName="Assets\Scripts\Enemy\Enemy.cs" Line="48" Column="2" />
+      <File FileName="Assets\Scripts\Player\PlayerMovement.cs" Line="86" Column="30" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

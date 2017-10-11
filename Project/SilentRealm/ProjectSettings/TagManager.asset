@@ -9,6 +9,7 @@ TagManager:
   - Tag
   - Exit
   - Web
+  - Spotlight
   layers:
   - Default
   - TransparentFX
