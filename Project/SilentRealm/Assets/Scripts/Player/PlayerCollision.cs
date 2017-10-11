@@ -37,17 +37,25 @@ public class PlayerCollision : Player
             Destroy(other.gameObject);
         }
 
-		if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("EnemyDoppel"))
+		if (other.gameObject.CompareTag("Enemy"))
 		{
 			SceneManager.LoadScene (0);
 		}
 
 		if (other.gameObject.CompareTag("Web"))
 		{
-			movementEnabled = false;
+			if (movementEnabled)
+			{
+				movementEnabled = false;
+			}
 			//GetComponent<PlayerMovement>().movementEnabled = false;
 			webVelocity = other.GetComponent<Rigidbody2D>().velocity;
 			Destroy(other.gameObject);
+		}
+
+		if (other.gameObject.CompareTag("Spotlight") && GetComponent<PlayerMovement>().panicMode == false)
+		{
+			getGameManager().Panic(true);
 		}
     }
 
