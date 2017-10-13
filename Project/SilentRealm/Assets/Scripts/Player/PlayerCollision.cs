@@ -39,7 +39,7 @@ public class PlayerCollision : Player
 
 		if (other.gameObject.CompareTag("Enemy"))
 		{
-			SceneManager.LoadScene (0);
+			SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
 		}
 
 		if (other.gameObject.CompareTag("Web"))
@@ -56,6 +56,11 @@ public class PlayerCollision : Player
 		if (other.gameObject.CompareTag("Spotlight") && GetComponent<PlayerMovement>().panicMode == false)
 		{
 			getGameManager().Panic(true);
+		}
+
+		if (other.gameObject.CompareTag("WinTrigger"))
+		{
+			SceneManager.LoadScene (0);
 		}
     }
 

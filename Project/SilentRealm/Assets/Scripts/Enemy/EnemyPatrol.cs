@@ -94,26 +94,29 @@ public class EnemyPatrol : Enemy {
 	{
         UpdateVectors();
 
-        // while not in panic mode, move on a set path
-		if (currentDirection == Dirs.up)
-		{
-			transform.position = vUp;
-		}
-		else if (currentDirection == Dirs.down)
-		{
-			transform.position = vDown;
-		}
-		else if (currentDirection == Dirs.left)
-		{
-			transform.position = vLeft;
-		}
-		else if (currentDirection == Dirs.right)
-		{
-			transform.position = vRight;
-		}
+        if (points.Length != 0)
+        {
+	        // while not in panic mode, move on a set path
+			if (currentDirection == Dirs.up)
+			{
+				transform.position = vUp;
+			}
+			else if (currentDirection == Dirs.down)
+			{
+				transform.position = vDown;
+			}
+			else if (currentDirection == Dirs.left)
+			{
+				transform.position = vLeft;
+			}
+			else if (currentDirection == Dirs.right)
+			{
+				transform.position = vRight;
+			}
 
-        // check to see if this enemy has reached a point in its array
-        CheckPoints();
+        	// check to see if this enemy has reached a point in its array
+        	CheckPoints();
+        }
 	}
 
     public override void StepOwn()

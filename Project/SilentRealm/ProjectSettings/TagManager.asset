@@ -10,6 +10,8 @@ TagManager:
   - Exit
   - Web
   - Spotlight
+  - Menu
+  - WinTrigger
   layers:
   - Default
   - TransparentFX
