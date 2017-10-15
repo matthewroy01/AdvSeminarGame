@@ -142,4 +142,4 @@ MonoBehaviour:
   previousDirection: -1
   wallLayer:
     serializedVersion: 2
-    m_Bits: 1280
+    m_Bits: 3328

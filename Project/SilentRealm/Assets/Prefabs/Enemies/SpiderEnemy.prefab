@@ -139,10 +139,12 @@ MonoBehaviour:
   visionDist: 1000
   panicTime: 0.3
   currentDirection: 0
+  previousDirection: -1
   horizontalChase: 1
   layerImpass:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 2304
+  clockwiseRotation: 0
   Web: {fileID: 1521677593368760, guid: 5156cea44e32cfe4598e2cced920d0a6, type: 2}
   webSpeed: 5
   webCooldown: 1

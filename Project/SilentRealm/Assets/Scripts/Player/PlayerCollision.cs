@@ -18,6 +18,11 @@ public class PlayerCollision : Player
 	void Update()
 	{
 		UpdateStuck();
+
+		if (movementEnabled == false)
+		{
+			Physics2D.IgnoreLayerCollision(gameObject.layer, 11);
+		}
 	}
 
     void OnTriggerEnter2D(Collider2D other)
