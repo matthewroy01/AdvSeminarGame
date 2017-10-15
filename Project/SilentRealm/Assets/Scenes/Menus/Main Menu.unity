@@ -159,6 +159,12 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 212544227181747432, guid: 81f5d03f905198d46b9240a80eca3149,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 57f8efe06aa5a7147b4903d111e95631,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 81f5d03f905198d46b9240a80eca3149, type: 2}
   m_IsPrefabParent: 0
@@ -471,6 +477,20 @@ Prefab:
       propertyPath: m_Name
       value: Play
       objectReference: {fileID: 0}
+    - target: {fileID: 212544227181747432, guid: 81f5d03f905198d46b9240a80eca3149,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 383d852507d6ed64da7221f288f268af,
+        type: 3}
+    - target: {fileID: 4250902165782604, guid: 81f5d03f905198d46b9240a80eca3149, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4250902165782604, guid: 81f5d03f905198d46b9240a80eca3149, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 81f5d03f905198d46b9240a80eca3149, type: 2}
   m_IsPrefabParent: 0
@@ -532,20 +552,6 @@ Light:
   m_Lightmapping: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_FalloffTable:
-    m_Table[0]: 0
-    m_Table[1]: 0
-    m_Table[2]: 0
-    m_Table[3]: 0
-    m_Table[4]: 0
-    m_Table[5]: 0
-    m_Table[6]: 0
-    m_Table[7]: 0
-    m_Table[8]: 0
-    m_Table[9]: 0
-    m_Table[10]: 0
-    m_Table[11]: 0
-    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0

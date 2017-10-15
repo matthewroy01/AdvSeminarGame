@@ -94,6 +94,10 @@ public class PlayerMovement : Player
 				if (movementEnabled)
 				{
 	            	rb.velocity = new Vector2(Input.GetAxis("Horizontal") * panicSpeed, Input.GetAxis("Vertical") * panicSpeed);
+					/*foreach (EnemyDoppelganger doppel in doppels)
+					{
+						doppel.GetComponent<Rigidbody2D>().velocity = rb.velocity * -1;
+					}*/
 				}
 	        }
 		}

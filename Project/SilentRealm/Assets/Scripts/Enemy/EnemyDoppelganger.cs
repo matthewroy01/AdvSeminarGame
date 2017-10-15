@@ -7,23 +7,45 @@ public class EnemyDoppelganger : Enemy {
 	[Header("Walls")]
 	public LayerMask wallLayer;
 
+	private Rigidbody2D rb;
+
+	void Start()
+	{
+		rb = GetComponent<Rigidbody2D>();
+		defPos = transform.position;
+	}
+
+	void Update ()
+	{
+		if (getGameManager().panicMode == true)
+		{
+			rb.velocity = new Vector2(
+						Input.GetAxis("Horizontal") * getGameManager().player.GetComponent<PlayerMovement>().panicSpeed,
+						Input.GetAxis("Vertical") * getGameManager().player.GetComponent<PlayerMovement>().panicSpeed)
+						* -1;
+		}
+	}
+
 	public void Movement (string dir)
 	{
-		if (dir == "up" && checkMov(Dirs.down))
+		if (getGameManager().panicMode == false)
 		{
-			transform.position = new Vector2(transform.position.x, transform.position.y - 1);
-		}
-		else if (dir == "down" && checkMov(Dirs.up))
-		{
-			transform.position = new Vector2(transform.position.x, transform.position.y + 1);
-		}
-		else if (dir == "left" && checkMov(Dirs.right))
-		{
-			transform.position = new Vector2(transform.position.x + 1, transform.position.y);
-		}
-		else if (dir == "right"  && checkMov(Dirs.left))
-		{
-			transform.position = new Vector2(transform.position.x - 1, transform.position.y);
+			if (dir == "up" && checkMov(Dirs.down))
+			{
+				transform.position = new Vector2(transform.position.x, transform.position.y - 1);
+			}
+			else if (dir == "down" && checkMov(Dirs.up))
+			{
+				transform.position = new Vector2(transform.position.x, transform.position.y + 1);
+			}
+			else if (dir == "left" && checkMov(Dirs.right))
+			{
+				transform.position = new Vector2(transform.position.x + 1, transform.position.y);
+			}
+			else if (dir == "right"  && checkMov(Dirs.left))
+			{
+				transform.position = new Vector2(transform.position.x - 1, transform.position.y);
+			}
 		}
 	}
 
@@ -62,5 +84,26 @@ public class EnemyDoppelganger : Enemy {
 			}
 		}
 		return false;
+	}
+
+	public override void Panic (bool state)
+	{
+		if (state == false)
+		{
+			// only do this if actually in panic mode
+			if (getGameManager().panicMode == true)
+			{
+				// set the position back to default
+				transform.position = defPos;
+
+				// set the velocity back to zero
+				rb.velocity = Vector2.zero;
+			}
+		}
+		else
+		{
+			panicMode = state;
+		}
+		panicMode = state;
 	}
 }

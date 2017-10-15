@@ -124,6 +124,8 @@ public class UtilityGameManager : MonoBehaviour {
 			enemies [i].GetComponent<Enemy>().Panic(state);
 		}
 		player.GetComponent<PlayerMovement>().Panic(state);
+
+		panicMode = state;
     }
 
     private void OnGUI()
