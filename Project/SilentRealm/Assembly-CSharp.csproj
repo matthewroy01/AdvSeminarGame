@@ -71,8 +71,10 @@
      <Compile Include="Assets\Scripts\Utility\UtilityDestroyAfterSeconds.cs" />
      <Compile Include="Assets\Scripts\Utility\UtilityGameManager.cs" />
      <Compile Include="Assets\Scripts\Utility\UtilitySwitchScene.cs" />
+     <None Include="Assets\Shaders\dd_Invert.shader" />
+     <None Include="Assets\Shaders\TestShader.shader" />
  <Reference Include="Facebook.Unity.Settings">
- <HintPath>F:/Advanced Seminar/Repo/Project/SilentRealm/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
+ <HintPath>D:/Advanced Seminar/Repo/Project/SilentRealm/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
