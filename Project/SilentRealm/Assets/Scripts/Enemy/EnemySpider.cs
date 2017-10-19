@@ -19,13 +19,17 @@ public class EnemySpider : Enemy {
 	public float webCooldown;
 	public bool canFire = true;
 
+	private Animator anim;
+
 	void Start () {
 		defPos = transform.position;
 		defDir = currentDirection;
+
+		anim = GetComponent<Animator>();
 	}
 
 	void Update () {
-		
+		HandleAnimation();
 	}
 
 	public override void Step()
@@ -268,5 +272,10 @@ public class EnemySpider : Enemy {
 				currentDirection = Dirs.up;
 			}
 		}
+	}
+
+	void HandleAnimation ()
+	{
+		anim.SetInteger("dir", (int)currentDirection);
 	}
 }

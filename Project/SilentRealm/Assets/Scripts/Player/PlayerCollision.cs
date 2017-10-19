@@ -74,7 +74,27 @@ public class PlayerCollision : Player
 		if (other.gameObject.layer == 8)
 		{
 			movementEnabled = true;
-			//GetComponent<PlayerMovement>().movementEnabled = true;
+
+			/*int tmpx = (int)transform.position.x, tmpy = (int)transform.position.y;
+			Debug.Log("( " + tmpx + ", " + tmpy + " )");
+
+			if (transform.position.x > tmpx + 0.5)
+			{
+				transform.position = new Vector2(tmpx + 1, transform.position.y);
+			}
+			else
+			{
+				transform.position = new Vector2(tmpx, transform.position.y);
+			}
+
+			if (transform.position.y > tmpy + 0.5)
+			{
+				transform.position = new Vector2(transform.position.x, tmpy + 1);
+			}
+			else
+			{
+				transform.position = new Vector2(transform.position.x, tmpy + 1);
+			}*/
 		}
 	}
 

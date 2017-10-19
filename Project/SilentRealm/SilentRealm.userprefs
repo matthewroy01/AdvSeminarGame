@@ -1,9 +1,14 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Enemy\EnemyGoliath.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player\PlayerCollision.cs">
     <Files>
       <File FileName="Assets\Scripts\Menu\ButtonsLevelSelect.cs" Line="31" Column="33" />
-      <File FileName="Assets\Scripts\Enemy\EnemyGoliath.cs" Line="144" Column="81" />
+      <File FileName="Assets\Scripts\Enemy\EnemyGoliath.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Enemy\EnemySpider.cs" Line="32" Column="21" />
+      <File FileName="Assets\Scripts\God\God.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Enemy\Enemy.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Utility\UtilityGameManager.cs" Line="139" Column="26" />
+      <File FileName="Assets\Scripts\Player\PlayerCollision.cs" Line="78" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

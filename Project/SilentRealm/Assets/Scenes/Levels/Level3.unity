@@ -1224,6 +1224,19 @@ Prefab:
       propertyPath: currentDirection
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4856338068876468, guid: 48fbcabed49fec2499794804c3eeaacc, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4856338068876468, guid: 48fbcabed49fec2499794804c3eeaacc, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212023249403850300, guid: 48fbcabed49fec2499794804c3eeaacc,
+        type: 2}
+      propertyPath: m_DrawMode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48fbcabed49fec2499794804c3eeaacc, type: 2}
   m_IsPrefabParent: 0

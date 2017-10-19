@@ -19,10 +19,13 @@ public class UtilityGameManager : MonoBehaviour {
 
     [Header("UI")]
     public Text txtKeys;
+    public Text txtSteps;
 	public GameObject txtWarning;
 	private bool fadeAway = false;
 
 	private bool checkingAnimations = false;
+
+	public int steps = 0;
 
 	void Start () {
 		// find all enemies
@@ -87,6 +90,7 @@ public class UtilityGameManager : MonoBehaviour {
             enemies[i].GetComponent<Enemy>().StartCoroutine("Step");
         }
 		checkingAnimations = true;
+		steps++;
 	}
 
 	public bool DoneWithAnimations()
@@ -132,6 +136,7 @@ public class UtilityGameManager : MonoBehaviour {
     {
 		// update total keys in the UI
 		txtKeys.text = "Keys: " + keysCollected + "/" + keysInLevel;
+		txtSteps.text = "Steps: " + steps;
     }
 
 	private void UpdateGUI()
