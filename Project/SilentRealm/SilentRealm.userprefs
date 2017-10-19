@@ -1,8 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Menu\ButtonsLevelSelect.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Enemy\EnemyGoliath.cs">
     <Files>
-      <File FileName="Assets\Scripts\Menu\ButtonsLevelSelect.cs" Line="36" Column="2" />
+      <File FileName="Assets\Scripts\Menu\ButtonsLevelSelect.cs" Line="31" Column="33" />
+      <File FileName="Assets\Scripts\Enemy\EnemyGoliath.cs" Line="144" Column="81" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -12,14 +12,12 @@ public class EnemyGoliath : Enemy {
 
 	private Vector2 vgUp, vgDown, vgLeft, vgRight;
 
-	// Use this for initialization
 	void Start () {
 		
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
-		
+		Movement();
 	}
 
 	public override void Step()
@@ -137,6 +135,23 @@ public class EnemyGoliath : Enemy {
 			}
 		}
 		return false;
+	}
+
+	private void Movement ()
+	{
+		if (getGameManager().panicMode == true)
+		{
+			Vector2 tmp = getGameManager().player.transform.position - transform.position;
+
+			if (Mathf.Abs(tmp.x) > Mathf.Abs(tmp.y))
+			{
+				Debug.Log("x is greater than y");
+			}
+			else
+			{
+				Debug.Log("y is greater than x");
+			}
+		}
 	}
 
 	public override void UpdateVectors()

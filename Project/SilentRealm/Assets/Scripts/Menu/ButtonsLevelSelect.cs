@@ -18,6 +18,7 @@ public class ButtonsLevelSelect : MonoBehaviour {
 
 					case 1 :
 						Debug.Log("level 3");
+						SceneManager.LoadScene(3);
 						break;
 
 					case 2 :
