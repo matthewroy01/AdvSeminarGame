@@ -75,7 +75,7 @@ public class PlayerCollision : Player
 		{
 			movementEnabled = true;
 
-			/*int tmpx = (int)transform.position.x, tmpy = (int)transform.position.y;
+			int tmpx = (int)transform.position.x, tmpy = (int)transform.position.y;
 			Debug.Log("( " + tmpx + ", " + tmpy + " )");
 
 			if (transform.position.x > tmpx + 0.5)
@@ -93,8 +93,8 @@ public class PlayerCollision : Player
 			}
 			else
 			{
-				transform.position = new Vector2(transform.position.x, tmpy + 1);
-			}*/
+				transform.position = new Vector2(transform.position.x, tmpy);
+			}
 		}
 	}
 

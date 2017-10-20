@@ -1,10 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PostProcessing;
 
 public class PlayerCamera : Player {
 
 	private float count = 0, interval = 4.5f;
+
+	private PostProcessingBehaviour post;
+
+	void Start ()
+	{
+		post = GetComponent<PostProcessingBehaviour>();
+	}
 
 	void Update ()
 	{
@@ -26,6 +34,15 @@ public class PlayerCamera : Player {
 		else
 		{
 			transform.position = new Vector3(getGameManager().player.transform.position.x, getGameManager().player.transform.position.y, transform.position.z);
+		}
+
+		if (getGameManager().panicMode == true)
+		{
+			post.enabled = true;
+		}
+		else
+		{
+			post.enabled = false;
 		}
 	}
 }

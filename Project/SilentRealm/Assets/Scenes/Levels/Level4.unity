@@ -15,9 +15,9 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 8
   m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogColor: {r: 0.85294116, g: 0.85294116, b: 0.85294116, a: 1}
+  m_FogMode: 2
+  m_FogDensity: 1
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -179,6 +179,23 @@ Transform:
   m_PrefabParentObject: {fileID: 4302966910004364, guid: 83d7dd903f9192349952aacd90dd48ea,
     type: 2}
   m_PrefabInternal: {fileID: 665387731}
+--- !u!1 &184132925 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1305008569108096, guid: cc9357984b7714248857822796433e09,
+    type: 2}
+  m_PrefabInternal: {fileID: 968287999}
+--- !u!114 &184132926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 184132925}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: e36f5f89cc9512147bb0ecf788ba8aff, type: 2}
 --- !u!4 &220441674 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4856338068876468, guid: 48fbcabed49fec2499794804c3eeaacc,
