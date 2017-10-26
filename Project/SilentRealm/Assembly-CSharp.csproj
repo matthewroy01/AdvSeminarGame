@@ -104,6 +104,7 @@
      <Compile Include="Assets\Scripts\Enemy\EnemySpider.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemySpotlight.cs" />
      <Compile Include="Assets\Scripts\God\God.cs" />
+     <Compile Include="Assets\Scripts\KeyBug.cs" />
      <Compile Include="Assets\Scripts\Menu\ButtonsLevelSelect.cs" />
      <Compile Include="Assets\Scripts\Menu\ButtonsMain.cs" />
      <Compile Include="Assets\Scripts\Menu\MenuControl.cs" />
