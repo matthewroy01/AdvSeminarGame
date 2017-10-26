@@ -27,7 +27,8 @@ public class PlayerCollision : Player
 
     void OnTriggerEnter2D(Collider2D other)
     {
-		if (other.gameObject.CompareTag("Key"))
+    	// layer 12 is "DoppelOnly"
+		if (other.CompareTag("Key") && other.gameObject.layer != 12)
         {
             // increase the current number of keys
             getGameManager().keysCollected++;
@@ -71,7 +72,7 @@ public class PlayerCollision : Player
 
 	void OnCollisionEnter2D(Collision2D other)
 	{
-		if (other.gameObject.layer == 8)
+		if (movementEnabled == false && getGameManager().panicMode == false && other.gameObject.layer == 8)
 		{
 			movementEnabled = true;
 
@@ -95,6 +96,10 @@ public class PlayerCollision : Player
 			{
 				transform.position = new Vector2(transform.position.x, tmpy);
 			}
+		}
+		else if (movementEnabled == false && other.gameObject.layer == 8)
+		{
+			movementEnabled = true;
 		}
 	}
 

@@ -43,49 +43,65 @@ public class PlayerMovement : Player
 	        {
 				if (getGameManager().DoneWithAnimations() == true)
 				{
-		            if (Input.GetButtonDown("Up") && checkMov(Dirs.up))
+		            if (Input.GetButtonDown("Up"))
 		            {
-		                transform.position = new Vector2(transform.position.x, transform.position.y + 1);
-		                getGameManager().togetherNow();
-						SetAnimationState(false);
+						if (checkMov(Dirs.up))
+						{
+			                transform.position = new Vector2(transform.position.x, transform.position.y + 1);
+			                getGameManager().togetherNow();
+							SetAnimationState(false);
+							Invoke("FinishAnimation", animTime);
+						}
+
 						foreach (EnemyDoppelganger doppel in doppels)
 						{
-							doppel.Movement("up");
+								doppel.Movement("up");
 						}
-						Invoke("FinishAnimation", animTime);
 		            }
-		            else if (Input.GetButtonDown("Down") && checkMov(Dirs.down))
+		            else if (Input.GetButtonDown("Down"))
 		            {
-		                transform.position = new Vector2(transform.position.x, transform.position.y - 1);
-		                getGameManager().togetherNow();
-						SetAnimationState(false);
+						if (checkMov(Dirs.down))
+						{
+			                transform.position = new Vector2(transform.position.x, transform.position.y - 1);
+			                getGameManager().togetherNow();
+							SetAnimationState(false);
+							Invoke("FinishAnimation", animTime);
+						}
+
 						foreach (EnemyDoppelganger doppel in doppels)
 						{
-							doppel.Movement("down");
+								doppel.Movement("down");
 						}
-						Invoke("FinishAnimation", animTime);
 		            }
-		            else if (Input.GetButtonDown("Left") && checkMov(Dirs.left))
+		            else if (Input.GetButtonDown("Left"))
 		            {
-		                transform.position = new Vector2(transform.position.x - 1, transform.position.y);
-		                getGameManager().togetherNow();
-						SetAnimationState(false);
+						if (checkMov(Dirs.left))
+						{
+			                transform.position = new Vector2(transform.position.x - 1, transform.position.y);
+			                getGameManager().togetherNow();
+							SetAnimationState(false);
+							Invoke("FinishAnimation", animTime);
+						}
+
 						foreach (EnemyDoppelganger doppel in doppels)
 						{
 							doppel.Movement("left");
 						}
-						Invoke("FinishAnimation", animTime);
 		            }
-		            else if (Input.GetButtonDown("Right") && checkMov(Dirs.right))
+		            else if (Input.GetButtonDown("Right"))
 		            {
-		                transform.position = new Vector2(transform.position.x + 1, transform.position.y);
-		                getGameManager().togetherNow();
-						SetAnimationState(false);
+						if (checkMov(Dirs.right))
+						{
+			                transform.position = new Vector2(transform.position.x + 1, transform.position.y);
+			                getGameManager().togetherNow();
+							SetAnimationState(false);
+							Invoke("FinishAnimation", animTime);
+						}
+
 						foreach (EnemyDoppelganger doppel in doppels)
 						{
 							doppel.Movement("right");
 						}
-						Invoke("FinishAnimation", animTime);
 		            }
 				}
 	        }
@@ -94,10 +110,6 @@ public class PlayerMovement : Player
 				if (movementEnabled)
 				{
 	            	rb.velocity = new Vector2(Input.GetAxis("Horizontal") * panicSpeed, Input.GetAxis("Vertical") * panicSpeed);
-					/*foreach (EnemyDoppelganger doppel in doppels)
-					{
-						doppel.GetComponent<Rigidbody2D>().velocity = rb.velocity * -1;
-					}*/
 				}
 	        }
 		}

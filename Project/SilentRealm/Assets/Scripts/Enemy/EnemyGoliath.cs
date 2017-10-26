@@ -12,17 +12,24 @@ public class EnemyGoliath : Enemy {
 
 	private Vector2 vgUp, vgDown, vgLeft, vgRight;
 
-	void Start () {
-		
+	[Header("Panic behavior")]
+	public ParticleSystem parts;
+	public bool enraged = false;
+	public AudioSource roar;
+
+	void Start ()
+	{
+		parts.Stop();
 	}
 
-	void Update () {
+	void Update ()
+	{
 		Movement();
 	}
 
 	public override void Step()
 	{
-		if (isResting == false)
+		if (isResting == false && enraged == false)
 		{
 			// path towards the player
 			float lowestHeuristic = Vector2.Distance (getGameManager().player.transform.position, vUp);
@@ -103,6 +110,83 @@ public class EnemyGoliath : Enemy {
 		}
 	}
 
+	public override void StepOwn()
+	{
+		if (enraged == true)
+		{
+			// path towards the player
+			float lowestHeuristic = Vector2.Distance (getGameManager().player.transform.position, vUp);
+
+			// if the enemy gets stuck in a corner, perform a reset to the heuristic
+			if (currentDirection == Dirs.none)
+			{
+				lowestHeuristic = 100000;
+			}
+
+			// do this as placeholder
+			UpdateVectors();
+
+			// check to see if there's a wall in the spot the enemy is about to move, and if not, calculate the heuristic
+			// then set the currentDirection to where the lowest heuristic was calculated
+			if (checkMov(Dirs.up))
+			{
+				if (previousDirection != Dirs.down)
+				{
+					lowestHeuristic = Vector2.Distance (getGameManager().player.transform.position, vUp);
+					currentDirection = Dirs.up;
+				}
+			}
+			if (checkMov(Dirs.down))
+			{
+				if (lowestHeuristic > Vector2.Distance(getGameManager().player.transform.position, vDown) && previousDirection != Dirs.up)
+				{
+					lowestHeuristic = Vector2.Distance(getGameManager().player.transform.position, vDown);
+					currentDirection = Dirs.down;
+				}
+			}
+			if (checkMov(Dirs.left))
+			{
+				if (lowestHeuristic > Vector2.Distance(getGameManager().player.transform.position, vLeft) && previousDirection != Dirs.right)
+				{
+					lowestHeuristic = Vector2.Distance(getGameManager().player.transform.position, vLeft);
+					currentDirection = Dirs.left;
+				}
+			}
+			if (checkMov(Dirs.right))
+			{
+				if (lowestHeuristic > Vector2.Distance(getGameManager().player.transform.position, vRight) && previousDirection != Dirs.left)
+				{
+					lowestHeuristic = Vector2.Distance(getGameManager().player.transform.position, vRight);
+					currentDirection = Dirs.right;
+				}
+			}
+
+			// now move based on what was decided
+			if (currentDirection == Dirs.up && checkMov (Dirs.up))
+			{
+				transform.position = vUp;
+			}
+			else if (currentDirection == Dirs.down && checkMov (Dirs.down))
+			{
+				transform.position = vDown;
+			}
+			else if (currentDirection == Dirs.left && checkMov (Dirs.left))
+			{
+				transform.position = vLeft;
+			}
+			else if (currentDirection == Dirs.right && checkMov (Dirs.right))
+			{
+				transform.position = vRight;
+			}
+
+			// set the previous direction so the enemy can't choose to go back the way it came
+			previousDirection = currentDirection;
+
+			// set the direction to none so the enemy doesn't get stuck traveling in its previous direction when no compromise can be reached
+			currentDirection = Dirs.none;
+		}
+	}
+
 	private bool checkMov (Dirs dir)
 	{
 		// if a wall is detected, movement is impossible
@@ -175,4 +259,36 @@ public class EnemyGoliath : Enemy {
     		other.gameObject.SetActive(false);
     	}
     }
+
+	public override void Panic(bool state)
+	{
+		if (state == true)
+		{
+			parts.Play();
+			enraged = false;
+			StopAllCoroutines();
+		}
+		else
+		{
+			parts.Stop();
+			parts.Clear();
+			if (getGameManager().panicMode == true)
+			{
+				enraged = true;
+				roar.Play();
+
+				// start pathfinding
+				StartCoroutine(onGoliathsOwnTime(panicTime));
+			}
+		}
+	}
+
+	public IEnumerator onGoliathsOwnTime(float time)
+	{
+		while (enraged)
+		{
+			StepOwn();
+			yield return new WaitForSeconds(time);
+		}
+	}
 }

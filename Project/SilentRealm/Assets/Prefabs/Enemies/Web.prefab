@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4122726894427382}
   - component: {fileID: 58244431309016280}
-  - component: {fileID: 50339151166949290}
   - component: {fileID: 114759775859416602}
   - component: {fileID: 212672655293180380}
+  - component: {fileID: 50577667678207404}
   m_Layer: 0
   m_Name: Web
   m_TagString: Web
@@ -43,7 +43,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50339151166949290
+--- !u!50 &50577667678207404
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
@@ -90,6 +90,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToDestroy: 5
+  destroyOnCollision: 1
+  layerDestroy:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!212 &212672655293180380
 SpriteRenderer:
   m_ObjectHideFlags: 1

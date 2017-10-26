@@ -106,4 +106,29 @@ public class EnemyDoppelganger : Enemy {
 		}
 		panicMode = state;
 	}
+
+	void OnTriggerEnter2D (Collider2D other)
+	{
+		// layer 12 is "DoppelOnly"
+		if (other.CompareTag("Key") && other.gameObject.layer == 12)
+		{
+			// increase the current number of keys
+            getGameManager().keysCollected++;
+
+			// stop panic mode
+			getGameManager().Panic (false);
+
+            // reset the player's velocity and position from panic mode
+            DoppelReset(other);
+
+            // destroy the key
+            Destroy(other.gameObject);
+		}
+	}
+
+	private void DoppelReset(Collider2D other)
+    {
+        transform.position = other.transform.position;
+        gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+    }
 }
