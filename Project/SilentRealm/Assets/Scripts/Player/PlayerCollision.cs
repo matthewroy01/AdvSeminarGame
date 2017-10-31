@@ -13,6 +13,8 @@ public class PlayerCollision : Player
     {
         // find the game manager
         FindGameManager();
+
+		movementEnabled = true;
     }
 
 	void Update()

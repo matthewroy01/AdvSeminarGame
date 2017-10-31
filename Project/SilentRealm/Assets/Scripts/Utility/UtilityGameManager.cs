@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UtilityGameManager : MonoBehaviour {
 
@@ -54,6 +55,9 @@ public class UtilityGameManager : MonoBehaviour {
 
 		// update the UI that isn't possible in the OnGUI function
 		UpdateGUI();
+
+		// over arching input
+		CheckInput();
     }
 
 	private void FindAllEnemies()
@@ -158,6 +162,14 @@ public class UtilityGameManager : MonoBehaviour {
 																		txtWarning.GetComponent<SpriteRenderer>().color.g,
 																		txtWarning.GetComponent<SpriteRenderer>().color.b,
 																		txtWarning.GetComponent<SpriteRenderer>().color.a - 0.01f);
+		}
+	}
+
+	private void CheckInput()
+	{
+		if (Input.GetButtonDown("Escape"))
+		{
+			SceneManager.LoadScene(0);
 		}
 	}
 }
