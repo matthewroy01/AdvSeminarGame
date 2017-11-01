@@ -9,6 +9,8 @@ public class PlayerCollision : Player
 
 	public Vector2 webVelocity;
 
+	public AudioClip[] clips;
+
     void Start()
     {
         // find the game manager
@@ -34,6 +36,17 @@ public class PlayerCollision : Player
         {
             // increase the current number of keys
             getGameManager().keysCollected++;
+
+            // play a sound
+			if (getGameManager().panicMode == true)
+            {
+            	GetComponent<AudioSource>().clip = clips[0];
+            }
+            else
+            {
+				GetComponent<AudioSource>().clip = clips[1];
+            }
+			GetComponent<AudioSource>().Play();
 
 			// stop panic mode
 			getGameManager().Panic (false);

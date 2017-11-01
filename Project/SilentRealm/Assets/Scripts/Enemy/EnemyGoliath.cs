@@ -229,11 +229,11 @@ public class EnemyGoliath : Enemy {
 
 			if (Mathf.Abs(tmp.x) > Mathf.Abs(tmp.y))
 			{
-				Debug.Log("x is greater than y");
+				//Debug.Log("x is greater than y");
 			}
 			else
 			{
-				Debug.Log("y is greater than x");
+				//Debug.Log("y is greater than x");
 			}
 		}
 	}

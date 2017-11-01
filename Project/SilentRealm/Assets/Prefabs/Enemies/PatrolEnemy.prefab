@@ -140,6 +140,7 @@ MonoBehaviour:
   panicTime: 0.5
   currentDirection: 3
   previousDirection: -1
+  leeway: 1
   points:
   - point: {x: -4, y: -2}
     direction: 3

@@ -118,6 +118,7 @@ MonoBehaviour:
   panicTime: 0.3
   currentDirection: 1
   previousDirection: -1
+  leeway: 0.5
   horizontalChase: 1
   layerImpass:
     serializedVersion: 2

@@ -14,6 +14,9 @@ public class Enemy : God {
 	public Dirs currentDirection;
 	public Dirs previousDirection = Dirs.none;
 
+	[Header("Time to wait for player to get ahead upon entering panic mode")]
+	public float leeway;
+
 	public virtual void Step()
 	{
 		Debug.Log("ENEMY_STEP - the virtual function was called");
@@ -26,6 +29,8 @@ public class Enemy : God {
 
     public IEnumerator onYourOwnTime(float time)
     {
+    	yield return new WaitForSeconds(leeway);
+
         while (panicMode)
         {
             StepOwn();

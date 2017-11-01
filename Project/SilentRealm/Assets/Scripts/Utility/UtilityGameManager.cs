@@ -127,11 +127,12 @@ public class UtilityGameManager : MonoBehaviour {
 
 		fadeAway = state;
 
+		player.GetComponent<PlayerMovement>().Panic(state);
+
 		for (int i = 0; i < enemies.Length; i++)
 		{
 			enemies [i].GetComponent<Enemy>().Panic(state);
 		}
-		player.GetComponent<PlayerMovement>().Panic(state);
 
 		panicMode = state;
     }
