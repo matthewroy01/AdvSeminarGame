@@ -73,6 +73,10 @@ public class PlayerCollision : Player
 			getGameManager().Panic(false);
 			GetComponent<AudioSource>().Play();
 			webVelocity = new Vector2(0,0);
+			if (GameObject.Find("LevelManager") != null)
+			{
+				GameObject.Find("LevelManager").GetComponent<UtilityLevelManager>().updateBestScore(SceneManager.GetActiveScene().name, getGameManager().steps);
+			}
 			Invoke("Win", 4.0f);
 		}
     }
