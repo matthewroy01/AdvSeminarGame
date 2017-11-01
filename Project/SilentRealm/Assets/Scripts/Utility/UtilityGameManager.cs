@@ -22,6 +22,7 @@ public class UtilityGameManager : MonoBehaviour {
     public Text txtKeys;
     public Text txtSteps;
 	public GameObject txtWarning;
+	public GameObject imgBlack;
 	private bool fadeAway = false;
 
 	private bool checkingAnimations = false;

@@ -113,6 +113,7 @@
      <Compile Include="Assets\Scripts\Player\PlayerCamera.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerCollision.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerVisuals.cs" />
      <Compile Include="Assets\Scripts\Utility\UtilityAudioManager.cs" />
      <Compile Include="Assets\Scripts\Utility\UtilityDestroyAfterSeconds.cs" />
      <Compile Include="Assets\Scripts\Utility\UtilityGameManager.cs" />
