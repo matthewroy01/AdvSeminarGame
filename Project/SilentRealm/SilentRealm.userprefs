@@ -1,11 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Utility\UtilityLevelManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Menu\LevelUI.cs">
     <Files>
-      <File FileName="Assets\Scripts\Utility\UtilityGameManager.cs" Line="161" Column="3" />
-      <File FileName="Assets\Scripts\Utility\UtilityLevelManager.cs" Line="41" Column="18" />
-      <File FileName="Assets\Scripts\Menu\ButtonsMain.cs" Line="21" Column="7" />
-      <File FileName="Assets\Scripts\Menu\ButtonsLevelSelect.cs" Line="36" Column="33" />
+      <File FileName="Assets\Scripts\Utility\UtilityGameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Utility\UtilityLevelManager.cs" Line="119" Column="51" />
+      <File FileName="Assets\Scripts\Menu\ButtonsMain.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Menu\ButtonsLevelSelect.cs" Line="44" Column="54" />
+      <File FileName="Assets\Scripts\Player\PlayerCollision.cs" Line="147" Column="37" />
+      <File FileName="Assets\Scripts\Menu\LevelUI.cs" Line="29" Column="138" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

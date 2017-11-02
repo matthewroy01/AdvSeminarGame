@@ -106,6 +106,18 @@ public class UtilityLevelManager : MonoBehaviour {
 			levels[i].bestScore = newScore;
 		}
 	}
+
+	public void unlock(string name)
+	{
+		for (int i = 0; i < levels.Length; i++)
+		{
+			if (levels[i].name == name)
+			{
+				levels[i].isUnlocked = 1;
+			}
+		}
+		Debug.Log(name + " is not a valid level name.");
+	}
 }
 
 [System.Serializable]

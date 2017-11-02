@@ -9,10 +9,17 @@ public class PlayerCollision : Player
 
 	public Vector2 webVelocity;
 
+	[Header("Levels to unlock upon completing this one")]
+	public string[] unlocks;
+
+	private UtilityLevelManager levelManager;
+
     void Start()
     {
         // find the game manager
         FindGameManager();
+
+		levelManager = GameObject.Find("LevelManager").GetComponent<UtilityLevelManager>();
 
 		movementEnabled = true;
     }
@@ -73,10 +80,7 @@ public class PlayerCollision : Player
 			getGameManager().Panic(false);
 			GetComponent<AudioSource>().Play();
 			webVelocity = new Vector2(0,0);
-			if (GameObject.Find("LevelManager") != null)
-			{
-				GameObject.Find("LevelManager").GetComponent<UtilityLevelManager>().updateBestScore(SceneManager.GetActiveScene().name, getGameManager().steps);
-			}
+			TellLevelManager();
 			Invoke("Win", 4.0f);
 		}
     }
@@ -130,6 +134,18 @@ public class PlayerCollision : Player
 		if (!movementEnabled)
 		{
 			GetComponent<Rigidbody2D>().velocity = webVelocity;
+		}
+	}
+
+	private void TellLevelManager()
+	{
+		if (GameObject.Find("LevelManager") != null)
+		{
+			levelManager.updateBestScore(SceneManager.GetActiveScene().name, getGameManager().steps);
+			for (int i = 0; i < unlocks.Length; i++)
+			{
+				levelManager.unlock(unlocks[i]);
+			}
 		}
 	}
 }
