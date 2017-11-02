@@ -8,10 +8,12 @@ public class LevelUI : MonoBehaviour {
 	public Text info;
 	private string currentText;
 	private UtilityLevelManager levelManager;
+	private MenuNavigation menuNavigation;
 
 	void Start ()
 	{
 		levelManager = GameObject.Find("LevelManager").GetComponent<UtilityLevelManager>();
+		menuNavigation = GetComponent<MenuNavigation>();
 	}
 
 	void Update ()
@@ -24,9 +26,8 @@ public class LevelUI : MonoBehaviour {
 
 	void DoGUI ()
 	{
-		currentText = (GetComponent<MenuNavigation>().buttons[GetComponent<MenuNavigation>().currentSelection].name).ToString() + "\n" +
-					  "Best Score: " +
-					  levelManager.getBestScore(GetComponent<MenuNavigation>().buttons[GetComponent<MenuNavigation>().currentSelection].name).ToString();
+		currentText = (menuNavigation.buttons[menuNavigation.currentSelection].name).ToString() + "\n" +
+					   "Best Score: " + levelManager.getBestScore(menuNavigation.buttons[menuNavigation.currentSelection].name).ToString();
 		info.text = currentText;
 	}
 }
