@@ -134,7 +134,7 @@ public class EnemySpider : Enemy {
 			StopAllCoroutines ();
 
 			// only do this if actually in panic mode
-			if (panicMode == true)
+			if (getGameManager().panicMode == true)
 			{
 				// set the position back to default
 				transform.position = defPos;
@@ -145,12 +145,12 @@ public class EnemySpider : Enemy {
 		}
 		else
 		{
-			panicMode = state;
+			//panicMode = state;
 
 			// start pathfinding
 			StartCoroutine(onYourOwnTime(panicTime));
 		}
-		panicMode = state;
+		//panicMode = state;
 	}
 
 	private bool checkMov (Dirs dir)

@@ -35,7 +35,7 @@ public class EnemySpotlight : Enemy
 
 	void Movement()
 	{
-		if (!panicMode)
+		if (!getGameManager().panicMode)
 		{
 			if (canMove == true)
 			{
@@ -115,7 +115,7 @@ public class EnemySpotlight : Enemy
 		if (state == false)
 		{
 			// only do this if actually in panic mode
-			if (panicMode == true)
+			if (getGameManager().panicMode == true)
 			{
 				// set the position back to default
 				transform.position = defPos;
@@ -136,8 +136,8 @@ public class EnemySpotlight : Enemy
 		}
 		else
 		{
-			panicMode = state;
+			//panicMode = state;
 		}
-		panicMode = state;
+		//panicMode = state;
 	}
 }

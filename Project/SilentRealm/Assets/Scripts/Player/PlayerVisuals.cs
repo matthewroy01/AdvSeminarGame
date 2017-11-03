@@ -11,12 +11,20 @@ public class PlayerVisuals : Player {
 
 	[Header("Bools")]
 	public bool fadeToBlack;
+	public bool flashWhite;
+
+	private bool whiteFadeOut = false;
 
 	void Update()
 	{
 		if (fadeToBlack == true)
 		{
 			FadeToBlack();
+		}
+
+		if (flashWhite == true)
+		{
+			FlashWhite();
 		}
 	}
 
@@ -34,7 +42,36 @@ public class PlayerVisuals : Player {
 
 	private void FlashWhite()
 	{
+		if (!whiteFadeOut)
+		{
+			if (imgWhite.GetComponent<SpriteRenderer>().color.a < 250)
+			{
+			imgBlack.GetComponent<SpriteRenderer>().color = new Color(imgWhite.GetComponent<SpriteRenderer>().color.r,
+				imgWhite.GetComponent<SpriteRenderer>().color.g,
+				imgWhite.GetComponent<SpriteRenderer>().color.b,
+				imgWhite.GetComponent<SpriteRenderer>().color.a + 0.01f);
+			}
+			else
+			{
+				whiteFadeOut = true;
+			}
+		}
 
+		if (whiteFadeOut)
+		{
+			if (imgWhite.GetComponent<SpriteRenderer>().color.a > 5)
+			{
+				imgWhite.GetComponent<SpriteRenderer>().color = new Color(imgWhite.GetComponent<SpriteRenderer>().color.r,
+					imgWhite.GetComponent<SpriteRenderer>().color.g,
+					imgWhite.GetComponent<SpriteRenderer>().color.b,
+					imgWhite.GetComponent<SpriteRenderer>().color.a + 0.01f);
+			}
+			else
+			{
+				whiteFadeOut = false;
+				flashWhite = false;
+			}
+		}
 	}
 
 	private void PanicMessage()

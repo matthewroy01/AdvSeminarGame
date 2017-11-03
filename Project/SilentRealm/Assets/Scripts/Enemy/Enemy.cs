@@ -31,7 +31,7 @@ public class Enemy : God {
     {
     	yield return new WaitForSeconds(leeway);
 
-        while (panicMode)
+		while (getGameManager().panicMode)
         {
             StepOwn();
             yield return new WaitForSeconds(time);
@@ -41,7 +41,7 @@ public class Enemy : God {
 	public virtual void Panic(bool state)
 	{
 		Debug.Log("ENEMY_PANIC - the virtual function was called");
-		panicMode = state;
+		getGameManager().panicMode = state;
 	}
 }
 

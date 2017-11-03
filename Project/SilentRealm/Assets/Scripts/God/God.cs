@@ -23,7 +23,7 @@ public class God : MonoBehaviour {
     private GameObject gameManager = null;
 
 	[Header("Panic Mode")]
-    public bool panicMode = false;
+    //public bool panicMode = false;
 
 	[Header("Animation State")]
 	private bool doneWithAnimation = true;
@@ -40,7 +40,7 @@ public class God : MonoBehaviour {
 
     private void Update()
     {
-        panicMode = getGameManager().panicMode;
+        //panicMode = getGameManager().panicMode;
     }
 
     public virtual void UpdateVectors()

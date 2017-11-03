@@ -102,9 +102,9 @@ public class EnemyDoppelganger : Enemy {
 		}
 		else
 		{
-			panicMode = state;
+			//panicMode = state;
 		}
-		panicMode = state;
+		//panicMode = state;
 	}
 
 	void OnTriggerEnter2D (Collider2D other)

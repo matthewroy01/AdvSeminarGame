@@ -39,7 +39,7 @@ public class PlayerMovement : Player
 	{
 		if(movementEnabled)
 		{
-			if (!panicMode)
+			if (!getGameManager().panicMode)
 	        {
 				if (getGameManager().DoneWithAnimations() == true)
 				{
@@ -154,7 +154,7 @@ public class PlayerMovement : Player
 
 	public void Panic(bool state)
 	{
-		panicMode = state;
+		//panicMode = state;
 	}
 
 	private void FinishAnimation()

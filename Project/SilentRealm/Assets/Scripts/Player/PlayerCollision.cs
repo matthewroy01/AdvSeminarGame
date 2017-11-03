@@ -50,6 +50,8 @@ public class PlayerCollision : Player
 
             // destroy the key
             Destroy(other.gameObject);
+
+			GetComponent<PlayerVisuals>().flashWhite = true;
         }
 
 		if (other.gameObject.CompareTag("Enemy"))
@@ -68,7 +70,7 @@ public class PlayerCollision : Player
 			Destroy(other.gameObject);
 		}
 
-		if (other.gameObject.CompareTag("Spotlight") && GetComponent<PlayerMovement>().panicMode == false)
+		if (other.gameObject.CompareTag("Spotlight") && getGameManager().panicMode == false)
 		{
 			getGameManager().Panic(true);
 		}

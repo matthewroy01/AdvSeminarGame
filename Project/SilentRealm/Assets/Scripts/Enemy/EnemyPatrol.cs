@@ -43,7 +43,7 @@ public class EnemyPatrol : Enemy {
 
     public void Vision()
     {
-        if (!panicMode)
+		if (!getGameManager().panicMode)
 		{
             if (currentDirection == Dirs.up)
             {
@@ -83,7 +83,7 @@ public class EnemyPatrol : Enemy {
     private void OnDrawGizmos()
     {
         // draw a sphere for debugging
-        if (!panicMode)
+		if (!getGameManager().panicMode)
         {
             //Gizmos.DrawSphere(new Vector3(endOfVision.x, endOfVision.y, -1), 0.25f);
 			Gizmos.DrawLine(transform.position, new Vector3(endOfVision.x, endOfVision.y, -1));
@@ -243,7 +243,7 @@ public class EnemyPatrol : Enemy {
 			StopAllCoroutines ();
 
 			// only do this if actually in panic mode
-			if (panicMode == true)
+			if (getGameManager().panicMode == true)
 			{
 				// set the position back to default
 				transform.position = defPos;
@@ -254,11 +254,11 @@ public class EnemyPatrol : Enemy {
 		}
 		else
 		{
-			panicMode = state;
+			//panicMode = state;
 
 			// start pathfinding
 			StartCoroutine(onYourOwnTime(panicTime));
 		}
-		panicMode = state;
+		//panicMode = state;
 	}
 }
