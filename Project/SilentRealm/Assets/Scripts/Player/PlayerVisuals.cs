@@ -13,7 +13,7 @@ public class PlayerVisuals : Player {
 	public bool fadeToBlack;
 	public bool flashWhite;
 
-	private bool whiteFadeOut = false;
+	public bool whiteFadeOut = false;
 
 	void Update()
 	{
@@ -42,29 +42,15 @@ public class PlayerVisuals : Player {
 
 	private void FlashWhite()
 	{
-		if (!whiteFadeOut)
-		{
-			if (imgWhite.GetComponent<SpriteRenderer>().color.a < 250)
-			{
-			imgBlack.GetComponent<SpriteRenderer>().color = new Color(imgWhite.GetComponent<SpriteRenderer>().color.r,
-				imgWhite.GetComponent<SpriteRenderer>().color.g,
-				imgWhite.GetComponent<SpriteRenderer>().color.b,
-				imgWhite.GetComponent<SpriteRenderer>().color.a + 0.01f);
-			}
-			else
-			{
-				whiteFadeOut = true;
-			}
-		}
-
-		if (whiteFadeOut)
+		/*if (whiteFadeOut)
 		{
 			if (imgWhite.GetComponent<SpriteRenderer>().color.a > 5)
 			{
-				imgWhite.GetComponent<SpriteRenderer>().color = new Color(imgWhite.GetComponent<SpriteRenderer>().color.r,
-					imgWhite.GetComponent<SpriteRenderer>().color.g,
-					imgWhite.GetComponent<SpriteRenderer>().color.b,
-					imgWhite.GetComponent<SpriteRenderer>().color.a + 0.01f);
+				imgWhite.GetComponent<SpriteRenderer>().color = new Color(
+				imgWhite.GetComponent<SpriteRenderer>().color.r,
+				imgWhite.GetComponent<SpriteRenderer>().color.g,
+				imgWhite.GetComponent<SpriteRenderer>().color.b,
+				imgWhite.GetComponent<SpriteRenderer>().color.a - 0.02f);
 			}
 			else
 			{
@@ -72,6 +58,21 @@ public class PlayerVisuals : Player {
 				flashWhite = false;
 			}
 		}
+		if (!whiteFadeOut)
+		{
+			if (imgWhite.GetComponent<SpriteRenderer>().color.a < 100)
+			{
+				imgWhite.GetComponent<SpriteRenderer>().color = new Color(
+				imgWhite.GetComponent<SpriteRenderer>().color.r,
+				imgWhite.GetComponent<SpriteRenderer>().color.g,
+				imgWhite.GetComponent<SpriteRenderer>().color.b,
+				imgWhite.GetComponent<SpriteRenderer>().color.a + 0.02f);
+			}
+			else
+			{
+				whiteFadeOut = true;
+			}
+		}*/
 	}
 
 	private void PanicMessage()

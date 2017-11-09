@@ -18,6 +18,9 @@ public class EnemyPatrol : Enemy {
 	[Header("Walls for movement")]
 	public LayerMask layerImpass;
 
+	[Header("Arrow to make it more clear what direction we're about to face")]
+	public GameObject arrow;
+
     void Start () {
 		defDir = currentDirection;
 		defPos = transform.position;
@@ -37,8 +40,11 @@ public class EnemyPatrol : Enemy {
             if (transform.position == (Vector3)points[i].point)
             {
                 currentDirection = points[i].direction;
+                arrow.SetActive(false);
             }
         }
+
+        UpdateArrow();
     }
 
     public void Vision()
@@ -78,6 +84,134 @@ public class EnemyPatrol : Enemy {
                 Gizmos.color = Color.white;
             }
         }
+    }
+
+    private void UpdateArrow()
+    {
+    	UpdateVectors();
+    	if (currentDirection == Dirs.up)
+    	{
+			for (int i = 0; i < points.Length; i++)
+        	{
+	            if (points[i].point == vUp && points[i].direction == Dirs.up)
+	            {
+	            	arrow.SetActive(true);
+					arrow.transform.rotation = Quaternion.Euler(0, 0, 180);
+					arrow.transform.position = vUp;
+	            }
+				if (points[i].point == vUp && points[i].direction == Dirs.down)
+	            {
+	            	arrow.SetActive(true);
+					arrow.transform.rotation = Quaternion.Euler(0, 0, 0);
+					arrow.transform.position = vUp;
+	            }
+				if (points[i].point == vUp && points[i].direction == Dirs.right)
+	            {
+	            	arrow.SetActive(true);
+					arrow.transform.rotation = Quaternion.Euler(0, 0, 90);
+					arrow.transform.position = vUp;
+	            }
+				if (points[i].point == vUp && points[i].direction == Dirs.left)
+	            {
+	            	arrow.SetActive(true);
+					arrow.transform.rotation = Quaternion.Euler(0, 0, 270);
+					arrow.transform.position = vUp;
+	            }
+        	}
+    	}
+
+		if (currentDirection == Dirs.down)
+    	{
+			for (int i = 0; i < points.Length; i++)
+        	{
+	            if (points[i].point == vDown && points[i].direction == Dirs.up)
+	            {
+	            	arrow.SetActive(true);
+					arrow.transform.rotation = Quaternion.Euler(0, 0, 180);
+					arrow.transform.position = vDown;
+	            }
+				if (points[i].point == vDown && points[i].direction == Dirs.down)
+	            {
+	            	arrow.SetActive(true);
+					arrow.transform.rotation = Quaternion.Euler(0, 0, 0);
+					arrow.transform.position = vDown;
+	            }
+				if (points[i].point == vDown && points[i].direction == Dirs.right)
+	            {
+	            	arrow.SetActive(true);
+					arrow.transform.rotation = Quaternion.Euler(0, 0, 90);
+					arrow.transform.position = vDown;
+	            }
+				if (points[i].point == vDown && points[i].direction == Dirs.left)
+	            {
+	            	arrow.SetActive(true);
+					arrow.transform.rotation = Quaternion.Euler(0, 0, 270);
+					arrow.transform.position = vDown;
+	            }
+        	}
+    	}
+
+		if (currentDirection == Dirs.left)
+    	{
+			for (int i = 0; i < points.Length; i++)
+        	{
+	            if (points[i].point == vLeft && points[i].direction == Dirs.up)
+	            {
+	            	arrow.SetActive(true);
+					arrow.transform.rotation = Quaternion.Euler(0, 0, 180);
+					arrow.transform.position = vLeft;
+	            }
+				if (points[i].point == vLeft && points[i].direction == Dirs.down)
+	            {
+	            	arrow.SetActive(true);
+					arrow.transform.rotation = Quaternion.Euler(0, 0, 0);
+					arrow.transform.position = vLeft;
+	            }
+				if (points[i].point == vLeft && points[i].direction == Dirs.right)
+	            {
+	            	arrow.SetActive(true);
+					arrow.transform.rotation = Quaternion.Euler(0, 0, 90);
+					arrow.transform.position = vLeft;
+	            }
+				if (points[i].point == vLeft && points[i].direction == Dirs.left)
+	            {
+	            	arrow.SetActive(true);
+					arrow.transform.rotation = Quaternion.Euler(0, 0, 270);
+					arrow.transform.position = vLeft;
+	            }
+        	}
+    	}
+
+		if (currentDirection == Dirs.right)
+    	{
+			for (int i = 0; i < points.Length; i++)
+        	{
+	            if (points[i].point == vRight && points[i].direction == Dirs.up)
+	            {
+	            	arrow.SetActive(true);
+					arrow.transform.rotation = Quaternion.Euler(0, 0, 180);
+					arrow.transform.position = vRight;
+	            }
+				if (points[i].point == vRight && points[i].direction == Dirs.down)
+	            {
+	            	arrow.SetActive(true);
+					arrow.transform.rotation = Quaternion.Euler(0, 0, 0);
+					arrow.transform.position = vRight;
+	            }
+				if (points[i].point == vRight && points[i].direction == Dirs.right)
+	            {
+	            	arrow.SetActive(true);
+					arrow.transform.rotation = Quaternion.Euler(0, 0, 90);
+					arrow.transform.position = vRight;
+	            }
+				if (points[i].point == vRight && points[i].direction == Dirs.left)
+	            {
+	            	arrow.SetActive(true);
+					arrow.transform.rotation = Quaternion.Euler(0, 0, 270);
+					arrow.transform.position = vRight;
+	            }
+        	}
+    	}
     }
 
     private void OnDrawGizmos()

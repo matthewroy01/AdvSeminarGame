@@ -128,7 +128,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1774550140121974}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3, z: 0}
+  m_LocalPosition: {x: -6, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4271945233200722}
@@ -310,7 +310,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2304
   panicSpeed: 5
-  animTime: 0.5
+  animTime: 0.25
   doppels: []
 --- !u!114 &114913518604413952
 MonoBehaviour:
@@ -331,7 +331,7 @@ MonoBehaviour:
   defDir: 0
   txtWarning: {fileID: 1842529559171076}
   imgBlack: {fileID: 1117145269657514}
-  imgWhite: {fileID: 0}
+  imgWhite: {fileID: 1263089102112102}
   fadeToBlack: 0
   flashWhite: 0
 --- !u!212 &212283934285146012

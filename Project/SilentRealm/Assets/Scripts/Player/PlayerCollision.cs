@@ -13,9 +13,12 @@ public class PlayerCollision : Player
 	public string[] unlocks;
 
 	private UtilityLevelManager levelManager;
+	private Animator anim;
 
     void Start()
     {
+		anim = gameObject.GetComponent<Animator>();
+
         // find the game manager
         FindGameManager();
 
@@ -27,6 +30,8 @@ public class PlayerCollision : Player
 	void Update()
 	{
 		UpdateStuck();
+
+		anim.SetBool("movementEnabled", movementEnabled);
 
 		if (movementEnabled == false)
 		{
