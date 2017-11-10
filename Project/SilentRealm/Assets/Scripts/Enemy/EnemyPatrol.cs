@@ -8,8 +8,9 @@ public class EnemyPatrol : Enemy {
     [Header("List of points for patrolling")]
     public PatrolPoint[] points;
 
-    [Header("The end of vision")]
+    [Header("Points for vision")]
     [SerializeField] private Vector2 endOfVision;
+	[SerializeField] private Vector2 midOfVision;
 
     [Header("Walls for vision")]
     public LayerMask layerWallVision;
@@ -20,6 +21,9 @@ public class EnemyPatrol : Enemy {
 
 	[Header("Arrow to make it more clear what direction we're about to face")]
 	public GameObject arrow;
+
+	[Header("An actual visual for vision cone")]
+	public GameObject cone;
 
     void Start () {
 		defDir = currentDirection;
@@ -51,23 +55,39 @@ public class EnemyPatrol : Enemy {
     {
 		if (!getGameManager().panicMode)
 		{
+			// set end of vision point
+			// set mid of vision point
+			// set the rotation of the cone
             if (currentDirection == Dirs.up)
             {
                 endOfVision = new Vector2(transform.position.x, transform.position.y + (1 * visionDist));
+				SetMidVision();
+				cone.transform.rotation = Quaternion.Euler(90, 0, 0);
             }
             else if (currentDirection == Dirs.down)
             {
                 endOfVision = new Vector2(transform.position.x, transform.position.y - (1 * visionDist));
+				SetMidVision();
+				cone.transform.rotation = Quaternion.Euler(270, 0, 0);
             }
             else if (currentDirection == Dirs.left)
             {
                 endOfVision = new Vector2(transform.position.x - (1 * visionDist), transform.position.y);
+				SetMidVision();
+				cone.transform.rotation = Quaternion.Euler(0, 90, 0);
             }
             else if (currentDirection == Dirs.right)
             {
                 endOfVision = new Vector2(transform.position.x + (1 * visionDist), transform.position.y);
+				SetMidVision();
+				cone.transform.rotation = Quaternion.Euler(0, 270, 0);
             }
+			// set the cone's position to the mid position
+			cone.transform.position = midOfVision;
+			// set the scale of the cone according to the visionDist
+			cone.transform.localScale = new Vector3(cone.transform.localScale.x, cone.transform.localScale.y, visionDist);
 
+			// fire the raycast
 			RaycastHit2D tmp;
 			tmp = Physics2D.Linecast(transform.position, endOfVision, layerVision);
 			
@@ -85,6 +105,11 @@ public class EnemyPatrol : Enemy {
             }
         }
     }
+
+	private void SetMidVision()
+	{
+		midOfVision = new Vector2((transform.position.x + endOfVision.x) * 0.5f, (transform.position.y + endOfVision.y) * 0.5f);
+	}
 
     private void UpdateArrow()
     {
@@ -376,6 +401,9 @@ public class EnemyPatrol : Enemy {
 			// stop the path finding coroutine
 			StopAllCoroutines ();
 
+			// enable the vision cone
+			cone.SetActive(true);
+
 			// only do this if actually in panic mode
 			if (getGameManager().panicMode == true)
 			{
@@ -388,11 +416,12 @@ public class EnemyPatrol : Enemy {
 		}
 		else
 		{
-			//panicMode = state;
+			// disable the vision cone
+			cone.SetActive(false);
 
 			// start pathfinding
 			StartCoroutine(onYourOwnTime(panicTime));
+			arrow.SetActive(false);
 		}
-		//panicMode = state;
 	}
 }

@@ -55,7 +55,7 @@ public class God : MonoBehaviour {
 
     public UtilityGameManager getGameManager()
     {
-    	return gameManager.GetComponent<UtilityGameManager>();
+		return gameManager.GetComponent<UtilityGameManager>();
     }
 
 	public bool GetAnimationState() { return doneWithAnimation; }

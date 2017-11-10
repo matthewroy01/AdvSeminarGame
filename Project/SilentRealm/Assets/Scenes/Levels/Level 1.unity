@@ -295,11 +295,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4302966910004364, guid: 83d7dd903f9192349952aacd90dd48ea,
     type: 2}
   m_PrefabInternal: {fileID: 308028649}
---- !u!1 &340855629 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1117145269657514, guid: 893734089a24a424f896dc09e8744df6,
-    type: 2}
-  m_PrefabInternal: {fileID: 1718323083}
 --- !u!1 &382409138
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,11 +595,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4158916095605168, guid: cf9e93e7588d2d149a726f2190711d12,
     type: 2}
   m_PrefabInternal: {fileID: 2011949437}
---- !u!1 &840502625 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1263089102112102, guid: 893734089a24a424f896dc09e8744df6,
-    type: 2}
-  m_PrefabInternal: {fileID: 1718323083}
 --- !u!1 &918766627 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1842529559171076, guid: 893734089a24a424f896dc09e8744df6,
@@ -658,7 +648,7 @@ Prefab:
         type: 2}
       propertyPath: imgBlack
       value: 
-      objectReference: {fileID: 340855629}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b9b52b76e680698419350caa2016c7de, type: 2}
   m_IsPrefabParent: 0
@@ -1117,7 +1107,7 @@ Prefab:
         type: 2}
       propertyPath: imgWhite
       value: 
-      objectReference: {fileID: 840502625}
+      objectReference: {fileID: 0}
     - target: {fileID: 212498943971000330, guid: 893734089a24a424f896dc09e8744df6,
         type: 2}
       propertyPath: m_Color.a
@@ -1127,6 +1117,11 @@ Prefab:
         type: 2}
       propertyPath: m_Color.a
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114431553428673520, guid: 893734089a24a424f896dc09e8744df6,
+        type: 2}
+      propertyPath: unlocks.Array.data[0]
+      value: Level 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 893734089a24a424f896dc09e8744df6, type: 2}

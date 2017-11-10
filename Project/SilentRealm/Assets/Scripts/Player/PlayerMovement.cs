@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : Player
 {
+	public bool movEnabled;
+
     [Header("Walls")]
 	public LayerMask wallLayer;
 
@@ -33,6 +35,8 @@ public class PlayerMovement : Player
 	{
 		// movement
 		Movement();
+
+		movEnabled = movementEnabled;
 	}
 
 	private void Movement()
