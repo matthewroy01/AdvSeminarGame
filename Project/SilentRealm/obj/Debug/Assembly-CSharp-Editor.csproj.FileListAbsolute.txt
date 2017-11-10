@@ -130,5 +130,3 @@ D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEditor.SamsungT
 D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEditor.Tizen.Extensions.dll
 D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEditor.WebGL.Extensions.dll
 D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEditor.WSA.Extensions.dll
-D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\SyntaxTree.VisualStudio.Unity.Bridge.dll
-D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\SyntaxTree.VisualStudio.Unity.Messaging.dll

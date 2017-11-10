@@ -1023,6 +1023,10 @@ Prefab:
       propertyPath: clips.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: 4a9383ce09c23b14c9bf792b679dd9d7, type: 3}
+    - target: {fileID: 4271945233200722, guid: 893734089a24a424f896dc09e8744df6, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 893734089a24a424f896dc09e8744df6, type: 2}
   m_IsPrefabParent: 0

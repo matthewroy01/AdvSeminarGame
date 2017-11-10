@@ -239,7 +239,7 @@ public class EnemyPatrol : Enemy {
     	}
     }
 
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
         // draw a sphere for debugging
 		if (!getGameManager().panicMode)
@@ -247,7 +247,7 @@ public class EnemyPatrol : Enemy {
             //Gizmos.DrawSphere(new Vector3(endOfVision.x, endOfVision.y, -1), 0.25f);
 			Gizmos.DrawLine(transform.position, new Vector3(endOfVision.x, endOfVision.y, -1));
         }
-    }
+    }*/
 
     public override void Step()
 	{
