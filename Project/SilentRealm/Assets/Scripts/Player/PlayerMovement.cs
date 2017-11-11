@@ -41,81 +41,84 @@ public class PlayerMovement : Player
 
 	private void Movement()
 	{
-		if(movementEnabled)
+		if (!getGameManager().paused)
 		{
-			if (!getGameManager().panicMode)
-	        {
-				if (getGameManager().DoneWithAnimations() == true)
-				{
-		            if (Input.GetButtonDown("Up"))
-		            {
-						if (checkMov(Dirs.up))
-						{
-			                transform.position = new Vector2(transform.position.x, transform.position.y + 1);
-			                getGameManager().togetherNow();
-							SetAnimationState(false);
-							Invoke("FinishAnimation", animTime);
-						}
+			if(movementEnabled)
+			{
+				if (!getGameManager().panicMode)
+		        {
+					if (getGameManager().DoneWithAnimations() == true)
+					{
+			            if (Input.GetButtonDown("Up"))
+			            {
+							if (checkMov(Dirs.up))
+							{
+				                transform.position = new Vector2(transform.position.x, transform.position.y + 1);
+				                getGameManager().togetherNow();
+								SetAnimationState(false);
+								Invoke("FinishAnimation", animTime);
+							}
 
-						foreach (EnemyDoppelganger doppel in doppels)
-						{
-								doppel.Movement("up");
-						}
-		            }
-		            else if (Input.GetButtonDown("Down"))
-		            {
-						if (checkMov(Dirs.down))
-						{
-			                transform.position = new Vector2(transform.position.x, transform.position.y - 1);
-			                getGameManager().togetherNow();
-							SetAnimationState(false);
-							Invoke("FinishAnimation", animTime);
-						}
+							foreach (EnemyDoppelganger doppel in doppels)
+							{
+									doppel.Movement("up");
+							}
+			            }
+			            else if (Input.GetButtonDown("Down"))
+			            {
+							if (checkMov(Dirs.down))
+							{
+				                transform.position = new Vector2(transform.position.x, transform.position.y - 1);
+				                getGameManager().togetherNow();
+								SetAnimationState(false);
+								Invoke("FinishAnimation", animTime);
+							}
 
-						foreach (EnemyDoppelganger doppel in doppels)
-						{
-								doppel.Movement("down");
-						}
-		            }
-		            else if (Input.GetButtonDown("Left"))
-		            {
-						if (checkMov(Dirs.left))
-						{
-			                transform.position = new Vector2(transform.position.x - 1, transform.position.y);
-			                getGameManager().togetherNow();
-							SetAnimationState(false);
-							Invoke("FinishAnimation", animTime);
-						}
+							foreach (EnemyDoppelganger doppel in doppels)
+							{
+									doppel.Movement("down");
+							}
+			            }
+			            else if (Input.GetButtonDown("Left"))
+			            {
+							if (checkMov(Dirs.left))
+							{
+				                transform.position = new Vector2(transform.position.x - 1, transform.position.y);
+				                getGameManager().togetherNow();
+								SetAnimationState(false);
+								Invoke("FinishAnimation", animTime);
+							}
 
-						foreach (EnemyDoppelganger doppel in doppels)
-						{
-							doppel.Movement("left");
-						}
-		            }
-		            else if (Input.GetButtonDown("Right"))
-		            {
-						if (checkMov(Dirs.right))
-						{
-			                transform.position = new Vector2(transform.position.x + 1, transform.position.y);
-			                getGameManager().togetherNow();
-							SetAnimationState(false);
-							Invoke("FinishAnimation", animTime);
-						}
+							foreach (EnemyDoppelganger doppel in doppels)
+							{
+								doppel.Movement("left");
+							}
+			            }
+			            else if (Input.GetButtonDown("Right"))
+			            {
+							if (checkMov(Dirs.right))
+							{
+				                transform.position = new Vector2(transform.position.x + 1, transform.position.y);
+				                getGameManager().togetherNow();
+								SetAnimationState(false);
+								Invoke("FinishAnimation", animTime);
+							}
 
-						foreach (EnemyDoppelganger doppel in doppels)
-						{
-							doppel.Movement("right");
-						}
-		            }
-				}
-	        }
-			else
-	        {
-				if (movementEnabled)
-				{
-	            	rb.velocity = new Vector2(Input.GetAxis("Horizontal") * panicSpeed, Input.GetAxis("Vertical") * panicSpeed);
-				}
-	        }
+							foreach (EnemyDoppelganger doppel in doppels)
+							{
+								doppel.Movement("right");
+							}
+			            }
+					}
+		        }
+				else
+		        {
+					if (movementEnabled)
+					{
+		            	rb.velocity = new Vector2(Input.GetAxis("Horizontal") * panicSpeed, Input.GetAxis("Vertical") * panicSpeed);
+					}
+		        }
+			}
 		}
 	}
 

@@ -33,7 +33,10 @@ public class Enemy : God {
 
 		while (getGameManager().panicMode)
         {
-            StepOwn();
+			if (getGameManager().paused == false)
+			{
+            	StepOwn();
+			}
             yield return new WaitForSeconds(time);
         }
     }

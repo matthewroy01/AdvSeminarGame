@@ -113,11 +113,11 @@ MonoBehaviour:
   vRight: {x: 0, y: 0}
   defPos: {x: 0, y: 0}
   defDir: 0
-  panicMode: 0
   visionDist: 0
   panicTime: 0
   currentDirection: 0
   previousDirection: -1
+  leeway: 0
   wallLayer:
     serializedVersion: 2
     m_Bits: 3328
@@ -153,9 +153,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7b1f80b8bc3eee84ca1a6186ccdd217c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c6169021df3d2924587dd3b7e26f7311, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}

@@ -29,6 +29,9 @@ public class UtilityGameManager : MonoBehaviour {
 
 	public int steps = 0;
 
+	[Header("Pausing")]
+	public bool paused = false;
+
 	void Start () {
 		// find all enemies
 		FindAllEnemies();
@@ -51,14 +54,14 @@ public class UtilityGameManager : MonoBehaviour {
 
     void Update()
     {
+		// over arching input
+		CheckInput();
+
 		// check to see how many keys have been collected
         CheckKeys();
 
 		// update the UI that isn't possible in the OnGUI function
 		UpdateGUI();
-
-		// over arching input
-		CheckInput();
     }
 
 	private void FindAllEnemies()
@@ -172,6 +175,11 @@ public class UtilityGameManager : MonoBehaviour {
 		if (Input.GetButtonDown("Escape"))
 		{
 			SceneManager.LoadScene(0);
+		}
+
+		if (Input.GetButtonDown("Pause"))
+		{
+			paused = !paused;
 		}
 	}
 }

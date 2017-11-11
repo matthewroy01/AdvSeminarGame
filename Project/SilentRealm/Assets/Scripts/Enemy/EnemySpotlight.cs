@@ -37,25 +37,32 @@ public class EnemySpotlight : Enemy
 	{
 		if (!getGameManager().panicMode)
 		{
-			if (canMove == true)
+			if (getGameManager().paused == false)
 			{
-				rb.velocity = (points[count].point - (Vector2)transform.position).normalized * movSpeed;
-			}
-			else
-			{
-				rb.velocity = Vector2.zero;
-			}
-
-			if (CheckPoint())
-			{
-				if (count == maxCount - 1)
+				if (canMove == true)
 				{
-					count = 0;
+					rb.velocity = (points[count].point - (Vector2)transform.position).normalized * movSpeed;
 				}
 				else
 				{
-					count++;
+					rb.velocity = Vector2.zero;
 				}
+
+				if (CheckPoint())
+				{
+					if (count == maxCount - 1)
+					{
+						count = 0;
+					}
+					else
+					{
+						count++;
+					}
+				}
+			}
+			else
+			{
+
 			}
 		}
 		else
@@ -118,7 +125,7 @@ public class EnemySpotlight : Enemy
 			if (getGameManager().panicMode == true)
 			{
 				// set the position back to default
-				transform.position = defPos;
+				transform.position = new Vector3(defPos.x, defPos.y, transform.position.z);
 
 				// set the current direction back to default
 				currentDirection = defDir;

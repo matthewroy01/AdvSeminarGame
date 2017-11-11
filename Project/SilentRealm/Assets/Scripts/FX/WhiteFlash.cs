@@ -43,7 +43,6 @@ public class WhiteFlash : MonoBehaviour {
 		{
 			fadeOut = true;
 		}
-		Debug.Log(sprite.color.a);
 	}
 
 	private void dest()
