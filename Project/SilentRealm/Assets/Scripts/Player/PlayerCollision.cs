@@ -35,9 +35,14 @@ public class PlayerCollision : Player
 
 		anim.SetBool("movementEnabled", movementEnabled);
 
+		// ignore collision with voids if we can't move
 		if (movementEnabled == false)
 		{
-			Physics2D.IgnoreLayerCollision(gameObject.layer, 11);
+			Physics2D.IgnoreLayerCollision(gameObject.layer, 11, true);
+		}
+		else
+		{
+			Physics2D.IgnoreLayerCollision(gameObject.layer, 11, false);
 		}
 	}
 

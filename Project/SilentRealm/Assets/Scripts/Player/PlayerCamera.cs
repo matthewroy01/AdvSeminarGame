@@ -5,7 +5,7 @@ using UnityEngine.PostProcessing;
 
 public class PlayerCamera : Player {
 
-	private float count = 0, interval = 4.5f;
+	public float followSpeed;
 
 	private PostProcessingBehaviour post;
 
@@ -16,32 +16,20 @@ public class PlayerCamera : Player {
 
 	void Update ()
 	{
-		// outside panic mode, have the camera lerp to the player's position
-		if (getGameManager().panicMode == false)
-		{
-			if ((Vector2)transform.position != (Vector2)getGameManager ().player.transform.position)
-			{
-				Vector2 tmp = Vector2.Lerp (transform.position, getGameManager ().player.transform.position, count);
-				transform.position = new Vector3 (tmp.x, tmp.y, transform.position.z);
-				count += interval * Time.deltaTime;
-			}
-			else
-			{
-				count = 0;
-			}
-		}
-		// otherwise, just set the camera's position to the player's
-		else
-		{
-			transform.position = new Vector3(getGameManager().player.transform.position.x, getGameManager().player.transform.position.y, transform.position.z);
-		}
-
 		if (getGameManager().panicMode == true)
 		{
+			Vector3 tmp = getGameManager().player.transform.position;
+			transform.position = new Vector3(tmp.x, tmp.y, transform.position.z);
+
+			// enable post processing in panic mode
 			post.enabled = true;
 		}
 		else
 		{
+			// why lerp when contantly using MoveTowards looks way better?
+			Vector3 tmp = Vector3.MoveTowards(transform.position, getGameManager().player.transform.position, followSpeed);
+			transform.position = new Vector3(tmp.x, tmp.y, transform.position.z);
+
 			post.enabled = false;
 		}
 	}
