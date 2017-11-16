@@ -77,15 +77,17 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
-    m_PVRFiltering: 0
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
     m_PVRFilteringMode: 1
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
     m_PVRFilteringGaussRadiusAO: 2
-    m_PVRFilteringAtrousColorSigma: 1
-    m_PVRFilteringAtrousNormalSigma: 1
-    m_PVRFilteringAtrousPositionSigma: 1
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -107,6 +109,8 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
+    debug:
+      m_Flags: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1001 &24385156
 Prefab:
@@ -295,6 +299,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4302966910004364, guid: 83d7dd903f9192349952aacd90dd48ea,
     type: 2}
   m_PrefabInternal: {fileID: 308028649}
+--- !u!1 &361972689 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1968989768099250, guid: cc9357984b7714248857822796433e09,
+    type: 2}
+  m_PrefabInternal: {fileID: 397233428}
 --- !u!1 &382409138
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,11 +604,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4158916095605168, guid: cf9e93e7588d2d149a726f2190711d12,
     type: 2}
   m_PrefabInternal: {fileID: 2011949437}
---- !u!1 &918766627 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1842529559171076, guid: 893734089a24a424f896dc09e8744df6,
-    type: 2}
-  m_PrefabInternal: {fileID: 1718323083}
 --- !u!1001 &928674311
 Prefab:
   m_ObjectHideFlags: 0
@@ -643,11 +647,21 @@ Prefab:
         type: 2}
       propertyPath: txtWarning
       value: 
-      objectReference: {fileID: 918766627}
+      objectReference: {fileID: 361972689}
     - target: {fileID: 114853779465459336, guid: b9b52b76e680698419350caa2016c7de,
         type: 2}
       propertyPath: imgBlack
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 224236344600248772, guid: b9b52b76e680698419350caa2016c7de,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 466.21994
+      objectReference: {fileID: 0}
+    - target: {fileID: 224236344600248772, guid: b9b52b76e680698419350caa2016c7de,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 254.42334
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b9b52b76e680698419350caa2016c7de, type: 2}
