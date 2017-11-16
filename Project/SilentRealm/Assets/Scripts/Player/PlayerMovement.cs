@@ -36,14 +36,14 @@ public class PlayerMovement : Player
 		// movement
 		Movement();
 
-		movEnabled = movementEnabled;
+		//movEnabled = movementEnabled;
 	}
 
 	private void Movement()
 	{
 		if (!getGameManager().paused)
 		{
-			if(movementEnabled)
+			if(!webbed && !winState)
 			{
 				if (!getGameManager().panicMode)
 		        {
@@ -113,7 +113,7 @@ public class PlayerMovement : Player
 		        }
 				else
 		        {
-					if (movementEnabled)
+					if (!webbed && !winState)
 					{
 		            	rb.velocity = new Vector2(Input.GetAxis("Horizontal") * panicSpeed, Input.GetAxis("Vertical") * panicSpeed);
 					}

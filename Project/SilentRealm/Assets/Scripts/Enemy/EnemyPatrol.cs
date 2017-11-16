@@ -85,7 +85,7 @@ public class EnemyPatrol : Enemy {
 			// set the cone's position to the mid position
 			cone.transform.position = midOfVision;
 			// set the scale of the cone according to the visionDist
-			cone.transform.localScale = new Vector3(cone.transform.localScale.x, cone.transform.localScale.y, visionDist);
+			cone.transform.localScale = new Vector3(cone.transform.localScale.x, cone.transform.localScale.y, visionDist + 1.0f);
 
 			// fire the raycast
 			RaycastHit2D tmp;

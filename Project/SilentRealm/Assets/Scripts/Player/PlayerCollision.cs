@@ -26,17 +26,17 @@ public class PlayerCollision : Player
 
 		levelManager = GameObject.Find("LevelManager").GetComponent<UtilityLevelManager>();
 
-		movementEnabled = true;
+		webbed = false;
     }
 
 	void Update()
 	{
 		UpdateStuck();
 
-		anim.SetBool("movementEnabled", movementEnabled);
+		anim.SetBool("webbed", webbed);
 
 		// ignore collision with voids if we can't move
-		if (movementEnabled == false)
+		if (webbed == true)
 		{
 			Physics2D.IgnoreLayerCollision(gameObject.layer, 11, true);
 		}
@@ -73,15 +73,15 @@ public class PlayerCollision : Player
 		// getting hit by an enemy
 		if (other.gameObject.CompareTag("Enemy"))
 		{
-			SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
+			Kill();
 		}
 
 		// if you get hit by a web
 		if (other.gameObject.CompareTag("Web"))
 		{
-			if (movementEnabled)
+			if (!webbed)
 			{
-				movementEnabled = false;
+				webbed = true;
 				webVelocity = other.GetComponent<Rigidbody2D>().velocity;
 			}
 			Destroy(other.gameObject);
@@ -96,10 +96,13 @@ public class PlayerCollision : Player
 		// exiting the level and winning
 		if (other.gameObject.CompareTag("WinTrigger"))
 		{
-			movementEnabled = false;
+			webbed = false;
+			winState = true;
 			getGameManager().Panic(false);
 			GetComponent<AudioSource>().Play();
 			webVelocity = new Vector2(0,0);
+			GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
+			transform.position = other.transform.position;
 			Instantiate(blackFade, new Vector3(transform.position.x, transform.position.y, -2), transform.rotation);
 			TellLevelManager();
 			Invoke("Win", 4.0f);
@@ -108,21 +111,27 @@ public class PlayerCollision : Player
 
     void Win()
     {
+		winState = false;
 		SceneManager.LoadScene (0);
     }
+
+	public void Kill()
+	{
+		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
+	}
 
 	void OnCollisionEnter2D(Collision2D other)
 	{
 		// hitting a wall while webbed and not in panic mode should snap the player back to the grid
-		if (movementEnabled == false && getGameManager().panicMode == false && other.gameObject.layer == 8)
+		if (webbed == true && getGameManager().panicMode == false && other.gameObject.layer == 8)
 		{
-			movementEnabled = true;
+			webbed = false;
 			SnapToGrid();
 		}
 		// otherwise, just reenable movement
-		else if (movementEnabled == false && other.gameObject.layer == 8)
+		else if (webbed == true && other.gameObject.layer == 8)
 		{
-			movementEnabled = true;
+			webbed = false;
 		}
 	}
 
@@ -134,7 +143,7 @@ public class PlayerCollision : Player
 
 	private void UpdateStuck()
 	{
-		if (!movementEnabled)
+		if (webbed)
 		{
 			GetComponent<Rigidbody2D>().velocity = webVelocity;
 		}

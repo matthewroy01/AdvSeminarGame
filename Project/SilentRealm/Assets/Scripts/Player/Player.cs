@@ -5,7 +5,8 @@ using UnityEngine;
 public class Player : God {
 
 	[SerializeField]
-	public static bool movementEnabled = true;
+	public static bool webbed = false;
+	public static bool winState = false;
 
 	void Start () {
 		

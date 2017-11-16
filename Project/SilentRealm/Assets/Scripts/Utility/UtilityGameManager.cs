@@ -31,6 +31,9 @@ public class UtilityGameManager : MonoBehaviour {
 	[Header("Pausing")]
 	public bool paused = false;
 
+	[Header("TESTING FOR STRIKER ONLY")]
+	public bool instaKill = false;
+
 	void Start () {
 		// find all enemies
 		FindAllEnemies();

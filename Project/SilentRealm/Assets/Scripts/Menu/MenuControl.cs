@@ -20,7 +20,7 @@ public class MenuControl : MonoBehaviour {
 	}
 
 	void Update () {
-		MoveCamera();
+		//MoveCamera();
 	}
 
 	public void setNewAsActive(string name)
@@ -93,7 +93,7 @@ public class MenuControl : MonoBehaviour {
 		}
 	}
 
-	void MoveCamera()
+	public void MoveCamera()
 	{
 		mainCam.transform.position = new Vector3(menus[currentlyActive].transform.position.x, menus[currentlyActive].transform.position.y, -10);
 	}

@@ -128,4 +128,14 @@ D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEditor.GoogleAu
 D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEngine.GoogleAudioSpatializer.xml
 D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEditor.SpatialTracking.xml
 D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEngine.SpatialTracking.xml
-D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEditor.iOS.Extensions.Xcode.xml
+D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEditor.Android.Extensions.dll
+D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEditor.AppleTV.Extensions.dll
+D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEditor.Facebook.Extensions.dll
+D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEditor.iOS.Extensions.Common.dll
+D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEditor.iOS.Extensions.dll
+D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEditor.LinuxStandalone.Extensions.dll
+D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEditor.OSXStandalone.Extensions.dll
+D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEditor.SamsungTV.Extensions.dll
+D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEditor.Tizen.Extensions.dll
+D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEditor.WebGL.Extensions.dll
+D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEditor.WSA.Extensions.dll

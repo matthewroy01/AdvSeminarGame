@@ -15,6 +15,7 @@ public class ButtonsMain : MonoBehaviour {
 					case 0 :
 						Debug.Log("going to level select");
 						GameObject.Find("Menu Control").GetComponent<MenuControl>().setNewAsActive("Level Select");
+						GameObject.Find("Menu Control").GetComponent<MenuControl>().MoveCamera();
 						break;
 
 					case 1 :

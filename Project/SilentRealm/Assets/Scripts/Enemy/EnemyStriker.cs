@@ -91,7 +91,7 @@ public class EnemyStriker : Enemy {
 			// set the cone's position to the mid position
 			cone.transform.position = midOfVision;
 			// set the scale of the cone according to the visionDist
-			cone.transform.localScale = new Vector3(cone.transform.localScale.x, cone.transform.localScale.y, visionDist);
+			cone.transform.localScale = new Vector3(cone.transform.localScale.x, cone.transform.localScale.y, visionDist + 1.0f);
 
 			// fire the raycast
 			RaycastHit2D tmp;
@@ -100,11 +100,18 @@ public class EnemyStriker : Enemy {
             // if the player is detected before any walls...
 			if (tmp.collider != null && tmp.collider.gameObject.CompareTag("Player"))
             {
-            	// fire fireStrike at the player
-            	currentProj = Instantiate(strike, new Vector3(transform.position.x, transform.position.y, -1), transform.rotation);
-            	justFired = true;
-            	Invoke("Fire", 0.2f);
-            	Invoke("Reload", 1.0f);
+				if (!getGameManager().instaKill)
+				{
+	            	// fire fireStrike at the player
+	            	currentProj = Instantiate(strike, new Vector3(transform.position.x, transform.position.y, -1), transform.rotation);
+	            	justFired = true;
+	            	Invoke("Fire", 0.2f);
+	            	Invoke("Reload", 1.0f);
+				}
+				else
+				{
+					getGameManager().player.GetComponent<PlayerCollision>().Kill();
+				}
             }
         }
     }
@@ -356,6 +363,8 @@ public class EnemyStriker : Enemy {
 		{
 			// disable the vision cone
 			cone.SetActive(false);
+
+			transform.position = new Vector2(1000, 1000);
 
 			// start pathfinding
 			StartCoroutine(onYourOwnTime(panicTime));
