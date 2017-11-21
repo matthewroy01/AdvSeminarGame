@@ -43,85 +43,88 @@ public class EnemySpider : Enemy {
 
 	public override void StepOwn()
 	{
-		UpdateVectors ();
+		if (getGameManager().paused == false)
+		{
+			UpdateVectors ();
 
-		// decide which direction is current
-		if (horizontalChase)
-		{
-			if (transform.position.x > getGameManager().player.transform.position.x)
+			// decide which direction is current
+			if (horizontalChase)
 			{
-				currentDirection = Dirs.left;
+				if (transform.position.x > getGameManager().player.transform.position.x)
+				{
+					currentDirection = Dirs.left;
+				}
+				if (transform.position.x < getGameManager().player.transform.position.x)
+				{
+					currentDirection = Dirs.right;
+				}
 			}
-			if (transform.position.x < getGameManager().player.transform.position.x)
+			if (!horizontalChase)
 			{
-				currentDirection = Dirs.right;
+				if (transform.position.y > getGameManager ().player.transform.position.y)
+				{
+					currentDirection = Dirs.down;
+				}
+				if (transform.position.y < getGameManager ().player.transform.position.y)
+				{
+					currentDirection = Dirs.up;
+				}
 			}
-		}
-		if (!horizontalChase)
-		{
-			if (transform.position.y > getGameManager ().player.transform.position.y)
-			{
-				currentDirection = Dirs.down;
-			}
-			if (transform.position.y < getGameManager ().player.transform.position.y)
-			{
-				currentDirection = Dirs.up;
-			}
-		}
 
-		// now move (if you haven't already reached the target area)
-		if (!horizontalChase &&
-			(transform.position.y - getGameManager ().player.transform.position.y > 0.5f ||
-			transform.position.y - getGameManager ().player.transform.position.y < -0.5f))
-		{
-			if (currentDirection == Dirs.up && checkMov(Dirs.up))
+			// now move (if you haven't already reached the target area)
+			if (!horizontalChase &&
+				(transform.position.y - getGameManager ().player.transform.position.y > 0.5f ||
+				transform.position.y - getGameManager ().player.transform.position.y < -0.5f))
 			{
-				transform.position = vUp;
+				if (currentDirection == Dirs.up && checkMov(Dirs.up))
+				{
+					transform.position = vUp;
+				}
+				else if (currentDirection == Dirs.down && checkMov(Dirs.down))
+				{
+					transform.position = vDown;
+				}
+				else
+				{
+					// if a wall is hit, change direction
+					horizontalChase = !horizontalChase;
+				}
 			}
-			else if (currentDirection == Dirs.down && checkMov(Dirs.down))
+			if (horizontalChase &&
+				(transform.position.x - getGameManager().player.transform.position.x > 0.5f ||
+				transform.position.x - getGameManager().player.transform.position.x < -0.5f))
 			{
-				transform.position = vDown;
+				if (currentDirection == Dirs.left && checkMov(Dirs.left))
+				{
+					transform.position = vLeft;
+				}
+				else if (currentDirection == Dirs.right && checkMov(Dirs.right))
+				{
+					transform.position = vRight;
+				}
+				else
+				{
+					// if a wall is hit, change direction
+					horizontalChase = !horizontalChase;
+				}
+			}
+
+			// fire a web if in range
+			if (horizontalChase)
+			{
+				if (transform.position.x - getGameManager().player.transform.position.x < 0.5f &
+					transform.position.x - getGameManager().player.transform.position.x > -0.5f)
+				{
+					FireOwn();
+				}
 			}
 			else
 			{
-				// if a wall is hit, change direction
-				horizontalChase = !horizontalChase;
-			}
-		}
-		if (horizontalChase &&
-			(transform.position.x - getGameManager().player.transform.position.x > 0.5f ||
-			transform.position.x - getGameManager().player.transform.position.x < -0.5f))
-		{
-			if (currentDirection == Dirs.left && checkMov(Dirs.left))
-			{
-				transform.position = vLeft;
-			}
-			else if (currentDirection == Dirs.right && checkMov(Dirs.right))
-			{
-				transform.position = vRight;
-			}
-			else
-			{
-				// if a wall is hit, change direction
-				horizontalChase = !horizontalChase;
-			}
-		}
-
-		// fire a web if in range
-		if (horizontalChase)
-		{
-			if (transform.position.x - getGameManager().player.transform.position.x < 0.5f &
-				transform.position.x - getGameManager().player.transform.position.x > -0.5f)
-			{
-				FireOwn();
-			}
-		}
-		else
-		{
-			if (transform.position.y - getGameManager().player.transform.position.y < 0.5f &
-				transform.position.y - getGameManager().player.transform.position.y > -0.5f)
-			{
-				FireOwn();
+				if (transform.position.y - getGameManager().player.transform.position.y < 0.5f &
+					transform.position.y - getGameManager().player.transform.position.y > -0.5f)
+				{
+					FireOwn();
+				}
 			}
 		}
 	}

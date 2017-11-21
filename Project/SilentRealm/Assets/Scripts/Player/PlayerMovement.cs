@@ -29,6 +29,9 @@ public class PlayerMovement : Player
 
         // initialize the movement vectors
         UpdateVectors();
+
+		webbed = false;
+		winState = false;
     }
 
 	void Update ()
@@ -120,6 +123,10 @@ public class PlayerMovement : Player
 		        }
 			}
 		}
+		else
+		{
+			rb.velocity = Vector2.zero;
+		}
 	}
 
 	private bool checkMov (Dirs dir)
@@ -167,5 +174,12 @@ public class PlayerMovement : Player
 	private void FinishAnimation()
 	{
 		SetAnimationState(true);
+	}
+
+	public void DisableMovement()
+	{
+		// use win state to stop movement as a sort of quick fix
+		// this is for when the Striker has the player in its sight
+		winState = true;
 	}
 }

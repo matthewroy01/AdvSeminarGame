@@ -100,18 +100,12 @@ public class EnemyStriker : Enemy {
             // if the player is detected before any walls...
 			if (tmp.collider != null && tmp.collider.gameObject.CompareTag("Player"))
             {
-				if (!getGameManager().instaKill)
-				{
 	            	// fire fireStrike at the player
 	            	currentProj = Instantiate(strike, new Vector3(transform.position.x, transform.position.y, -1), transform.rotation);
 	            	justFired = true;
+					getGameManager().player.GetComponent<PlayerMovement>().DisableMovement();
 	            	Invoke("Fire", 0.2f);
 	            	Invoke("Reload", 1.0f);
-				}
-				else
-				{
-					getGameManager().player.GetComponent<PlayerCollision>().Kill();
-				}
             }
         }
     }

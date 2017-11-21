@@ -112,7 +112,7 @@ public class EnemyGoliath : Enemy {
 
 	public override void StepOwn()
 	{
-		if (enraged == true)
+		if (enraged == true && getGameManager().paused == false)
 		{
 			// path towards the player
 			float lowestHeuristic = Vector2.Distance (getGameManager().player.transform.position, vUp);

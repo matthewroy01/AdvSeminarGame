@@ -11,13 +11,34 @@ public class UtilityDestroyAfterSeconds : MonoBehaviour {
 	public bool destroyOnCollision;
 	public LayerMask layerDestroy;
 
+	private UtilityGameManager ugm;
+	private Vector2 pauseVel;
+	private Rigidbody2D rb;
+	private bool localPause;
+
 	void Start ()
 	{
+		rb = GetComponent<Rigidbody2D>();
+		pauseVel = rb.velocity;
+		ugm = GameObject.Find("GameManager").GetComponent<UtilityGameManager>();
 		Invoke("Dest", timeToDestroy);
 	}
 
 	void Update ()
 	{
+		if (ugm.paused == true)
+		{
+			rb.velocity = Vector2.zero;
+			CancelInvoke();
+			localPause = true;
+		}
+		else if (localPause == true)
+		{
+			rb.velocity = pauseVel;
+			localPause = false;
+			Invoke("Dest", timeToDestroy);
+		}
+
 		// using OverlapCircle cause I couldn't get OnCollisionEnter2D to work
 		if (Physics2D.OverlapCircle(transform.position, 0.01f, layerDestroy))
 		{

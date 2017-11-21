@@ -37,17 +37,21 @@ public class EnemySpotlight : Enemy
 	{
 		if (!getGameManager().panicMode)
 		{
+			// move if we're not paused
 			if (getGameManager().paused == false)
 			{
+				// move if we can move
 				if (canMove == true)
 				{
 					rb.velocity = (points[count].point - (Vector2)transform.position).normalized * movSpeed;
 				}
+				// else don't move (because we're taking a break)
 				else
 				{
 					rb.velocity = Vector2.zero;
 				}
 
+				// check to see if we've reached our next point
 				if (CheckPoint())
 				{
 					if (count == maxCount - 1)
@@ -60,15 +64,16 @@ public class EnemySpotlight : Enemy
 					}
 				}
 			}
+			// else don't move (because the game is paused)
 			else
 			{
-
+				rb.velocity = Vector2.zero;
 			}
 		}
 		else
 		{
 			if (!(transform.position.x - getGameManager().player.transform.position.x >= 0.25f * -1 && transform.position.x - getGameManager().player.transform.position.x <= 0.25f &&
-				transform.position.y - getGameManager().player.transform.position.y >= 0.25f * -1 && transform.position.y - getGameManager().player.transform.position.y <= 0.25f))
+				transform.position.y - getGameManager().player.transform.position.y >= 0.25f * -1 && transform.position.y - getGameManager().player.transform.position.y <= 0.25f) && getGameManager().paused == false)
 			{
 				rb.velocity = ((Vector2)getGameManager().player.transform.position - (Vector2)transform.position).normalized * chaseSpeed;
 			}

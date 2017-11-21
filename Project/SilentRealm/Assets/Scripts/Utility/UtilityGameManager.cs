@@ -10,6 +10,8 @@ public class UtilityGameManager : MonoBehaviour {
 	public GameObject[] enemies;
     public GameObject player;
     public GameObject exit;
+	public ParticleSystem exitParts;
+	private bool partsExist;
 
     [Header("Panic mode master bool")]
     public bool panicMode = false;
@@ -31,8 +33,9 @@ public class UtilityGameManager : MonoBehaviour {
 	[Header("Pausing")]
 	public bool paused = false;
 
-	[Header("TESTING FOR STRIKER ONLY")]
-	public bool instaKill = false;
+	[Header("Sound Management")]
+	public UtilityMusicManager MusicManager;
+	public UtilityAudioManager FXManager;
 
 	void Start () {
 		// find all enemies
@@ -86,9 +89,11 @@ public class UtilityGameManager : MonoBehaviour {
 
     private void CheckKeys()
     {
-        if (keysInLevel <= keysCollected)
+		if (keysInLevel <= keysCollected && partsExist == false)
         {
-            exit.SetActive(false);
+			Instantiate(exitParts, exit.transform.position, exit.transform.rotation);
+			partsExist = true;
+			exit.SetActive(false);
         }
     }
 
@@ -140,6 +145,7 @@ public class UtilityGameManager : MonoBehaviour {
 			enemies [i].GetComponent<Enemy>().Panic(state);
 		}
 
+		MusicManager.Panic(state);
 		panicMode = state;
     }
 
@@ -183,5 +189,10 @@ public class UtilityGameManager : MonoBehaviour {
 		{
 			paused = !paused;
 		}
+	}
+
+	public void StopAllMusic()
+	{
+		MusicManager.StopAll();
 	}
 }

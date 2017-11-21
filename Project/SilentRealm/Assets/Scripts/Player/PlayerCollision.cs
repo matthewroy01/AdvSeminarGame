@@ -17,6 +17,11 @@ public class PlayerCollision : Player
 	private UtilityLevelManager levelManager;
 	private Animator anim;
 
+	[Header("Sound")]
+	public AudioClip collectAll;
+	public AudioClip keyHigh;
+	public AudioClip keyLow;
+
     void Start()
     {
 		anim = gameObject.GetComponent<Animator>();
@@ -54,7 +59,16 @@ public class PlayerCollision : Player
 			// white flash effect
 			if (getGameManager().panicMode == true)
 			{
+				// play a sound specific to exiting panic mode
+				getGameManager().FXManager.PlaySound(keyLow, 0.5f);
+
+				// make the screen flash white
 				Instantiate(whiteFlash, new Vector3(transform.position.x, transform.position.y, -2), transform.rotation);
+			}
+			else
+			{
+				// play a sound for picking up a key
+				getGameManager().FXManager.PlaySound(keyHigh, 0.25f);
 			}
 
             // increase the current number of keys
@@ -99,7 +113,8 @@ public class PlayerCollision : Player
 			webbed = false;
 			winState = true;
 			getGameManager().Panic(false);
-			GetComponent<AudioSource>().Play();
+			getGameManager().FXManager.PlaySound(collectAll, 1.0f);
+			getGameManager().StopAllMusic();
 			webVelocity = new Vector2(0,0);
 			GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
 			transform.position = other.transform.position;
@@ -117,6 +132,7 @@ public class PlayerCollision : Player
 
 	public void Kill()
 	{
+		webbed = false;
 		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
 	}
 
@@ -143,9 +159,15 @@ public class PlayerCollision : Player
 
 	private void UpdateStuck()
 	{
-		if (webbed)
+		// move according to the webVelocity
+		if (webbed && getGameManager().paused == false)
 		{
 			GetComponent<Rigidbody2D>().velocity = webVelocity;
+		}
+		// else, if we're paused, stop moving
+		else if (getGameManager().paused == true)
+		{
+			GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 		}
 	}
 
@@ -164,7 +186,6 @@ public class PlayerCollision : Player
 	private void SnapToGrid()
 	{
 		int tmpx = (int)transform.position.x, tmpy = (int)transform.position.y;
-		Debug.Log("( " + tmpx + ", " + tmpy + " )");
 
 		// snap to the nearest whole number
 		if (transform.position.x > tmpx + 0.5)

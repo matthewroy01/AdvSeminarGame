@@ -39,15 +39,12 @@ I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEngine.Networki
 I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEngine.TestRunner.dll
 I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEngine.Timeline.dll
 I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEngine.UI.dll
-I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\Mono.Cecil.dll
 I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\Unity.SerializationLogic.dll
 I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\Unity.DataContract.dll
 I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\ExCSS.Unity.dll
 I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\Unity.Legacy.NRefactory.dll
 I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\Unity.UNetWeaver.dll
 I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\Unity.CecilTools.dll
-I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\Mono.Cecil.Pdb.dll
-I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\Mono.Cecil.Mdb.dll
 I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEngine.xml
 I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEditor.xml
 I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEngine.UI.xml
@@ -55,7 +52,6 @@ I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEngine.Networki
 I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEngine.TestRunner.xml
 I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\nunit.framework.xml
 I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEngine.Timeline.xml
-I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEngine.Analytics.xml
 I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEngine.HoloLens.xml
 I:\Advanced Seminar\Repo\Project\SilentRealm\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 I:\Advanced Seminar\Repo\Project\SilentRealm\obj\Debug\Assembly-CSharp.dll
@@ -103,3 +99,13 @@ D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\Unity.Cecil.Mdb.dll
 D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEngine.UIAutomation.xml
 D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEngine.GoogleAudioSpatializer.xml
 D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEngine.SpatialTracking.xml
+I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEngine.GoogleAudioSpatializer.dll
+I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEngine.Purchasing.dll
+I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEngine.SpatialTracking.dll
+I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEngine.UIAutomation.dll
+I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\Unity.Cecil.dll
+I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\Unity.Cecil.Pdb.dll
+I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\Unity.Cecil.Mdb.dll
+I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEngine.UIAutomation.xml
+I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEngine.GoogleAudioSpatializer.xml
+I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEngine.SpatialTracking.xml
