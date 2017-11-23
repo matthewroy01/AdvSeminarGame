@@ -8,8 +8,12 @@ public class UtilityMusicManager : MonoBehaviour {
 	public float fadeSpeed;
 	public Music panic, calm;
 
+	public AudioClip[] clips;
+
 	void Start () 
 	{
+		//PickRandomClip();
+
 		// initialze the volumes
 		calm.source.volume = maxVolume;
 		panic.source.volume	= 0;
@@ -91,6 +95,11 @@ public class UtilityMusicManager : MonoBehaviour {
 			}
 		}
 	}
+
+	/*private void PickRandomClip()
+	{
+		calm.source.clip = clips[Random.Range(0, clips.Length)];
+	}*/
 }
 
 [System.Serializable]

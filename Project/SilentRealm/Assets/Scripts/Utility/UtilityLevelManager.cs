@@ -8,6 +8,9 @@ public class UtilityLevelManager : MonoBehaviour {
 	private string filePath = "Assets/Text/levelSaves.txt";
 	public LevelLog[] levels;
 
+	[Header("For high score display")]
+	public Sprite congrats;
+
 	void Awake()
 	{
 		// if there is more than one levelManager, delete the new one

@@ -36,6 +36,7 @@ public class UtilityGameManager : MonoBehaviour {
 	[Header("Sound Management")]
 	public UtilityMusicManager MusicManager;
 	public UtilityAudioManager FXManager;
+	public AudioClip awaken;
 
 	void Start () {
 		// find all enemies
@@ -147,6 +148,11 @@ public class UtilityGameManager : MonoBehaviour {
 
 		MusicManager.Panic(state);
 		panicMode = state;
+
+		if (state == true)
+		{
+			FXManager.PlaySound(awaken, 1.0f);
+		}
     }
 
     private void OnGUI()

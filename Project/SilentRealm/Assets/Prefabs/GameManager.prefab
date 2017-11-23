@@ -254,7 +254,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -334,7 +334,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -578,6 +578,7 @@ MonoBehaviour:
   calm:
     source: {fileID: 82043471520785558}
     fade: 0
+  clips: []
 --- !u!114 &114463502181075776
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -649,6 +650,7 @@ MonoBehaviour:
   paused: 0
   MusicManager: {fileID: 114326665134957778}
   FXManager: {fileID: 114833976386101594}
+  awaken: {fileID: 8300000, guid: 9022521de38f3374397977e578794ef4, type: 3}
 --- !u!114 &114916118506593336
 MonoBehaviour:
   m_ObjectHideFlags: 1
