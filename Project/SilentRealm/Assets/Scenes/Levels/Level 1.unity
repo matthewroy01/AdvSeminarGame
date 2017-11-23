@@ -385,11 +385,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114153204297964856, guid: cc9357984b7714248857822796433e09,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc9357984b7714248857822796433e09, type: 2}
   m_IsPrefabParent: 0
@@ -656,12 +651,12 @@ Prefab:
     - target: {fileID: 224236344600248772, guid: b9b52b76e680698419350caa2016c7de,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 466.21994
+      value: 420.71994
       objectReference: {fileID: 0}
     - target: {fileID: 224236344600248772, guid: b9b52b76e680698419350caa2016c7de,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 254.42334
+      value: 228.92334
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b9b52b76e680698419350caa2016c7de, type: 2}
@@ -1111,31 +1106,6 @@ Prefab:
     - target: {fileID: 4335329742736738, guid: 893734089a24a424f896dc09e8744df6, type: 2}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114646838145066626, guid: 893734089a24a424f896dc09e8744df6,
-        type: 2}
-      propertyPath: animTime
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 114913518604413952, guid: 893734089a24a424f896dc09e8744df6,
-        type: 2}
-      propertyPath: imgWhite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 212498943971000330, guid: 893734089a24a424f896dc09e8744df6,
-        type: 2}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212460850649287382, guid: 893734089a24a424f896dc09e8744df6,
-        type: 2}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114431553428673520, guid: 893734089a24a424f896dc09e8744df6,
-        type: 2}
-      propertyPath: unlocks.Array.data[0]
-      value: Level 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 893734089a24a424f896dc09e8744df6, type: 2}

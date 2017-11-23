@@ -32,6 +32,7 @@ public class PlayerMovement : Player
 
 		webbed = false;
 		winState = false;
+		dead = false;
     }
 
 	void Update ()
@@ -46,7 +47,7 @@ public class PlayerMovement : Player
 	{
 		if (!getGameManager().paused)
 		{
-			if(!webbed && !winState)
+			if(!webbed && !winState && !dead)
 			{
 				if (!getGameManager().panicMode)
 		        {

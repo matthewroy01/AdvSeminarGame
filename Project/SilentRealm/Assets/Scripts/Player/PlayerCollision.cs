@@ -10,6 +10,7 @@ public class PlayerCollision : Player
 	[Header("Visual FX")]
 	public GameObject whiteFlash;
 	public GameObject blackFade;
+	public GameObject deathFade;
 
 	[Header("Levels to unlock upon completing this one")]
 	public string[] unlocks;
@@ -21,6 +22,7 @@ public class PlayerCollision : Player
 	public AudioClip collectAll;
 	public AudioClip keyHigh;
 	public AudioClip keyLow;
+	public AudioClip death;
 
     void Start()
     {
@@ -32,6 +34,7 @@ public class PlayerCollision : Player
 		levelManager = GameObject.Find("LevelManager").GetComponent<UtilityLevelManager>();
 
 		webbed = false;
+		dead = false;
     }
 
 	void Update()
@@ -39,6 +42,7 @@ public class PlayerCollision : Player
 		UpdateStuck();
 
 		anim.SetBool("webbed", webbed);
+		anim.SetBool("dead", dead);
 
 		// ignore collision with voids if we can't move
 		if (webbed == true)
@@ -132,9 +136,20 @@ public class PlayerCollision : Player
 
 	public void Kill()
 	{
+		getGameManager().StopAllMusic();
+		getGameManager().FXManager.PlaySound(death, 1.0f);
 		webbed = false;
-		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
+		dead = true;
+		webVelocity = new Vector2(0,0);
+		GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
+		transform.position = new Vector3(transform.position.x, transform.position.y, -6);
+		Invoke("Fade", 0.8f);
+		Invoke("Reload", 1.3f);
 	}
+
+
+	private void Fade () { Instantiate(deathFade, new Vector3(transform.position.x, transform.position.y, -5), transform.rotation); }
+	private void Reload () { SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex); }
 
 	void OnCollisionEnter2D(Collision2D other)
 	{

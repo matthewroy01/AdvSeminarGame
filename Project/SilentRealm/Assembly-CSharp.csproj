@@ -106,6 +106,7 @@
      <Compile Include="Assets\Scripts\Enemy\KeyBug.cs" />
      <Compile Include="Assets\Scripts\FX\BlackFade.cs" />
      <Compile Include="Assets\Scripts\FX\DistortSound.cs" />
+     <Compile Include="Assets\Scripts\FX\FadeOut.cs" />
      <Compile Include="Assets\Scripts\FX\WhiteFlash.cs" />
      <Compile Include="Assets\Scripts\God\God.cs" />
      <Compile Include="Assets\Scripts\Menu\ButtonsLevelSelect.cs" />

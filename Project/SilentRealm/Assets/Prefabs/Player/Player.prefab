@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1774550140121974}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -5, z: 0}
+  m_LocalPosition: {x: 0, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -126,11 +126,13 @@ MonoBehaviour:
   defDir: 0
   whiteFlash: {fileID: 1444720729062322, guid: dd467ffc5bbb26a47b20b8d48557da34, type: 2}
   blackFade: {fileID: 1277713943061686, guid: e8271f447d2eb5a40a489e8830c683e7, type: 2}
+  deathFade: {fileID: 1852027123237984, guid: ed4a9b822c8cef34babbcc8ef86facfa, type: 2}
   unlocks:
-  - Level 3
+  - Level 2
   collectAll: {fileID: 8300000, guid: 4a9383ce09c23b14c9bf792b679dd9d7, type: 3}
   keyHigh: {fileID: 8300000, guid: f674be234f71a394c8cfb85604e3e244, type: 3}
   keyLow: {fileID: 8300000, guid: 24c8369fdcd2a41498be88d4a557af99, type: 3}
+  death: {fileID: 8300000, guid: 82d3f09c4074f8d4aa3f0bec9e821826, type: 3}
 --- !u!114 &114646838145066626
 MonoBehaviour:
   m_ObjectHideFlags: 1
