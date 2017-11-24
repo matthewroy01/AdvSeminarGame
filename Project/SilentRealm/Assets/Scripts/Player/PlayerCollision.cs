@@ -136,15 +136,18 @@ public class PlayerCollision : Player
 
 	public void Kill()
 	{
-		getGameManager().StopAllMusic();
-		getGameManager().FXManager.PlaySound(death, 1.0f);
-		webbed = false;
-		dead = true;
-		webVelocity = new Vector2(0,0);
-		GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
-		transform.position = new Vector3(transform.position.x, transform.position.y, -6);
-		Invoke("Fade", 0.8f);
-		Invoke("Reload", 1.3f);
+		if (dead == false)
+		{
+			getGameManager().StopAllMusic();
+			getGameManager().FXManager.PlaySound(death, 1.0f);
+			webbed = false;
+			dead = true;
+			webVelocity = new Vector2(0,0);
+			GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
+			transform.position = new Vector3(transform.position.x, transform.position.y, -6);
+			Invoke("Fade", 0.8f);
+			Invoke("Reload", 1.3f);
+		}
 	}
 
 
