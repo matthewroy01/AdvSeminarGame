@@ -153,6 +153,10 @@ public class UtilityGameManager : MonoBehaviour {
 		{
 			FXManager.PlaySound(awaken, 1.0f);
 		}
+		else
+		{
+			DestroyAllWebs();
+		}
     }
 
     private void OnGUI()
@@ -200,5 +204,16 @@ public class UtilityGameManager : MonoBehaviour {
 	public void StopAllMusic()
 	{
 		MusicManager.StopAll();
+	}
+
+	private void DestroyAllWebs()
+	{
+		GameObject[] webs;
+		webs = GameObject.FindGameObjectsWithTag("Web");
+		Debug.Log("UTILITYBROADCAST - Destroying " + webs.Length + " webs in scene.");
+		for (int i = 0; i < webs.Length; i++)
+		{
+			Destroy(webs[i]);
+		}
 	}
 }

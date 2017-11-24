@@ -113,12 +113,11 @@ MonoBehaviour:
   vRight: {x: 0, y: 0}
   defPos: {x: 0, y: 0}
   defDir: 0
-  panicMode: 0
   visionDist: 1000
-  panicTime: 0.3
+  panicTime: 0.6
   currentDirection: 1
   previousDirection: -1
-  leeway: 0.5
+  leeway: 1
   horizontalChase: 1
   layerImpass:
     serializedVersion: 2
@@ -137,6 +136,7 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -152,6 +152,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5

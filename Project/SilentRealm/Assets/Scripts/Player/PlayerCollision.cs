@@ -168,6 +168,20 @@ public class PlayerCollision : Player
 			webbed = false;
 		}
 	}
+	void OnCollisionStay2D(Collision2D other)
+	{
+		// hitting a wall while webbed and not in panic mode should snap the player back to the grid
+		if (webbed == true && getGameManager().panicMode == false && other.gameObject.layer == 8)
+		{
+			webbed = false;
+			SnapToGrid();
+		}
+		// otherwise, just reenable movement
+		else if (webbed == true && other.gameObject.layer == 8)
+		{
+			webbed = false;
+		}
+	}
 
     private void PlayerReset(Collider2D other)
     {

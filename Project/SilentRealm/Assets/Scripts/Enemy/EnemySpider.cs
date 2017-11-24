@@ -87,7 +87,8 @@ public class EnemySpider : Enemy {
 				else
 				{
 					// if a wall is hit, change direction
-					horizontalChase = !horizontalChase;
+					// jk that made the spider's behavior inconsistent
+					//horizontalChase = !horizontalChase;
 				}
 			}
 			if (horizontalChase &&
@@ -105,7 +106,8 @@ public class EnemySpider : Enemy {
 				else
 				{
 					// if a wall is hit, change direction
-					horizontalChase = !horizontalChase;
+					// jk that made the spider's behavior inconsistent
+					//horizontalChase = !horizontalChase;
 				}
 			}
 
