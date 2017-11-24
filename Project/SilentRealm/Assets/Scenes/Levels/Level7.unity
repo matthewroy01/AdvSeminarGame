@@ -1066,7 +1066,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4856338068876468, guid: 48fbcabed49fec2499794804c3eeaacc, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4856338068876468, guid: 48fbcabed49fec2499794804c3eeaacc, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1952,11 +1952,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4819050982025208, guid: a00fac2d1c556bc4ea8c4838a0f35dba, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 4819050982025208, guid: a00fac2d1c556bc4ea8c4838a0f35dba, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4819050982025208, guid: a00fac2d1c556bc4ea8c4838a0f35dba, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1985,12 +1985,12 @@ Prefab:
     - target: {fileID: 114611249212222912, guid: a00fac2d1c556bc4ea8c4838a0f35dba,
         type: 2}
       propertyPath: currentDirection
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114611249212222912, guid: a00fac2d1c556bc4ea8c4838a0f35dba,
         type: 2}
       propertyPath: points.Array.data[0].point.x
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114611249212222912, guid: a00fac2d1c556bc4ea8c4838a0f35dba,
         type: 2}
@@ -2000,17 +2000,17 @@ Prefab:
     - target: {fileID: 114611249212222912, guid: a00fac2d1c556bc4ea8c4838a0f35dba,
         type: 2}
       propertyPath: points.Array.data[0].direction
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114611249212222912, guid: a00fac2d1c556bc4ea8c4838a0f35dba,
         type: 2}
       propertyPath: points.Array.data[1].direction
-      value: -1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114611249212222912, guid: a00fac2d1c556bc4ea8c4838a0f35dba,
         type: 2}
       propertyPath: points.Array.data[1].point.x
-      value: 0
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 114611249212222912, guid: a00fac2d1c556bc4ea8c4838a0f35dba,
         type: 2}

@@ -147,16 +147,18 @@ public class UtilityGameManager : MonoBehaviour {
 		}
 
 		MusicManager.Panic(state);
-		panicMode = state;
 
 		if (state == true)
 		{
 			FXManager.PlaySound(awaken, 1.0f);
 		}
-		else
+
+		if (state == false && panicMode == true)
 		{
 			DestroyAllWebs();
 		}
+
+		panicMode = state;
     }
 
     private void OnGUI()
