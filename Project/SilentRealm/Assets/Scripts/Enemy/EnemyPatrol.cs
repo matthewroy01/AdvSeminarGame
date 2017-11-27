@@ -34,6 +34,16 @@ public class EnemyPatrol : Enemy {
 	void Update ()
 	{
         Vision();
+
+        // flip our sprite when facing left/right
+        if (currentDirection == Dirs.left)
+        {
+        	GetComponent<SpriteRenderer>().flipX = false;
+        }
+		if (currentDirection == Dirs.right)
+        {
+        	GetComponent<SpriteRenderer>().flipX = true;
+        }
 	}
 
     private void CheckPoints()
