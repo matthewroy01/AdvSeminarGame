@@ -663,7 +663,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4335329742736738, guid: 893734089a24a424f896dc09e8744df6, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4335329742736738, guid: 893734089a24a424f896dc09e8744df6, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1024,7 +1024,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4048847055406350, guid: cc9357984b7714248857822796433e09, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4048847055406350, guid: cc9357984b7714248857822796433e09, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1952,7 +1952,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4819050982025208, guid: a00fac2d1c556bc4ea8c4838a0f35dba, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 4819050982025208, guid: a00fac2d1c556bc4ea8c4838a0f35dba, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1990,7 +1990,7 @@ Prefab:
     - target: {fileID: 114611249212222912, guid: a00fac2d1c556bc4ea8c4838a0f35dba,
         type: 2}
       propertyPath: points.Array.data[0].point.x
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114611249212222912, guid: a00fac2d1c556bc4ea8c4838a0f35dba,
         type: 2}
@@ -2010,7 +2010,7 @@ Prefab:
     - target: {fileID: 114611249212222912, guid: a00fac2d1c556bc4ea8c4838a0f35dba,
         type: 2}
       propertyPath: points.Array.data[1].point.x
-      value: -3
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 114611249212222912, guid: a00fac2d1c556bc4ea8c4838a0f35dba,
         type: 2}
