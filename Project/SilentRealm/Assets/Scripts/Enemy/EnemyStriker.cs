@@ -30,6 +30,7 @@ public class EnemyStriker : Enemy {
 	public bool justFired;
 	public float fireSpeed;
 	private GameObject currentProj;
+	public AudioClip beam;
 
     void Start () {
 		defDir = currentDirection;
@@ -114,14 +115,15 @@ public class EnemyStriker : Enemy {
 	            	currentProj = Instantiate(strike, new Vector3(transform.position.x, transform.position.y, -1), transform.rotation);
 	            	justFired = true;
 					getGameManager().player.GetComponent<PlayerMovement>().DisableMovement();
+					getGameManager().FXManager.PlaySound(beam, 0.5f);
 	            	Invoke("Fire", 0.2f);
-	            	Invoke("Reload", 1.0f);
+	            	//Invoke("Reload", 1.0f);
             }
         }
     }
 
 	private void Fire() { currentProj.GetComponent<Rigidbody2D>().velocity = (getGameManager().player.transform.position - transform.position).normalized * fireSpeed; }
-    private void Reload() { justFired = false; }
+    //private void Reload() { justFired = false; }
 
 	private void SetMidVision()
 	{
