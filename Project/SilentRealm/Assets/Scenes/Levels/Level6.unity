@@ -314,6 +314,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 20753275}
     m_Modifications:
+    - target: {fileID: 114185936822551284, guid: cf9e93e7588d2d149a726f2190711d12,
+        type: 2}
+      propertyPath: points.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4158916095605168, guid: cf9e93e7588d2d149a726f2190711d12, type: 2}
       propertyPath: m_LocalPosition.x
       value: -6
@@ -3792,12 +3797,12 @@ Prefab:
     - target: {fileID: 8195094279822001600, guid: 907acca7827c3b94894d1d13bbb4de90,
         type: 2}
       propertyPath: m_Tiles.Array.data[106].second.m_TileIndex
-      value: 2
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8195094279822001600, guid: 907acca7827c3b94894d1d13bbb4de90,
         type: 2}
       propertyPath: m_Tiles.Array.data[106].second.m_TileSpriteIndex
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8195094279822001600, guid: 907acca7827c3b94894d1d13bbb4de90,
         type: 2}
@@ -4444,7 +4449,7 @@ Prefab:
     - target: {fileID: 8195094279822001600, guid: 907acca7827c3b94894d1d13bbb4de90,
         type: 2}
       propertyPath: m_TileAssetArray.Array.data[2].m_RefCount
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8195094279822001600, guid: 907acca7827c3b94894d1d13bbb4de90,
         type: 2}
@@ -4455,7 +4460,7 @@ Prefab:
     - target: {fileID: 8195094279822001600, guid: 907acca7827c3b94894d1d13bbb4de90,
         type: 2}
       propertyPath: m_TileSpriteArray.Array.data[2].m_RefCount
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8195094279822001600, guid: 907acca7827c3b94894d1d13bbb4de90,
         type: 2}
@@ -4517,13 +4522,14 @@ Prefab:
     - target: {fileID: 8195094279822001600, guid: 907acca7827c3b94894d1d13bbb4de90,
         type: 2}
       propertyPath: m_TileSpriteArray.Array.data[5].m_RefCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8195094279822001600, guid: 907acca7827c3b94894d1d13bbb4de90,
         type: 2}
       propertyPath: m_TileSpriteArray.Array.data[5].m_Data
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 21300020, guid: c76167027ed372c42ba2e5594dc06a37,
+        type: 3}
     - target: {fileID: 8195094279822001600, guid: 907acca7827c3b94894d1d13bbb4de90,
         type: 2}
       propertyPath: m_TileAssetArray.Array.data[6].m_RefCount
@@ -4549,13 +4555,14 @@ Prefab:
     - target: {fileID: 8195094279822001600, guid: 907acca7827c3b94894d1d13bbb4de90,
         type: 2}
       propertyPath: m_TileAssetArray.Array.data[7].m_RefCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8195094279822001600, guid: 907acca7827c3b94894d1d13bbb4de90,
         type: 2}
       propertyPath: m_TileAssetArray.Array.data[7].m_Data
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: ff844533b8a47d84898744a3822b1297,
+        type: 2}
     - target: {fileID: 8195094279822001600, guid: 907acca7827c3b94894d1d13bbb4de90,
         type: 2}
       propertyPath: m_TileSpriteArray.Array.data[7].m_RefCount
@@ -5561,6 +5568,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 20753275}
     m_Modifications:
+    - target: {fileID: 114185936822551284, guid: cf9e93e7588d2d149a726f2190711d12,
+        type: 2}
+      propertyPath: points.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4158916095605168, guid: cf9e93e7588d2d149a726f2190711d12, type: 2}
       propertyPath: m_LocalPosition.x
       value: -3
@@ -6377,6 +6389,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 20753275}
     m_Modifications:
+    - target: {fileID: 114185936822551284, guid: cf9e93e7588d2d149a726f2190711d12,
+        type: 2}
+      propertyPath: points.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4158916095605168, guid: cf9e93e7588d2d149a726f2190711d12, type: 2}
       propertyPath: m_LocalPosition.x
       value: -6

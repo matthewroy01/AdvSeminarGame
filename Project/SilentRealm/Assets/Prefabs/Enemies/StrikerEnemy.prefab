@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 50701632427928376}
   - component: {fileID: 114009795638896788}
   - component: {fileID: 212646785996143560}
+  - component: {fileID: 95112750589288652}
   m_Layer: 10
   m_Name: StrikerEnemy
   m_TagString: Enemy
@@ -119,7 +120,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: d43facdc718ec5146a1c90570857e152, type: 2}
+  - {fileID: 2100000, guid: 43dc0831d67bebe4fa2e41c68c20549b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -181,6 +182,23 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.45
+--- !u!95 &95112750589288652
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1459870620729938}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6011774b166aaf745ac904378d38178b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &95789291891663990
 Animator:
   serializedVersion: 3
@@ -316,7 +334,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 873d1626c97a51142a2e43c2b1b68ab9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 25013f4ff0c826b47a55a4a3195ab094, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

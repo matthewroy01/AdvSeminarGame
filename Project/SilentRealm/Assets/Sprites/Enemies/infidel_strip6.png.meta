@@ -1,23 +1,16 @@
 fileFormatVersion: 2
-guid: c76167027ed372c42ba2e5594dc06a37
-timeCreated: 1511991201
+guid: 25013f4ff0c826b47a55a4a3195ab094
+timeCreated: 1511993067
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: tiles_strip3_0
-    21300002: tiles_strip3_1
-    21300004: tiles_strip3_2
-    21300006: tiles_strip3_3
-    21300008: tiles_strip3_4
-    21300010: tiles_strip3_5
-    21300012: tiles_strip3_6
-    21300014: tiles_strip3_7
-    21300016: tiles_strip3_8
-    21300018: tiles_strip3_9
-    21300020: tiles_strip3_10
-    21300022: tiles_strip3_11
-    21300024: tiles_strip3_12
-    21300026: tiles_strip3_17
+    21300000: infidel_strip6_0
+    21300002: infidel_strip6_1
+    21300004: infidel_strip6_2
+    21300006: infidel_strip6_3
+    21300008: infidel_strip6_4
+    21300010: infidel_strip6_5
+    21300012: infidel_strip6_6
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -92,7 +85,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tiles_strip3_0
+      name: infidel_strip6_0
       rect:
         serializedVersion: 2
         x: 0
@@ -100,13 +93,13 @@ TextureImporter:
         width: 25
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: tiles_strip3_1
+      name: infidel_strip6_1
       rect:
         serializedVersion: 2
         x: 25
@@ -114,13 +107,13 @@ TextureImporter:
         width: 25
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: tiles_strip3_2
+      name: infidel_strip6_2
       rect:
         serializedVersion: 2
         x: 50
@@ -128,13 +121,13 @@ TextureImporter:
         width: 25
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: tiles_strip3_3
+      name: infidel_strip6_3
       rect:
         serializedVersion: 2
         x: 75
@@ -142,13 +135,13 @@ TextureImporter:
         width: 25
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: tiles_strip3_4
+      name: infidel_strip6_4
       rect:
         serializedVersion: 2
         x: 100
@@ -156,13 +149,13 @@ TextureImporter:
         width: 25
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: tiles_strip3_5
+      name: infidel_strip6_5
       rect:
         serializedVersion: 2
         x: 125
@@ -170,117 +163,19 @@ TextureImporter:
         width: 25
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: tiles_strip3_6
+      name: infidel_strip6_6
       rect:
         serializedVersion: 2
-        x: 150
+        x: 145
         y: 0
-        width: 25
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: tiles_strip3_7
-      rect:
-        serializedVersion: 2
-        x: 175
-        y: 0
-        width: 25
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: tiles_strip3_8
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 0
-        width: 25
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: tiles_strip3_9
-      rect:
-        serializedVersion: 2
-        x: 225
-        y: 0
-        width: 25
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: tiles_strip3_10
-      rect:
-        serializedVersion: 2
-        x: 250
-        y: 0
-        width: 25
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: tiles_strip3_11
-      rect:
-        serializedVersion: 2
-        x: 275
-        y: 0
-        width: 25
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: tiles_strip3_12
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 0
-        width: 25
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: tiles_strip3_17
-      rect:
-        serializedVersion: 2
-        x: 425
-        y: 0
-        width: 25
-        height: 25
+        width: 5
+        height: 5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
