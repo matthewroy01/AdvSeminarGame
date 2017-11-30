@@ -28,6 +28,10 @@ public class LevelUI : MonoBehaviour {
 	{
 		currentText = (menuNavigation.buttons[menuNavigation.currentSelection].name).ToString() + "\n" +
 					   "Best Score: " + levelManager.getBestScore(menuNavigation.buttons[menuNavigation.currentSelection].name).ToString();
+		if (levelManager.getIsUnlocked(menuNavigation.buttons[menuNavigation.currentSelection].name) == 0)
+		{
+			currentText = currentText + "\nLOCKED";
+		}
 		info.text = currentText;
 	}
 }
