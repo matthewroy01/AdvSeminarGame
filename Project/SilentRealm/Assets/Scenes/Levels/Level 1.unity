@@ -2150,6 +2150,11 @@ Prefab:
       propertyPath: txtWarning
       value: 
       objectReference: {fileID: 361972689}
+    - target: {fileID: 82043471520785558, guid: b9b52b76e680698419350caa2016c7de,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 000eca77871a8ee4782067bdf8d1e057, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b9b52b76e680698419350caa2016c7de, type: 2}
   m_IsPrefabParent: 0
