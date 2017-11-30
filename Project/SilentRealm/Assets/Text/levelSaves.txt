@@ -1,27 +1,27 @@
 Level 1
 1
-14
+24
 Level 2
 1
-13
+56
 Level 3
 1
-14
+19
 Level 4
 1
-28
+34
 Level 5
 1
-46
+42
 Level 6
 1
-99999
+57
 Level 7
 1
-99999
+72
 Level 8
 1
-99999
+97
 Level 9
 1
 36
