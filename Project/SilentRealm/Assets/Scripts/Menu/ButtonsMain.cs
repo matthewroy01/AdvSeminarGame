@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class ButtonsMain : MonoBehaviour {
 
+	public AudioSource select;
+
 	void Update ()
 	{
 		if (GetComponent<MenuNavigation>().isActive)
 		{
 			if (Input.GetButtonDown("Select"))
 			{
+				select.Play();
 				switch (GetComponent<MenuNavigation>().currentSelection)
 				{
 					case 0 :

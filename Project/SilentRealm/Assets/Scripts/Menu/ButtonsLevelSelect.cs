@@ -7,6 +7,7 @@ public class ButtonsLevelSelect : MonoBehaviour {
 
 	bool canSelect;
 	UtilityLevelManager levelManager;
+	public AudioSource select;
 
 	void Start()
 	{
@@ -25,6 +26,7 @@ public class ButtonsLevelSelect : MonoBehaviour {
 		{
 			if (Input.GetButtonDown("Select") && canSelect)
 			{
+				select.Play();
 				switch (GetComponent<MenuNavigation>().currentSelection)
 				{
 					case 0 :

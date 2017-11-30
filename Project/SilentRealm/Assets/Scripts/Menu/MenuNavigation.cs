@@ -13,6 +13,8 @@ public class MenuNavigation : MonoBehaviour {
 
 	public GameObject[] buttons;
 
+	public AudioSource cursor;
+
 	void Start ()
 	{
 		maxSelection = buttons.Length - 1;
@@ -38,6 +40,8 @@ public class MenuNavigation : MonoBehaviour {
 				{
 					currentSelection--;
 				}
+
+				cursor.Play();
 			}
 
 			if (Input.GetButtonDown("Down"))
@@ -50,6 +54,8 @@ public class MenuNavigation : MonoBehaviour {
 				{
 					currentSelection++;
 				}
+
+				cursor.Play();
 			}
 		}
 	}
