@@ -1,25 +1,17 @@
 fileFormatVersion: 2
-guid: fa82e1ea6f5d8f94eb70c820f1cb74ef
-timeCreated: 1508445618
+guid: 632685c1f60413c4e8d415ab6f418e8d
+timeCreated: 1512014681
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: spider_map_0
-    21300002: spider_map_1
-    21300004: spider_map_2
-    21300006: spider_map_3
-    21300008: spider_map_4
-    21300010: spider_map_5
-    21300012: spider_map_6
-    21300014: spider_map_7
-    21300016: spider_map_8
-    21300018: spider_map_9
-    21300020: spider_map_10
-    21300022: spider_map_11
-    21300024: spider_map_12
-    21300026: spider_map_13
-    21300028: spider_map_14
-    21300030: spider_map_15
+    21300000: new_spider_strip4_0
+    21300002: new_spider_strip4_1
+    21300004: new_spider_strip4_2
+    21300006: new_spider_strip4_3
+    21300008: new_spider_strip4_4
+    21300010: new_spider_strip4_5
+    21300012: new_spider_strip4_6
+    21300014: new_spider_strip4_7
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -62,7 +54,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 20
+  spritePixelsToUnits: 25
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -82,7 +74,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: Standalone
-    maxTextureSize: 512
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: 4
     textureCompression: 1
@@ -94,12 +86,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spider_map_0
+      name: new_spider_strip4_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 0
-        width: 20
+        x: 0
+        y: 11
+        width: 19
         height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -108,12 +100,12 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spider_map_1
+      name: new_spider_strip4_1
       rect:
         serializedVersion: 2
-        x: 28
-        y: 0
-        width: 20
+        x: 25
+        y: 11
+        width: 19
         height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -122,12 +114,12 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spider_map_2
+      name: new_spider_strip4_2
       rect:
         serializedVersion: 2
-        x: 51
-        y: 0
-        width: 20
+        x: 50
+        y: 11
+        width: 19
         height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -136,11 +128,11 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spider_map_3
+      name: new_spider_strip4_3
       rect:
         serializedVersion: 2
         x: 75
-        y: 0
+        y: 11
         width: 19
         height: 14
       alignment: 0
@@ -150,124 +142,12 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spider_map_4
+      name: new_spider_strip4_4
       rect:
         serializedVersion: 2
         x: 100
-        y: 0
-        width: 16
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: spider_map_5
-      rect:
-        serializedVersion: 2
-        x: 124
-        y: 0
-        width: 16
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: spider_map_6
-      rect:
-        serializedVersion: 2
-        x: 148
-        y: 0
-        width: 16
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: spider_map_7
-      rect:
-        serializedVersion: 2
-        x: 172
-        y: 0
-        width: 16
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: spider_map_8
-      rect:
-        serializedVersion: 2
-        x: 196
-        y: 0
-        width: 16
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: spider_map_9
-      rect:
-        serializedVersion: 2
-        x: 220
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: spider_map_10
-      rect:
-        serializedVersion: 2
-        x: 244
-        y: 0
-        width: 16
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: spider_map_11
-      rect:
-        serializedVersion: 2
-        x: 268
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: spider_map_12
-      rect:
-        serializedVersion: 2
-        x: 289
-        y: 0
-        width: 20
+        y: 11
+        width: 18
         height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -276,13 +156,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spider_map_13
+      name: new_spider_strip4_5
       rect:
         serializedVersion: 2
-        x: 312
-        y: 0
-        width: 20
-        height: 14
+        x: 125
+        y: 12
+        width: 18
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -290,13 +170,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spider_map_14
+      name: new_spider_strip4_6
       rect:
         serializedVersion: 2
-        x: 337
-        y: 0
-        width: 20
-        height: 14
+        x: 150
+        y: 12
+        width: 18
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -304,12 +184,12 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spider_map_15
+      name: new_spider_strip4_7
       rect:
         serializedVersion: 2
-        x: 362
-        y: 0
-        width: 19
+        x: 175
+        y: 11
+        width: 18
         height: 14
       alignment: 0
       pivot: {x: 0, y: 0}

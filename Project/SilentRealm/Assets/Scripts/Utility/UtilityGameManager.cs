@@ -32,6 +32,7 @@ public class UtilityGameManager : MonoBehaviour {
 
 	[Header("Pausing")]
 	public bool paused = false;
+	public Text txtPause;
 
 	[Header("Sound Management")]
 	public UtilityMusicManager MusicManager;
@@ -192,7 +193,7 @@ public class UtilityGameManager : MonoBehaviour {
 
 	private void CheckInput()
 	{
-		if (Input.GetButtonDown("Escape"))
+		if (Input.GetButtonDown("Escape") && paused)
 		{
 			SceneManager.LoadScene(0);
 		}
@@ -200,6 +201,7 @@ public class UtilityGameManager : MonoBehaviour {
 		if (Input.GetButtonDown("Pause"))
 		{
 			paused = !paused;
+			txtPause.gameObject.SetActive(paused);
 		}
 	}
 

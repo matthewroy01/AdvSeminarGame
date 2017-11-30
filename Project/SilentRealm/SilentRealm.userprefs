@@ -1,11 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Enemy\EnemyGoliath.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Text\defaultSaves.txt">
     <Files>
       <File FileName="Assets\Text\defaultSaves.txt" Line="1" Column="1" />
       <File FileName="Assets\Text\levelSaves.txt" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Utility\UtilityLevelManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Enemy\EnemyGoliath.cs" Line="39" Column="33" />
+      <File FileName="Assets\Scripts\Enemy\EnemyGoliath.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Enemy\EnemySpider.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Utility\UtilityGameManager.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
