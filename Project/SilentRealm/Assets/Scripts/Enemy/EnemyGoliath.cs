@@ -15,16 +15,29 @@ public class EnemyGoliath : Enemy {
 	[Header("Panic behavior")]
 	public ParticleSystem parts;
 	public bool enraged = false;
-	public AudioSource roar;
+	public AudioClip roar;
+	public AudioClip rumble;
+
+	private Animator anim;
 
 	void Start ()
 	{
 		parts.Stop();
+		anim = GetComponent<Animator>();
 	}
 
 	void Update ()
 	{
 		Movement();
+
+		if (enraged && getGameManager().panicMode == false)
+		{
+			anim.SetBool("enraged", true);
+		}
+		else
+		{
+			anim.SetBool("enraged", false);
+		}
 	}
 
 	public override void Step()
@@ -101,6 +114,8 @@ public class EnemyGoliath : Enemy {
 
 			// set the direction to none so the enemy doesn't get stuck traveling in its previous direction when no compromise can be reached
 			currentDirection = Dirs.none;
+
+			getGameManager().FXManager.PlaySound(rumble, 1.0f);
 
 			isResting = true;
 		}
@@ -184,6 +199,8 @@ public class EnemyGoliath : Enemy {
 
 			// set the direction to none so the enemy doesn't get stuck traveling in its previous direction when no compromise can be reached
 			currentDirection = Dirs.none;
+
+			getGameManager().FXManager.PlaySound(rumble, 0.5f);
 		}
 	}
 
@@ -275,7 +292,7 @@ public class EnemyGoliath : Enemy {
 			if (getGameManager().panicMode == true)
 			{
 				enraged = true;
-				roar.Play();
+				getGameManager().FXManager.PlaySound(roar, 0.7f);
 
 				// start pathfinding
 				StartCoroutine(onGoliathsOwnTime(panicTime));

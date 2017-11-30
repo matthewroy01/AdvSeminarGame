@@ -9474,31 +9474,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114503740259655438, guid: 2d153deb3752ee84aada77d00a536f60,
-        type: 2}
-      propertyPath: panicTime
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 82056885132810328, guid: 2d153deb3752ee84aada77d00a536f60,
-        type: 2}
-      propertyPath: spreadCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 82056885132810328, guid: 2d153deb3752ee84aada77d00a536f60,
-        type: 2}
-      propertyPath: m_Volume
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 198122220174358704, guid: 2d153deb3752ee84aada77d00a536f60,
-        type: 2}
-      propertyPath: InitialModule.startSize.scalar
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 198122220174358704, guid: 2d153deb3752ee84aada77d00a536f60,
-        type: 2}
-      propertyPath: randomSeed
-      value: -677500341
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d153deb3752ee84aada77d00a536f60, type: 2}
   m_IsPrefabParent: 0
