@@ -127,6 +127,7 @@ MonoBehaviour:
   whiteFlash: {fileID: 1444720729062322, guid: dd467ffc5bbb26a47b20b8d48557da34, type: 2}
   blackFade: {fileID: 1277713943061686, guid: e8271f447d2eb5a40a489e8830c683e7, type: 2}
   deathFade: {fileID: 1852027123237984, guid: ed4a9b822c8cef34babbcc8ef86facfa, type: 2}
+  keyParts: {fileID: 198048330584341662, guid: cce876bc6795ff945982d0f9b29009bb, type: 2}
   unlocks:
   - Level 2
   collectAll: {fileID: 8300000, guid: 4a9383ce09c23b14c9bf792b679dd9d7, type: 3}

@@ -6,6 +6,15 @@ using System.IO;
 public class UtilityLevelManager : MonoBehaviour {
 
 	private string filePath = "Assets/Text/levelSaves.txt";
+
+	// for using playerprefs, written by Neil
+	/*[Serializable]
+	public class LevelSave
+	{
+		public LevelLog[] levels;
+
+	}*/
+
 	public LevelLog[] levels;
 
 	[Header("For high score display")]
@@ -48,6 +57,8 @@ public class UtilityLevelManager : MonoBehaviour {
 	{
 		// write to the file using the array
 		StreamWriter writer = new StreamWriter(filePath);
+		// for using playerprefs, written by Neil
+		/* JsonUtility.ToJson(LevelSave); */
 
 		for (int i = 0; i < levels.Length; i++)
 		{

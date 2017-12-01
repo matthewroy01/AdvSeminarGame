@@ -95,6 +95,7 @@ public class UtilityGameManager : MonoBehaviour {
         {
 			Instantiate(exitParts, exit.transform.position, exit.transform.rotation);
 			partsExist = true;
+			txtKeys.color = new Color(0, 255, 0);
 			exit.SetActive(false);
         }
     }

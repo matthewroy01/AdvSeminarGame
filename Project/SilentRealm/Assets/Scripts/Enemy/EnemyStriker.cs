@@ -18,6 +18,7 @@ public class EnemyStriker : Enemy {
     public LayerMask layerVision;
 	[Header("Walls for movement")]
 	public LayerMask layerImpass;
+	public float tmpVisionDist;
 
 	[Header("Arrow to make it more clear what direction we're about to face")]
 	public GameObject arrow;
@@ -78,31 +79,23 @@ public class EnemyStriker : Enemy {
             if (currentDirection == Dirs.up)
             {
                 endOfVision = new Vector2(transform.position.x, transform.position.y + (1 * visionDist));
-				SetMidVision();
 				cone.transform.rotation = Quaternion.Euler(90, 0, 0);
             }
             else if (currentDirection == Dirs.down)
             {
                 endOfVision = new Vector2(transform.position.x, transform.position.y - (1 * visionDist));
-				SetMidVision();
 				cone.transform.rotation = Quaternion.Euler(270, 0, 0);
             }
             else if (currentDirection == Dirs.left)
             {
                 endOfVision = new Vector2(transform.position.x - (1 * visionDist), transform.position.y);
-				SetMidVision();
 				cone.transform.rotation = Quaternion.Euler(0, 90, 0);
             }
             else if (currentDirection == Dirs.right)
             {
                 endOfVision = new Vector2(transform.position.x + (1 * visionDist), transform.position.y);
-				SetMidVision();
 				cone.transform.rotation = Quaternion.Euler(0, 270, 0);
             }
-			// set the cone's position to the mid position
-			cone.transform.position = midOfVision;
-			// set the scale of the cone according to the visionDist
-			cone.transform.localScale = new Vector3(cone.transform.localScale.x, cone.transform.localScale.y, visionDist + 1.0f);
 
 			// fire the raycast
 			RaycastHit2D tmp;
@@ -119,6 +112,22 @@ public class EnemyStriker : Enemy {
 	            	Invoke("Fire", 0.2f);
 	            	//Invoke("Reload", 1.0f);
             }
+			else if (tmp.collider != null && tmp.collider.gameObject.layer == LayerMask.NameToLayer("Wall"))
+			{
+				endOfVision = tmp.point;
+				tmpVisionDist = ((Vector2)transform.position - tmp.point).magnitude;
+			}
+			else
+			{
+				tmpVisionDist = visionDist;
+			}
+
+			SetMidVision();
+
+			// set the cone's position to the mid position
+			cone.transform.position = midOfVision;
+			// set the scale of the cone according to the visionDist
+			cone.transform.localScale = new Vector3(cone.transform.localScale.x, cone.transform.localScale.y, tmpVisionDist + 1.0f);
         }
     }
 

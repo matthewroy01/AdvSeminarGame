@@ -11,6 +11,7 @@ public class PlayerCollision : Player
 	public GameObject whiteFlash;
 	public GameObject blackFade;
 	public GameObject deathFade;
+	public ParticleSystem keyParts;
 
 	[Header("Levels to unlock upon completing this one")]
 	public string[] unlocks;
@@ -86,6 +87,9 @@ public class PlayerCollision : Player
 
             // destroy the key
             Destroy(other.gameObject);
+
+			// instantiate particles
+			Instantiate(keyParts, transform.position, transform.rotation);
         }
 
 		// getting hit by an enemy
@@ -147,7 +151,7 @@ public class PlayerCollision : Player
 			webVelocity = new Vector2(0,0);
 			GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
 			transform.position = new Vector3(transform.position.x, transform.position.y, -6);
-			Invoke("Fade", 0.8f);
+			Invoke("Fade", 1.0f);
 			Invoke("Reload", 1.3f);
 		}
 	}

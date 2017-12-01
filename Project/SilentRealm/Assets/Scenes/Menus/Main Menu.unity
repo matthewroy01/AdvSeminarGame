@@ -506,6 +506,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 2
+  movSpeed: 0.1
+  distance: 0
   tmp: {x: 0, y: 0}
 --- !u!1 &539890874
 GameObject:
