@@ -183,7 +183,7 @@ MonoBehaviour:
   isResting: 0
   layerImpass:
     serializedVersion: 2
-    m_Bits: 2304
+    m_Bits: 3328
   parts: {fileID: 198122220174358704}
   enraged: 0
   roar: {fileID: 8300000, guid: 17c8340660a748543a5ccc6cf8d1031e, type: 3}
