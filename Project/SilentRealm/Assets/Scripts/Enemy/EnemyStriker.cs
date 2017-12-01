@@ -104,13 +104,13 @@ public class EnemyStriker : Enemy {
             // if the player is detected before any walls...
 			if (tmp.collider != null && tmp.collider.gameObject.CompareTag("Player"))
             {
-	            	// fire fireStrike at the player
-	            	currentProj = Instantiate(strike, new Vector3(transform.position.x, transform.position.y, -1), transform.rotation);
-	            	justFired = true;
-					getGameManager().player.GetComponent<PlayerMovement>().DisableMovement();
-					getGameManager().FXManager.PlaySound(beam, 0.5f);
-	            	Invoke("Fire", 0.2f);
-	            	//Invoke("Reload", 1.0f);
+            	// fire fireStrike at the player
+            	currentProj = Instantiate(strike, new Vector3(transform.position.x, transform.position.y, -1), transform.rotation);
+            	justFired = true;
+				getGameManager().player.GetComponent<PlayerMovement>().DisableMovement();
+				getGameManager().FXManager.PlaySound(beam, 0.5f);
+            	Invoke("Fire", 0.2f);
+            	//Invoke("Reload", 1.0f);
             }
 			else if (tmp.collider != null && tmp.collider.gameObject.layer == LayerMask.NameToLayer("Wall"))
 			{

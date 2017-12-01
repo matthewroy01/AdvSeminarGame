@@ -3,7 +3,8 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Enemy\EnemyStriker.cs">
     <Files>
       <File FileName="Assets\Scripts\Enemy\EnemyPatrol.cs" Line="21" Column="2" />
-      <File FileName="Assets\Scripts\Enemy\EnemyStriker.cs" Line="111" Column="55" />
+      <File FileName="Assets\Scripts\Enemy\EnemyStriker.cs" Line="134" Column="166" />
+      <File FileName="Assets\Scripts\Player\PlayerMovement.cs" Line="184" Column="19" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
