@@ -47,6 +47,15 @@ public class EnemySpider : Enemy {
 		{
 			UpdateVectors ();
 
+			if (Mathf.Abs(transform.position.x - getGameManager().player.transform.position.x) > Mathf.Abs(transform.position.y - getGameManager().player.transform.position.y))
+			{
+				horizontalChase = false;
+			}
+			else
+			{
+				horizontalChase = true;
+			}
+
 			// decide which direction is current
 			if (horizontalChase)
 			{
@@ -78,11 +87,11 @@ public class EnemySpider : Enemy {
 			{
 				if (currentDirection == Dirs.up && checkMov(Dirs.up))
 				{
-					transform.position = vUp;
+					//transform.position = vUp;
 				}
 				else if (currentDirection == Dirs.down && checkMov(Dirs.down))
 				{
-					transform.position = vDown;
+					//transform.position = vDown;
 				}
 				else
 				{
@@ -97,11 +106,11 @@ public class EnemySpider : Enemy {
 			{
 				if (currentDirection == Dirs.left && checkMov(Dirs.left))
 				{
-					transform.position = vLeft;
+					//transform.position = vLeft;
 				}
 				else if (currentDirection == Dirs.right && checkMov(Dirs.right))
 				{
-					transform.position = vRight;
+					//transform.position = vRight;
 				}
 				else
 				{

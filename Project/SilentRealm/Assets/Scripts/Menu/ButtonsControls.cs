@@ -9,6 +9,8 @@ public class ButtonsControls : MonoBehaviour {
 	UtilityLevelManager levelManager;
 	public AudioSource select;
 
+	public GameObject text;
+
 	void Start()
 	{
 		levelManager = GameObject.Find("LevelManager").GetComponent<UtilityLevelManager>();
@@ -24,6 +26,7 @@ public class ButtonsControls : MonoBehaviour {
 
 		if (GetComponent<MenuNavigation>().isActive)
 		{
+			text.SetActive(true);
 			if (Input.GetButtonDown("Select") && canSelect)
 			{
 				select.Play();

@@ -28,21 +28,25 @@ public class LevelUI : MonoBehaviour {
 		else
 		{
 			// otherwise render nothing
-			info.text = "";
+			if (info != null)
+			{
+				info.text = "";
+			}
 			goBack.gameObject.SetActive(false);
 		}
 	}
 
 	void DoGUI ()
 	{
-		currentText = (menuNavigation.buttons[menuNavigation.currentSelection].name).ToString() + "\n" +
-					   "Best Score: " + levelManager.getBestScore(menuNavigation.buttons[menuNavigation.currentSelection].name).ToString();
-		if (levelManager.getIsUnlocked(menuNavigation.buttons[menuNavigation.currentSelection].name) == 0)
+		if (info != null)
 		{
-			currentText = currentText + "\nLOCKED";
+			currentText = (menuNavigation.buttons[menuNavigation.currentSelection].name).ToString() + "\n" +
+						   "Best Score: " + levelManager.getBestScore(menuNavigation.buttons[menuNavigation.currentSelection].name).ToString();
+			if (levelManager.getIsUnlocked(menuNavigation.buttons[menuNavigation.currentSelection].name) == 0)
+			{
+				currentText = currentText + "\nLOCKED";
+			}
+			info.text = currentText;
 		}
-		info.text = currentText;
-
-
 	}
 }
