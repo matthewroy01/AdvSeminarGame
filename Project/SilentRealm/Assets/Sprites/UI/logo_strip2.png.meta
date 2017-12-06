@@ -1,11 +1,12 @@
 fileFormatVersion: 2
 guid: 89f07408c621fbe4bb9675a8dfeca93c
-timeCreated: 1511999048
+timeCreated: 1512444428
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: logo_strip2_0
     21300002: logo_strip2_1
+    21300004: logo_strip2_2
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -88,7 +89,7 @@ TextureImporter:
         width: 68
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -101,6 +102,20 @@ TextureImporter:
         y: 0
         width: 68
         height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: logo_strip2_2
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 1
+        width: 63
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

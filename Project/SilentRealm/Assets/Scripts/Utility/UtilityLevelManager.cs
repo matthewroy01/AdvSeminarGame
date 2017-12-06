@@ -6,6 +6,7 @@ using System.IO;
 public class UtilityLevelManager : MonoBehaviour {
 
 	private string filePath = "Assets/Text/levelSaves.txt";
+	private string defaultPath = "Assets/Text/defaultSaves.txt";
 
 	// for using playerprefs, written by Neil
 	/*[Serializable]
@@ -51,6 +52,24 @@ public class UtilityLevelManager : MonoBehaviour {
 		}
 
 		reader.Close();
+	}
+
+	public void resetLevelData()
+	{
+		// read from the file and populate the array
+		StreamReader reader = new StreamReader(defaultPath);
+		StreamWriter writer = new StreamWriter(filePath);
+
+		string tmp = "";
+
+		tmp = reader.ReadToEnd();
+
+		writer.Write(tmp);
+
+		reader.Close();
+		writer.Close();
+
+		loadLevelData();
 	}
 
 	public void outputLevelData()

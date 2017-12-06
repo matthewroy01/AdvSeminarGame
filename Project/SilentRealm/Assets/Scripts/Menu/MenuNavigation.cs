@@ -57,6 +57,12 @@ public class MenuNavigation : MonoBehaviour {
 
 				cursor.Play();
 			}
+
+			if (Input.GetButtonDown("Escape"))
+			{
+				GameObject.Find("Menu Control").GetComponent<MenuControl>().setNewAsActive("Main Menu");
+				GameObject.Find("Menu Control").GetComponent<MenuControl>().MoveCamera();
+			}
 		}
 	}
 

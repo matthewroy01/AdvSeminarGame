@@ -18,9 +18,15 @@ public class LevelUI : MonoBehaviour {
 
 	void Update ()
 	{
-		if (GetComponent<MenuNavigation>().isActive == true)
+		if (menuNavigation.isActive == true)
 		{
+			// render text if the level select is active
 			DoGUI();
+		}
+		else
+		{
+			// otherwise render nothing
+			info.text = "";
 		}
 	}
 
