@@ -24,6 +24,8 @@ public class PlayerCollision : Player
 	public AudioClip keyHigh;
 	public AudioClip keyLow;
 	public AudioClip death;
+	public AudioClip webHit;
+	public AudioClip webFree;
 
     void Start()
     {
@@ -105,6 +107,7 @@ public class PlayerCollision : Player
 			{
 				webbed = true;
 				webVelocity = other.GetComponent<Rigidbody2D>().velocity;
+				getGameManager().FXManager.PlaySound(webHit, 0.25f);
 			}
 			Destroy(other.gameObject);
 		}
@@ -166,12 +169,14 @@ public class PlayerCollision : Player
 		if (webbed == true && getGameManager().panicMode == false && other.gameObject.layer == 8)
 		{
 			webbed = false;
+			getGameManager().FXManager.PlaySound(webFree, 0.25f);
 			SnapToGrid();
 		}
 		// otherwise, just reenable movement
 		else if (webbed == true && other.gameObject.layer == 8)
 		{
 			webbed = false;
+			getGameManager().FXManager.PlaySound(webFree, 0.25f);
 		}
 	}
 	void OnCollisionStay2D(Collision2D other)
@@ -180,12 +185,14 @@ public class PlayerCollision : Player
 		if (webbed == true && getGameManager().panicMode == false && other.gameObject.layer == 8)
 		{
 			webbed = false;
+			getGameManager().FXManager.PlaySound(webFree, 0.25f);
 			SnapToGrid();
 		}
 		// otherwise, just reenable movement
 		else if (webbed == true && other.gameObject.layer == 8)
 		{
 			webbed = false;
+			getGameManager().FXManager.PlaySound(webFree, 0.25f);
 		}
 	}
 

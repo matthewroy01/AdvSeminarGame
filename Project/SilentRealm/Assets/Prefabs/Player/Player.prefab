@@ -134,6 +134,8 @@ MonoBehaviour:
   keyHigh: {fileID: 8300000, guid: f674be234f71a394c8cfb85604e3e244, type: 3}
   keyLow: {fileID: 8300000, guid: 24c8369fdcd2a41498be88d4a557af99, type: 3}
   death: {fileID: 8300000, guid: 82d3f09c4074f8d4aa3f0bec9e821826, type: 3}
+  webHit: {fileID: 8300000, guid: 9e43a07d52b196c46aa766a709596af8, type: 3}
+  webFree: {fileID: 8300000, guid: 4a84be957b755054396b39e71d0e9117, type: 3}
 --- !u!114 &114646838145066626
 MonoBehaviour:
   m_ObjectHideFlags: 1
