@@ -9,6 +9,7 @@ public class LevelUI : MonoBehaviour {
 	private string currentText;
 	private UtilityLevelManager levelManager;
 	private MenuNavigation menuNavigation;
+	public Text goBack;
 
 	void Start ()
 	{
@@ -22,11 +23,13 @@ public class LevelUI : MonoBehaviour {
 		{
 			// render text if the level select is active
 			DoGUI();
+			goBack.gameObject.SetActive(true);
 		}
 		else
 		{
 			// otherwise render nothing
 			info.text = "";
+			goBack.gameObject.SetActive(false);
 		}
 	}
 
@@ -39,5 +42,7 @@ public class LevelUI : MonoBehaviour {
 			currentText = currentText + "\nLOCKED";
 		}
 		info.text = currentText;
+
+
 	}
 }

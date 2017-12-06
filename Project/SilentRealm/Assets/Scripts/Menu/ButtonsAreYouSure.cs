@@ -8,6 +8,7 @@ public class ButtonsAreYouSure : MonoBehaviour {
 	bool canSelect;
 	UtilityLevelManager levelManager;
 	public AudioSource select;
+	public AudioSource delete;
 
 	void Start()
 	{
@@ -32,6 +33,9 @@ public class ButtonsAreYouSure : MonoBehaviour {
 				case 1 :
 					Debug.Log("yes I'm sure");
 					GameObject.Find("LevelManager").GetComponent<UtilityLevelManager>().resetLevelData();
+					delete.Play();
+					GameObject.Find("Menu Control").GetComponent<MenuControl>().setNewAsActive("Main Menu");
+					GameObject.Find("Menu Control").GetComponent<MenuControl>().MoveCamera();
 					break;
 				case 0 :
 					Debug.Log("just kidding");

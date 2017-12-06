@@ -32,6 +32,7 @@ public class MenuNavigation : MonoBehaviour {
 		{
 			if (Input.GetButtonDown("Up"))
 			{
+				cursor.pitch = 1.0f;
 				if (currentSelection - 1 < 0)
 				{
 					currentSelection = maxSelection;
@@ -46,6 +47,7 @@ public class MenuNavigation : MonoBehaviour {
 
 			if (Input.GetButtonDown("Down"))
 			{
+				cursor.pitch = 1.0f;
 				if (currentSelection + 1 > maxSelection)
 				{
 					currentSelection = 0;
@@ -76,7 +78,7 @@ public class MenuNavigation : MonoBehaviour {
 			}
 			else
 			{
-				buttons[i].GetComponent<SpriteRenderer>().color = Color.red;
+				buttons[i].GetComponent<SpriteRenderer>().color = Color.white;
 			}
 		}
 	}
