@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class UtilityLevelManager : MonoBehaviour {
 
 	private string filePath = "Assets/Text/levelSaves.txt";
 	private string defaultPath = "Assets/Text/defaultSaves.txt";
+
+	public int unlockedSomething = -1;
 
 	// for using playerprefs, written by Neil
 	/*[Serializable]
@@ -36,6 +39,16 @@ public class UtilityLevelManager : MonoBehaviour {
 
 		// read from file
 		loadLevelData();
+	}
+
+	void Update()
+	{
+		if (unlockedSomething != -1 && SceneManager.GetActiveScene().name == "Main Menu")
+		{
+			GameObject.Find("Menu Control").GetComponent<MenuControl>().setNewAsActive("Level Select");
+			GameObject.Find("Menu Control").GetComponent<MenuControl>().MoveCamera();
+			unlockedSomething = -1;
+		}
 	}
 
 	void loadLevelData()
@@ -147,6 +160,8 @@ public class UtilityLevelManager : MonoBehaviour {
 			if (levels[i].name == name)
 			{
 				levels[i].isUnlocked = 1;
+				unlockedSomething = i;
+				return;
 			}
 		}
 		Debug.Log(name + " is not a valid level name.");
