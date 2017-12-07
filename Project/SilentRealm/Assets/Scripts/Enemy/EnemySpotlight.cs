@@ -37,6 +37,7 @@ public class EnemySpotlight : Enemy
 	{
 		if (!getGameManager().panicMode)
 		{
+			GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 1);
 			// move if we're not paused
 			if (getGameManager().paused == false)
 			{
@@ -72,6 +73,7 @@ public class EnemySpotlight : Enemy
 		}
 		else
 		{
+			GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0.5f);
 			if (!(transform.position.x - getGameManager().player.transform.position.x >= 0.25f * -1 && transform.position.x - getGameManager().player.transform.position.x <= 0.25f &&
 				transform.position.y - getGameManager().player.transform.position.y >= 0.25f * -1 && transform.position.y - getGameManager().player.transform.position.y <= 0.25f) && getGameManager().paused == false)
 			{

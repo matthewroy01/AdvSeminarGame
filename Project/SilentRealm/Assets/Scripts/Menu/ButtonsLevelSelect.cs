@@ -30,6 +30,28 @@ public class ButtonsLevelSelect : MonoBehaviour {
 				switch (GetComponent<MenuNavigation>().currentSelection)
 				{
 					case 0 :
+						Debug.Log("level 11");
+						if (levelManager.getIsUnlocked("Level 11") == 1)
+						{
+							SceneManager.LoadScene(11);
+						}
+						else
+						{
+							Debug.Log("level locked");
+						}
+						break;
+					case 1 :
+						Debug.Log("level 10");
+						if (levelManager.getIsUnlocked("Level 10") == 1)
+						{
+							SceneManager.LoadScene(10);
+						}
+						else
+						{
+							Debug.Log("level locked");
+						}
+						break;
+					case 2 :
 						Debug.Log("level 9");
 						if (levelManager.getIsUnlocked("Level 9") == 1)
 						{
@@ -40,7 +62,7 @@ public class ButtonsLevelSelect : MonoBehaviour {
 							Debug.Log("level locked");
 						}
 						break;
-					case 1 :
+					case 3 :
 						Debug.Log("level 8");
 						if (levelManager.getIsUnlocked("Level 8") == 1)
 						{
@@ -51,7 +73,7 @@ public class ButtonsLevelSelect : MonoBehaviour {
 							Debug.Log("level locked");
 						}
 						break;
-					case 2 :
+					case 4 :
 						Debug.Log("level 7");
 						if (levelManager.getIsUnlocked("Level 7") == 1)
 						{
@@ -62,7 +84,8 @@ public class ButtonsLevelSelect : MonoBehaviour {
 							Debug.Log("level locked");
 						}
 						break;
-					case 3 :
+
+					case 5 :
 						Debug.Log("level 6");
 						if (levelManager.getIsUnlocked("Level 6") == 1)
 						{
@@ -73,7 +96,8 @@ public class ButtonsLevelSelect : MonoBehaviour {
 							Debug.Log("level locked");
 						}
 						break;
-					case 4 :
+
+					case 6 :
 						Debug.Log("level 5");
 						if (levelManager.getIsUnlocked("Level 5") == 1)
 						{
@@ -85,7 +109,7 @@ public class ButtonsLevelSelect : MonoBehaviour {
 						}
 						break;
 
-					case 5 :
+					case 7 :
 						Debug.Log("level 4");
 						if (levelManager.getIsUnlocked("Level 4") == 1)
 						{
@@ -97,7 +121,7 @@ public class ButtonsLevelSelect : MonoBehaviour {
 						}
 						break;
 
-					case 6 :
+					case 8 :
 						Debug.Log("level 3");
 						if (levelManager.getIsUnlocked("Level 3") == 1)
 						{
@@ -109,7 +133,7 @@ public class ButtonsLevelSelect : MonoBehaviour {
 						}
 						break;
 
-					case 7 :
+					case 9 :
 						Debug.Log("level 2");
 						if (levelManager.getIsUnlocked("Level 2") == 1)
 						{
@@ -121,7 +145,7 @@ public class ButtonsLevelSelect : MonoBehaviour {
 						}
 						break;
 
-					case 8 :
+					case 10 :
 						Debug.Log("level 1");
 						if (levelManager.getIsUnlocked("Level 1") == 1)
 						{

@@ -25,3 +25,9 @@ Level 8
 Level 9
 0
 99999
+Level 10
+0
+99999
+Level 11
+0
+99999
