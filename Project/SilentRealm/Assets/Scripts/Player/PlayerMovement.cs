@@ -182,5 +182,7 @@ public class PlayerMovement : Player
 		// use win state to stop movement as a sort of quick fix
 		// this is for when the Striker has the player in its sight
 		winState = true;
+		webbed = false;
+		rb.velocity = Vector2.zero;
 	}
 }

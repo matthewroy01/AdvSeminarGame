@@ -103,7 +103,7 @@ public class PlayerCollision : Player
 		// if you get hit by a web
 		if (other.gameObject.CompareTag("Web"))
 		{
-			if (!webbed)
+			if (!webbed && !winState && !dead)
 			{
 				webbed = true;
 				webVelocity = other.GetComponent<Rigidbody2D>().velocity;
