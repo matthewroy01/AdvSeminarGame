@@ -100,7 +100,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1509515842278404}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4158916095605168}
@@ -250,9 +250,9 @@ MonoBehaviour:
   layerImpass:
     serializedVersion: 2
     m_Bits: 3328
+  tmpVisionDist: 0
   arrow: {fileID: 1060630889055156}
   cone: {fileID: 1509515842278404}
-  gleam: {fileID: 1656966812615486, guid: b19da725a8c130948b79bb703b1d37e2, type: 2}
 --- !u!212 &212572851299340394
 SpriteRenderer:
   m_ObjectHideFlags: 1
