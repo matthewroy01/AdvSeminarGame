@@ -138,8 +138,6 @@ public class PlayerCollision : Player
     void Win()
     {
 		winState = false;
-		// write to the file
-		levelManager.outputLevelData();
 		SceneManager.LoadScene (0);
     }
 

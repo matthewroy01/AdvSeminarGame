@@ -4,22 +4,11 @@ using UnityEngine;
 using System.IO;
 using UnityEngine.SceneManagement;
 
-public class UtilityLevelManager : MonoBehaviour {
-
-	private string filePath = "Assets/Text/levelSaves.txt";
-	private string defaultPath = "Assets/Text/defaultSaves.txt";
+public class UtilityLevelManager : MonoBehaviour
+{
+	const int NUMBER_OF_LEVELS = 11;
 
 	public int unlockedSomething = -1;
-
-	// for using playerprefs, written by Neil
-	/*[Serializable]
-	public class LevelSave
-	{
-		public LevelLog[] levels;
-
-	}*/
-
-	public LevelLog[] levels;
 
 	[Header("For high score display")]
 	public Sprite congrats;
@@ -36,9 +25,11 @@ public class UtilityLevelManager : MonoBehaviour {
 
 		// persist between scenes
 		Object.DontDestroyOnLoad(gameObject);
+	}
 
-		// read from file
-		loadLevelData();
+	void Start()
+	{
+		initializeData();
 	}
 
 	void Update()
@@ -51,120 +42,57 @@ public class UtilityLevelManager : MonoBehaviour {
 		}
 	}
 
-	void loadLevelData()
-	{
-		// read from the file and populate the array
-		StreamReader reader = new StreamReader(filePath);
-
-		for (int i = 0; i < levels.Length; i++)
-		{
-			levels[i].name = reader.ReadLine();
-			// int.Parse converts string to int
-			levels[i].isUnlocked = int.Parse(reader.ReadLine());
-			levels[i].bestScore = int.Parse(reader.ReadLine());
-		}
-
-		reader.Close();
-	}
-
 	public void resetLevelData()
 	{
-		// read from the file and populate the array
-		StreamReader reader = new StreamReader(defaultPath);
-		StreamWriter writer = new StreamWriter(filePath);
-
-		string tmp = "";
-
-		tmp = reader.ReadToEnd();
-
-		writer.Write(tmp);
-
-		reader.Close();
-		writer.Close();
-
-		loadLevelData();
-	}
-
-	public void outputLevelData()
-	{
-		// write to the file using the array
-		StreamWriter writer = new StreamWriter(filePath);
-		// for using playerprefs, written by Neil
-		/* JsonUtility.ToJson(LevelSave); */
-
-		for (int i = 0; i < levels.Length; i++)
-		{
-			writer.WriteLine(levels[i].name);
-			writer.WriteLine(levels[i].isUnlocked.ToString());
-			writer.WriteLine(levels[i].bestScore.ToString());
-		}
-
-		writer.Close();
+		PlayerPrefs.DeleteAll();
+		initializeData();
 	}
 
 	public int getIsUnlocked(string name)
 	{
-		for (int i = 0; i < levels.Length; i++)
-		{
-			if (levels[i].name == name)
-			{
-				return levels[i].isUnlocked;
-			}
-		}
-		Debug.Log(name + "is not a valid level name.");
-		return -1;
+		return PlayerPrefs.GetInt(name + "U");
 	}
 
 	public int getBestScore(string name)
 	{
-		for (int i = 0; i < levels.Length; i++)
-		{
-			if (levels[i].name == name)
-			{
-				return levels[i].bestScore;
-			}
-		}
-		Debug.Log(name + "is not a valid level name.");
-		return 99999;
+		return PlayerPrefs.GetInt(name + "S");
 	}
 
 	public void updateBestScore(string name, int newScore)
 	{
-		int i;
-		// find the level we're looking for
-		for (i = 0; i < levels.Length; i++)
+		if (newScore < PlayerPrefs.GetInt(name + "S"))
 		{
-			if (levels[i].name == name)
-			{
-				break;
-			}
-		}
-
-		if (i == levels.Length)
-		{
-			Debug.Log(name + " was not found when updating scores");
-			return;
-		}
-
-		// check the score and update accordingly
-		if (levels[i].bestScore > newScore)
-		{
-			levels[i].bestScore = newScore;
+			PlayerPrefs.SetInt(name + "S", newScore);
 		}
 	}
 
 	public void unlock(string name)
 	{
-		for (int i = 0; i < levels.Length; i++)
+		PlayerPrefs.SetInt("Level " + name + "U", 1);
+		unlockedSomething = int.Parse(name);
+	}
+
+	void initializeData()
+	{
+		if (!PlayerPrefs.HasKey("Level1U"))
 		{
-			if (levels[i].name == name)
+			for (int i = 1; i <= NUMBER_OF_LEVELS; i++)
 			{
-				levels[i].isUnlocked = 1;
-				unlockedSomething = i;
-				return;
+				if (i == 1)
+				{
+					// level 1 should be unlocked by default
+					PlayerPrefs.SetInt("Level " + i + "U", 1);
+				}
+				else
+				{
+					// lock all other levels
+					PlayerPrefs.SetInt("Level " + i + "U", 0);
+				}
+
+				// initialize all scores as 99999
+				PlayerPrefs.SetInt("Level " + i + "S", 99999);
 			}
 		}
-		Debug.Log(name + " is not a valid level name.");
 	}
 }
 

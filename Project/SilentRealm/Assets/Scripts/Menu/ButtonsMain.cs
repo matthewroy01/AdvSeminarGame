@@ -41,7 +41,6 @@ public class ButtonsMain : MonoBehaviour {
 						break; 
 
 					case 3 :
-						GameObject.Find("LevelManager").GetComponent<UtilityLevelManager>().outputLevelData();
 						Application.Quit();
 						Debug.Log("quitting the game");
 						break;

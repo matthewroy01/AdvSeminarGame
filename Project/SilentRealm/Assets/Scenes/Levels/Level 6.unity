@@ -4959,12 +4959,12 @@ Prefab:
     - target: {fileID: 224236344600248772, guid: b9b52b76e680698419350caa2016c7de,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 459.5
+      value: 452.5
       objectReference: {fileID: 0}
     - target: {fileID: 224236344600248772, guid: b9b52b76e680698419350caa2016c7de,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 258.5
+      value: 254.5
       objectReference: {fileID: 0}
     - target: {fileID: 224236344600248772, guid: b9b52b76e680698419350caa2016c7de,
         type: 2}
@@ -6019,7 +6019,7 @@ Prefab:
     - target: {fileID: 114431553428673520, guid: 893734089a24a424f896dc09e8744df6,
         type: 2}
       propertyPath: unlocks.Array.data[0]
-      value: Level 7
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 893734089a24a424f896dc09e8744df6, type: 2}
