@@ -37,6 +37,7 @@ public class UtilityLevelManager : MonoBehaviour
 		{
 			GameObject.Find("Menu Control").GetComponent<MenuControl>().setNewAsActive("Level Select");
 			GameObject.Find("Menu Control").GetComponent<MenuControl>().MoveCamera();
+			GameObject.Find("Level Select").GetComponent<MenuNavigation>().currentSelection = unlockedSomething - 1;
 			unlockedSomething = -1;
 			congrats.SetActive(false);
 		}

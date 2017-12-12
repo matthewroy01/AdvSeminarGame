@@ -15,6 +15,8 @@ public class MenuNavigation : MonoBehaviour {
 
 	public AudioSource cursor;
 
+	public bool flippedControl = false;
+
 	void Start ()
 	{
 		maxSelection = buttons.Length - 1;
@@ -32,32 +34,18 @@ public class MenuNavigation : MonoBehaviour {
 		{
 			if (Input.GetButtonDown("Up"))
 			{
-				cursor.pitch = 1.0f;
-				if (currentSelection - 1 < 0)
-				{
-					currentSelection = maxSelection;
-				}
+				if (!flippedControl)
+					goUp();
 				else
-				{
-					currentSelection--;
-				}
-
-				cursor.Play();
+					goDown();
 			}
 
 			if (Input.GetButtonDown("Down"))
 			{
-				cursor.pitch = 1.0f;
-				if (currentSelection + 1 > maxSelection)
-				{
-					currentSelection = 0;
-				}
+				if (!flippedControl)
+					goDown();
 				else
-				{
-					currentSelection++;
-				}
-
-				cursor.Play();
+					goUp();
 			}
 
 			if (Input.GetButtonDown("Escape"))
@@ -66,6 +54,36 @@ public class MenuNavigation : MonoBehaviour {
 				GameObject.Find("Menu Control").GetComponent<MenuControl>().MoveCamera();
 			}
 		}
+	}
+
+	void goDown()
+	{
+		cursor.pitch = 1.0f;
+		if (currentSelection + 1 > maxSelection)
+		{
+			currentSelection = 0;
+		}
+		else
+		{
+			currentSelection++;
+		}
+
+		cursor.Play();
+	}
+
+	void goUp()
+	{
+		cursor.pitch = 1.0f;
+		if (currentSelection - 1 < 0)
+		{
+			currentSelection = maxSelection;
+		}
+		else
+		{
+			currentSelection--;
+		}
+
+		cursor.Play();
 	}
 
 	void setColor()
