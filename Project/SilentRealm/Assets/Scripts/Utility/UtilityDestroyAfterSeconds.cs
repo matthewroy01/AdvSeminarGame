@@ -18,25 +18,33 @@ public class UtilityDestroyAfterSeconds : MonoBehaviour {
 
 	void Start ()
 	{
-		rb = GetComponent<Rigidbody2D>();
-		pauseVel = rb.velocity;
-		ugm = GameObject.Find("GameManager").GetComponent<UtilityGameManager>();
+		// we only need to do this if there's a rigidbody in the first place
+		if (GetComponent<Rigidbody2D>())
+		{
+			rb = GetComponent<Rigidbody2D>();
+			pauseVel = rb.velocity;
+			ugm = GameObject.Find("GameManager").GetComponent<UtilityGameManager>();
+		}
 		Invoke("Dest", timeToDestroy);
 	}
 
 	void Update ()
 	{
-		if (ugm.paused == true)
+		// we only need to do this if there's a rigidbody in the first place
+		if (GetComponent<Rigidbody2D>())
 		{
-			rb.velocity = Vector2.zero;
-			CancelInvoke();
-			localPause = true;
-		}
-		else if (localPause == true)
-		{
-			rb.velocity = pauseVel;
-			localPause = false;
-			Invoke("Dest", timeToDestroy);
+			if (ugm.paused == true)
+			{
+				rb.velocity = Vector2.zero;
+				CancelInvoke();
+				localPause = true;
+			}
+			else if (localPause == true)
+			{
+				rb.velocity = pauseVel;
+				localPause = false;
+				Invoke("Dest", timeToDestroy);
+			}
 		}
 
 		// using OverlapCircle cause I couldn't get OnCollisionEnter2D to work

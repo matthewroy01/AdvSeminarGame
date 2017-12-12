@@ -22,6 +22,7 @@ public class EnemyStriker : Enemy {
 
 	[Header("Arrow to make it more clear what direction we're about to face")]
 	public GameObject arrow;
+	public GameObject parts;
 
 	[Header("An actual visual for vision cone")]
 	public GameObject cone;
@@ -372,12 +373,18 @@ public class EnemyStriker : Enemy {
 
 				// set the current direction back to default
 				currentDirection = defDir;
+
+				// show particle effects
+				Instantiate(parts, transform.position, transform.rotation);
 			}
 		}
 		else
 		{
 			// disable the vision cone
 			cone.SetActive(false);
+
+			// show particle effects
+			Instantiate(parts, transform.position, transform.rotation);
 
 			transform.position = new Vector2(1000, 1000);
 

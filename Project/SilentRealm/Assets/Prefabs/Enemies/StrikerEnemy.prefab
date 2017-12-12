@@ -250,7 +250,9 @@ MonoBehaviour:
   layerImpass:
     serializedVersion: 2
     m_Bits: 3328
+  tmpVisionDist: 0
   arrow: {fileID: 1751789660964468}
+  parts: {fileID: 1659595951749536, guid: 63feb4ea77a46054fba90115bc693450, type: 2}
   cone: {fileID: 1711236066079596}
   strike: {fileID: 1048082225273046, guid: 0d6d543eb2b7e6943abca28fef7567ba, type: 2}
   justFired: 0
