@@ -11,7 +11,7 @@ public class UtilityLevelManager : MonoBehaviour
 	public int unlockedSomething = -1;
 
 	[Header("For high score display")]
-	public Sprite congrats;
+	public GameObject congrats;
 
 	void Awake()
 	{
@@ -25,10 +25,9 @@ public class UtilityLevelManager : MonoBehaviour
 
 		// persist between scenes
 		Object.DontDestroyOnLoad(gameObject);
-	}
 
-	void Start()
-	{
+		congrats.SetActive(false);
+
 		initializeData();
 	}
 
@@ -39,6 +38,7 @@ public class UtilityLevelManager : MonoBehaviour
 			GameObject.Find("Menu Control").GetComponent<MenuControl>().setNewAsActive("Level Select");
 			GameObject.Find("Menu Control").GetComponent<MenuControl>().MoveCamera();
 			unlockedSomething = -1;
+			congrats.SetActive(false);
 		}
 	}
 
@@ -63,7 +63,16 @@ public class UtilityLevelManager : MonoBehaviour
 		if (newScore < PlayerPrefs.GetInt(name + "S"))
 		{
 			PlayerPrefs.SetInt(name + "S", newScore);
+
+			Invoke("displayCongrats", 1.0f);
 		}
+	}
+
+	void displayCongrats()
+	{
+		GameObject tmpPlayer = GameObject.Find("Player");
+		congrats.transform.position = new Vector3(tmpPlayer.transform.position.x, tmpPlayer.transform.position.y - 2, -5);
+		congrats.SetActive(true);
 	}
 
 	public void unlock(string name)
@@ -74,7 +83,8 @@ public class UtilityLevelManager : MonoBehaviour
 
 	void initializeData()
 	{
-		if (!PlayerPrefs.HasKey("Level1U"))
+		// check to see whether or not we need to initialize first
+		if (!PlayerPrefs.HasKey("Level 1U"))
 		{
 			for (int i = 1; i <= NUMBER_OF_LEVELS; i++)
 			{
