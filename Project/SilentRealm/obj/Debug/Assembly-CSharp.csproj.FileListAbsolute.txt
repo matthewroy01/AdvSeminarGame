@@ -26,7 +26,6 @@ D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEngine.HoloLens
 D:\Advanced Seminar\Repo\Project\SilentRealm\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 D:\Advanced Seminar\Repo\Project\SilentRealm\obj\Debug\Assembly-CSharp.dll
 D:\Advanced Seminar\Repo\Project\SilentRealm\obj\Debug\Assembly-CSharp.pdb
-D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\Facebook.Unity.Settings.dll
 I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\Assembly-CSharp.dll
 I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\Assembly-CSharp.pdb
 I:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\Facebook.Unity.Settings.dll

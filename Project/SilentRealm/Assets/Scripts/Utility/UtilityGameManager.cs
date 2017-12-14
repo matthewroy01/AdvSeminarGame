@@ -93,7 +93,7 @@ public class UtilityGameManager : MonoBehaviour {
     {
 		if (keysInLevel <= keysCollected && partsExist == false)
         {
-			Instantiate(exitParts, exit.transform.position, exit.transform.rotation);
+			Instantiate(exitParts, new Vector3(exit.transform.position.x, exit.transform.position.y, -2), exit.transform.rotation);
 			partsExist = true;
 			txtKeys.color = new Color(0, 255, 0);
 			exit.SetActive(false);

@@ -1,6 +1,5 @@
 D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\Assembly-CSharp-Editor.dll
 D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\Assembly-CSharp-Editor.pdb
-D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\Facebook.Unity.Settings.dll
 D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\nunit.framework.dll
 D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEditor.Advertisements.dll
 D:\Advanced Seminar\Repo\Project\SilentRealm\Temp\bin\Debug\UnityEditor.Analytics.dll
