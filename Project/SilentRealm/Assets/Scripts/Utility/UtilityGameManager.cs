@@ -141,7 +141,7 @@ public class UtilityGameManager : MonoBehaviour {
 
 		fadeAway = state;
 
-		player.GetComponent<PlayerMovement>().Panic(state);
+		//player.GetComponent<PlayerMovementNew>().Panic(state);
 
 		for (int i = 0; i < enemies.Length; i++)
 		{
