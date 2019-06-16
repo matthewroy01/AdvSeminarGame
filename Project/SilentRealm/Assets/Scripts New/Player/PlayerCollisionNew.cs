@@ -26,6 +26,11 @@ public class PlayerCollisionNew : MonoBehaviour
             if (status.refGameManager.panicMode == true)
             {
                 status.refPlayerAudio.PlayKeyLow();
+
+                // deactivate Panic Mode
+                status.refGameManager.Panic(false);
+                status.refPlayerVisuals.FadeFromWhite();
+                Reset(other);
             }
             else
             {
@@ -37,12 +42,29 @@ public class PlayerCollisionNew : MonoBehaviour
 
             // destroy the key
             Destroy(other.gameObject);
+
+            // play particles
+            status.refPlayerVisuals.PartsKeyCollect();
         }
 
         // getting hit by enemies
         if (other.CompareTag("Enemy"))
         {
             Kill();
+        }
+
+        // exiting the level and winning
+        if (other.gameObject.CompareTag("WinTrigger"))
+        {
+            status.refGameManager.Panic(false);
+            status.refPlayerAudio.PlayCollectAll();
+            status.refGameManager.StopAllMusic();
+
+            status.refPlayerVisuals.FadeToBlackWin();
+
+            Reset(other);
+
+            Invoke("Win", 4.0f);
         }
     }
 
@@ -61,6 +83,11 @@ public class PlayerCollisionNew : MonoBehaviour
         }
     }
 
+    void Win()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     private IEnumerator Reload()
     {
         yield return new WaitForSeconds(1.0f);
@@ -72,5 +99,12 @@ public class PlayerCollisionNew : MonoBehaviour
 
         // reload scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void Reset(Collider2D other)
+    {
+        // reset the player's position and velocity after exiting Panic Mode
+        transform.position = other.transform.position;
+        status.rb.velocity = Vector2.zero;
     }
 }
