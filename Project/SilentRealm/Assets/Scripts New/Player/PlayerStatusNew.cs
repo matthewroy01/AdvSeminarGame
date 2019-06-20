@@ -23,6 +23,8 @@ public class PlayerStatusNew : MonoBehaviour
     public UtilityGameManager refGameManager;
 
     public bool isDead = false;
+    public bool isWebbed = false;
+    public bool won = false;
 
     private void Start()
     {
@@ -34,5 +36,31 @@ public class PlayerStatusNew : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         refGameManager = FindObjectOfType<UtilityGameManager>();
+    }
+
+    public void SnapToGrid()
+    {
+        int tmpx = (int)transform.position.x, tmpy = (int)transform.position.y;
+
+        // snap to the nearest whole number
+        // on the X
+        if (transform.position.x > tmpx + 0.5)
+        {
+            transform.position = new Vector2(tmpx + 1, transform.position.y);
+        }
+        else
+        {
+            transform.position = new Vector2(tmpx, transform.position.y);
+        }
+
+        // on the Y
+        if (transform.position.y > tmpy + 0.5)
+        {
+            transform.position = new Vector2(transform.position.x, tmpy + 1);
+        }
+        else
+        {
+            transform.position = new Vector2(transform.position.x, tmpy);
+        }
     }
 }

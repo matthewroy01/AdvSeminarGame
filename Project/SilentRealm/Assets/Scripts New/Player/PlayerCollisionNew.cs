@@ -56,6 +56,8 @@ public class PlayerCollisionNew : MonoBehaviour
         // exiting the level and winning
         if (other.gameObject.CompareTag("WinTrigger"))
         {
+            status.won = true;
+
             status.refGameManager.Panic(false);
             status.refPlayerAudio.PlayCollectAll();
             status.refGameManager.StopAllMusic();
@@ -65,6 +67,50 @@ public class PlayerCollisionNew : MonoBehaviour
             Reset(other);
 
             Invoke("Win", 4.0f);
+        }
+
+        // webs
+        if (other.gameObject.CompareTag("Web"))
+        {
+            if (!status.isWebbed && !status.won && !status.isDead)
+            {
+                status.isWebbed = true;
+                status.rb.velocity = other.GetComponent<Rigidbody2D>().velocity;
+
+                status.refPlayerAudio.PlayWebHit();
+            }
+
+            // ignore collision with voids
+            Physics2D.IgnoreLayerCollision(gameObject.layer, 11, true);
+            Destroy(other.gameObject);
+        }
+
+        // entering a spotlight's trigger
+        if (other.gameObject.CompareTag("Spotlight") && !status.refGameManager.panicMode)
+        {
+            status.refGameManager.Panic(true);
+        }
+    }
+
+    void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.layer == 8 && status.isWebbed)
+        {
+            // otherwise, just reenable movement
+            if (status.refGameManager.panicMode)
+            {
+                status.isWebbed = false;
+            }
+            // hitting a wall while webbed and not in panic mode should snap the player back to the grid
+            else
+            {
+                status.isWebbed = false;
+                status.SnapToGrid();
+            }
+
+            // stop ignoring collision with voids
+            Physics2D.IgnoreLayerCollision(gameObject.layer, 11, false);
+            status.refPlayerAudio.PlayWebFree();
         }
     }
 

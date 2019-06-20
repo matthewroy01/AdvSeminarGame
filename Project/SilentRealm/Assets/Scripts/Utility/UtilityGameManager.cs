@@ -39,7 +39,8 @@ public class UtilityGameManager : MonoBehaviour {
 	public UtilityAudioManager FXManager;
 	public AudioClip awaken;
 
-	void Start () {
+	void Start ()
+    {
 		// find all enemies
 		FindAllEnemies();
 
@@ -52,7 +53,7 @@ public class UtilityGameManager : MonoBehaviour {
         // find the exit
         FindTheExit();
 
-		// set warning text's default transparency
+        // set warning text's default transparency
 		txtWarning.GetComponent<SpriteRenderer>().color = new Color(txtWarning.GetComponent<SpriteRenderer>().color.r,
 																	txtWarning.GetComponent<SpriteRenderer>().color.g,
 																	txtWarning.GetComponent<SpriteRenderer>().color.b,

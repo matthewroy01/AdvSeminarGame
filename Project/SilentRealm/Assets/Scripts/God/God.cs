@@ -35,7 +35,7 @@ public class God : MonoBehaviour {
 
     public void FindGameManager()
     {
-        gameManager = GameObject.Find("GameManager");
+        gameManager = FindObjectOfType<UtilityGameManager>().gameObject;
     }
 
     private void Update()

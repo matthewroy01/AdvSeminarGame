@@ -265,6 +265,7 @@
     <Compile Include="Assets\PostProcessing\Runtime\Utils\MaterialFactory.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />
     <Compile Include="Assets\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
+    <Compile Include="Assets\Scripts New\Player\PlayerAnimationNew.cs" />
     <Compile Include="Assets\Scripts New\Player\PlayerAudioNew.cs" />
     <Compile Include="Assets\Scripts New\Player\PlayerCollisionNew.cs" />
     <Compile Include="Assets\Scripts New\Player\PlayerMovementNew.cs" />
@@ -297,6 +298,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerVisuals.cs" />
     <Compile Include="Assets\Scripts\Utility\UtilityAudioManager.cs" />
+    <Compile Include="Assets\Scripts\Utility\UtilityBreakFromParentOnStart.cs" />
     <Compile Include="Assets\Scripts\Utility\UtilityDestroyAfterSeconds.cs" />
     <Compile Include="Assets\Scripts\Utility\UtilityGameManager.cs" />
     <Compile Include="Assets\Scripts\Utility\UtilityLevelManager.cs" />

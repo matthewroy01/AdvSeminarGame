@@ -27,7 +27,7 @@ public class PlayerMovementNew : MonoBehaviour
 
     private void Movement()
     {
-        if (!status.isDead)
+        if (!status.isDead && !status.isWebbed)
         {
             // move differently in and out of Panic Mode
             if (!status.refGameManager.panicMode)
