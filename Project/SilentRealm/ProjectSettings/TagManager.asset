@@ -12,6 +12,7 @@ TagManager:
   - Spotlight
   - Menu
   - WinTrigger
+  - Node
   layers:
   - Default
   - TransparentFX
