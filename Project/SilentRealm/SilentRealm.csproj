@@ -280,6 +280,7 @@
     <Compile Include="Assets\Scripts\Enemy\KeyBug.cs" />
     <Compile Include="Assets\Scripts\Enemy\Pathing\GridGraph.cs" />
     <Compile Include="Assets\Scripts\Enemy\Pathing\Node.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Pathing\Node2D.cs" />
     <Compile Include="Assets\Scripts\FX\BlackFade.cs" />
     <Compile Include="Assets\Scripts\FX\DistortSound.cs" />
     <Compile Include="Assets\Scripts\FX\FadeOut.cs" />
@@ -298,6 +299,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerCollision.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerVisuals.cs" />
+    <Compile Include="Assets\Scripts\Utility\UtiliityUnityFunctions.cs" />
     <Compile Include="Assets\Scripts\Utility\UtilityAudioManager.cs" />
     <Compile Include="Assets\Scripts\Utility\UtilityDestroyAfterSeconds.cs" />
     <Compile Include="Assets\Scripts\Utility\UtilityGameManager.cs" />

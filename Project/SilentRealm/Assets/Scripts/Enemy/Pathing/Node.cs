@@ -91,10 +91,4 @@ public class Node : MonoBehaviour {
         float tmp = gCost + hCost;
         return tmp;
     }
-
-    /*------------------ 2D Functionality ------------------*/
-
-
-
-
 }

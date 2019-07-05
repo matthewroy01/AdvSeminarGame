@@ -25,7 +25,6 @@ public struct ConnectionStorage
 
 public class GridGraph : MonoBehaviour {
 
- 
     [Header("3D Connections")]
     //Reference to all the nodes
     public Node[] refNodes;
@@ -310,19 +309,4 @@ public class GridGraph : MonoBehaviour {
             n.hCost = Vector3.Distance(endPos, n.transform.position);
         }
     }
-
-
-
-
-    /*------------------ 2D Functionality ------------------*/
-
-    void NodeEditor2DMain()
-    {
-
-    }
-
-
-
-
-
 }
